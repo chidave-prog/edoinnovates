@@ -174,10 +174,17 @@
                     padding: 1rem 0;
                 }
 
+                article .active {
+                    z-index: 999;
+                }
+
                 #steps {
+                    margin-top: 9em;
+                    z-index: 99999;
+                    position: relative !important;
+                    top: 3em !important;
                     float: left;
                     left: 50%;
-                    position: relative;
                     transform: translateX(-50%);
                     background-color: #fff;
                     box-shadow: -0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
@@ -190,8 +197,8 @@
                     padding: 1vw;
                     margin: 1vw;
                     box-sizing: border-box;
-                    width: 4vw;
-                    height: 4vw;
+                    width: 9vw;
+                    height: 6vw;
                     color: #c0dafa;
                     font-size: 2rem;
                     text-align: center;
@@ -201,7 +208,9 @@
 
                 #steps div.active {
                     color: #fff;
-                    background-color: #38e;
+                    /* background-color: #38e;
+                     */
+                    background-color: #38434b;
                     box-shadow: inset 0 0 0 #38e;
                 }
 
@@ -243,7 +252,8 @@
 
                 article.active_p_1 {
                     left: 110%;
-                    opacity: 0.3;
+                    /* opacity: 0.3; */
+                    opacity: -6.7;
                 }
 
                 article.active_p_2 {
@@ -273,55 +283,88 @@
                 * {
                     transition: all 1000ms;
                 }
+
+                @media (max-width: 768px) {
+                    #steps {
+                        margin-top: 13em;
+                        z-index: 99999;
+                        position: relative !important;
+                        top: 3em !important;
+                    }
+
+                    #steps div {
+                        width: 16vw;
+                        height: 16vw;
+                    }
+
+                    article {
+                        width: 21em;
+                        top: 0;
+                        left: -6em !important;
+                    }
+                }
             </style>
+            <div class="col-md-4  mx-auto text-center " id="padis2"></div>
+
+            <div class="container" style="position: relative;">
+                <div class="row">
+                    <div class="article_container col-md-12">
+                        <article class="active">
+                            <h2>STEP 1: COLLABORETIVELY</h2>
+                            <p class="card">Collaboratively administrate empowered markets via plug-and-play networks.
+                                Dynamically
+                                procrastinate B2C users after installed base benefits. Dramatically visualize customer
+                                directed
+                                convergence without revolutionary ROI.</p>
+                        </article>
+                        <article class="active_p_1">
+                            <h2>STEP 2: EFFICIENTLY</h2>
+                            <p class="card">Efficiently unleash cross-media information without cross-media value.
+                                Quickly maximize
+                                timely
+                                deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions
+                                without
+                                functional solutions.</p>
+                        </article>
+                        <article class="active_p_2">
+                            <h2>STEP 3: COMPLETELY</h2>
+                            <p class="card">Completely synergize resource sucking relationships via premier niche
+                                markets.
+                                Professionally
+                                cultivate one-to-one customer service with robust ideas. Dynamically innovate
+                                resource-leveling
+                                customer service for state of the art customer service.</p>
+                        </article>
+                        <article class="active_p_2">
+                            <h2>STEP 4: OBJECTIVELY</h2>
+                            <p class="card">Objectively innovate empowered manufactured products whereas parallel
+                                platforms.
+                                Holisticly
+                                predominate extensible testing procedures for reliable supply chains. Dramatically
+                                engage
+                                top-line web services vis-a-vis cutting-edge deliverables.</p>
+                        </article>
+                        <article class="active_p_2">
+                            <h2>STEP 5: PROACTIVELY</h2>
+                            <p class="card">Proactively envisioned multimedia based expertise and cross-media growth
+                                strategies.
+                                Seamlessly
+                                visualize quality intellectual capital without superior collaboration and idea-sharing.
+                                Holistically pontificate installed base portals after maintainable products.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div id="steps">
-                    <div data-step="1" class="active">I</div>
-                    <div data-step="2">II</div>
-                    <div data-step="3">III</div>
-                    <div data-step="4">IV</div>
-                    <div data-step="5">V</div>
+                    <div data-step="1" class="active">1</div>
+                    <div data-step="2">2</div>
+                    <div data-step="3">3</div>
+                    <div data-step="4">4</div>
+                    <div data-step="5">5</div>
                 </div>
 
-            </div>
-            <div class="row">
-                <div class="article_container col-12">
-                    <article class="active">
-                        <h2>STEP 1: COLLABORETIVELY</h2>
-                        <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically
-                            procrastinate B2C users after installed base benefits. Dramatically visualize customer
-                            directed
-                            convergence without revolutionary ROI.</p>
-                    </article>
-                    <article class="active_p_1">
-                        <h2>STEP 2: EFFICIENTLY</h2>
-                        <p>Efficiently unleash cross-media information without cross-media value. Quickly maximize
-                            timely
-                            deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions
-                            without
-                            functional solutions.</p>
-                    </article>
-                    <article class="active_p_2">
-                        <h2>STEP 3: COMPLETELY</h2>
-                        <p>Completely synergize resource sucking relationships via premier niche markets. Professionally
-                            cultivate one-to-one customer service with robust ideas. Dynamically innovate
-                            resource-leveling
-                            customer service for state of the art customer service.</p>
-                    </article>
-                    <article class="active_p_2">
-                        <h2>STEP 4: OBJECTIVELY</h2>
-                        <p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly
-                            predominate extensible testing procedures for reliable supply chains. Dramatically engage
-                            top-line web services vis-a-vis cutting-edge deliverables.</p>
-                    </article>
-                    <article class="active_p_2">
-                        <h2>STEP 5: PROACTIVELY</h2>
-                        <p>Proactively envisioned multimedia based expertise and cross-media growth strategies.
-                            Seamlessly
-                            visualize quality intellectual capital without superior collaboration and idea-sharing.
-                            Holistically pontificate installed base portals after maintainable products.</p>
-                    </article>
-                </div>
             </div>
         </div>
 
@@ -385,9 +428,9 @@
 
 
 
-        <div class="col-md-4  mx-auto text-center " id="padis2">
 
-        </div>
+
+    </div>
 
     </div>
 </section>
