@@ -1,0 +1,165 @@
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+        <div class=" section-title">
+            <h2>Contact</h2>
+            <p>Contact Us</p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <i class="bx bx-map"></i>
+                            <h3>Our Address</h3>
+                            <p>59, I.C.E road, off wire road, Benin City, Edo state.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box mt-4">
+                            <i class="bx bx-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p>info@edoinnovates.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box mt-4">
+                            <i class="bx bx-phone-call"></i>
+                            <h3>Call Us</h3>
+                            <p>+2347087129792</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <div class="form-row">
+                        <div class="col-md-5 form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <input type="email" class="form-control" name="email" id="email"
+                                placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                            <div class="validate"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                            data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" rows="5" data-rule="required"
+                            data-msg="Please write something for us" placeholder="Message"></textarea>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
+            </div> -->
+
+            <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+
+                <form action="." method="POST" role="form" class="pb-3">
+                    {% csrf_token %}
+                    <div>
+                        {% if form.field.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for error in form.field.error %}
+                            <p class="alert-danger">
+                                {{ error }}
+                            </p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="full_names" class="form-control" id="name" placeholder="Your Name"
+                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                                data-rule="email" data-msg="Please enter a valid email" required />
+                            <div class="validate"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                            data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" rows="5" data-rule="required"
+                            data-msg="Please write something for us" placeholder="Message"></textarea>
+                        <div class="validate"></div>
+                    </div>
+                    <div id="msg_sent">
+
+                    </div>
+                    <div class="text-center">
+                        <!-- <div class="text-center"><button id="contact_submit" type="submit">Send Message</button>
+                        </div> -->
+                        <button id="contact_submit" type="submit" class="btn btn-outline-info btn-sm">Send
+                            Message</button>
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    $(document).ready(function (event) {
+                        $(document).on('click', '#contact_submit', function (event) {
+                            event.preventDefault();
+                            document.getElementById('contact_submit').innerHTML = "Sending...";
+                            document.getElementById('contact_submit').className = "btn btn-info disabled";
+                            var full_names = document.querySelector("input[name=full_names]").value;
+                            var email = document.querySelector("input[name=email]").value;
+                            var subject = document.querySelector("input[name=subject]").value;
+                            var message = document.querySelector("textarea[name=message]").value;
+                            console.log(full_names,
+                                email,
+                                subject,
+                                message)
+                            $.ajax({
+                                type: 'POST',
+                                url: '/',
+                                data: {
+                                    'full_names': full_names,
+                                    'email': email,
+                                    'subject': subject,
+                                    'message': message,
+                                    'csrfmiddlewaretoken': '{{ csrf_token}}'
+                                },
+                                dataType: 'json',
+                                success: function (response) {
+                                    document.getElementById('contact_submit').innerHTML = "Send Message";
+                                    document.getElementById('contact_submit').className = "btn btn-outline-info";
+                                    document.getElementById('contact_submit').innerHTML = "Message Sent";
+                                    var full_names = document.querySelector("input[name=full_names]").value = '';
+                                    var email = document.querySelector("input[name=email]").value = '';
+                                    var subject = document.querySelector("input[name=subject]").value = '';
+                                    var message = document.querySelector("textarea[name=message]").value = '';
+                                    $('#msg_sent').html(response['form'])
+                                    console.log($('#smsg_sent').html(response['form']));
+                                },
+                                error: function (rs, e) {
+                                    console.log(rs.responseText);
+                                },
+                            });
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</section>

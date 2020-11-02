@@ -1,0 +1,136 @@
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity ease-out .7s;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    padding: 0;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+    opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slide1 {
+    background: url("../img/edo/slides/slide-1.jpg") top center;
+}
+
+.slide2 {
+    background: url("../img/edo/slides/slides-2.jpg") top center;
+}
+
+.slide3 {
+    background: url("../img/edo/slides/slides-3.jpg") top center;
+}
+
+.slide4 {
+    background: url("../img/edo/slides/slides-4.jpg") top center;
+}
+
+
+body {
+    font-family: 'Coiny', cursive;
+    height: 100vh;
+}
+
+header .carousel-inner .item img {
+    width: 100%;
+}
+
+.carousel-caption {
+    padding-bottom: 150px;
+}
+
+.carousel-caption h2 {
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.carousel-control.right {
+    background-image: none;
+}
+
+.carousel-control.left {
+    background-image: none;
+}
+
+
+
+
+/* ignore the code below */
+
+
+.link-area {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 15px;
+    border-radius: 40px;
+    background: tomato;
+}
+
+.link-area a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+
+.about .play-btn { 
+    background: radial-gradient(#37424a 50%, rgb(199 197 196 / 40%) 52%) !important; 
+}
+
+.about .play-btn::before {    
+    border: 5px solid rgb(193 178 174 / 70%) !important;    
+    background: rgba(198, 16, 0, 0) !important; 
+  }
+  
+  .about .play-btn:hover::after {
+    border-left: 15px solid #eadcd8 !important;     
+  }
+  
+  #tab_img{
+    height: 5em;
+    width: 12em;
+  }
+#tab_img_2{
+    width: 100%;
+    height: 16em;
+    border-radius: 1em;
+}
+#padis{
+    list-style: none;
+    padding: 2em;
+}
+#padis2{ 
+    padding-top: 3em;
+}
+@media (max-width: 768px) {
+    #tab_img{
+        height: 3em;
+        width: 8em;
+      }
+      #padis{
+        padding: 0;
+    }
+    #padis2{       
+        padding-top: 5px;
+    }
+}
