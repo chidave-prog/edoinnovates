@@ -304,25 +304,25 @@
                     }
                 }
             </style>
-            <div class="col-md-4  mx-auto text-center " id="padis2"></div>
+
 
             <div class="container" style="position: relative;">
                 <div class="row">
                     <div class="article_container col-md-12">
                         <article class="active">
-                            <h2>STEP 1: COLLABORETIVELY</h2>
-                            <p class="card">Collaboratively administrate empowered markets via plug-and-play networks.
-                                Dynamically
-                                procrastinate B2C users after installed base benefits. Dramatically visualize customer
-                                directed
-                                convergence without revolutionary ROI.</p>
+                            <h2>STEP 1: COMPLETE SOME ONLINE TASKS</h2>
+                            <p class="card">
+                                In your own time, complete some short tasks related to the programme. Don’t worry, you
+                                don’t need to have any existing knowledge or experience to be able to complete them.
+                            </p>
                         </article>
                         <article class="active_p_1">
-                            <h2>STEP 2: EFFICIENTLY</h2>
+                            <h2>STEP 2: COME TO AN INFORMATION SESSION</h2>
                             <p class="card">Efficiently unleash cross-media information without cross-media value.
                                 Quickly maximize
                                 timely
-                                deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions
+                                deliverables for real-time schemas. Dramatically maintain clicks-and-mortar
+                                solutions
                                 without
                                 functional solutions.</p>
                         </article>
@@ -349,7 +349,8 @@
                             <p class="card">Proactively envisioned multimedia based expertise and cross-media growth
                                 strategies.
                                 Seamlessly
-                                visualize quality intellectual capital without superior collaboration and idea-sharing.
+                                visualize quality intellectual capital without superior collaboration and
+                                idea-sharing.
                                 Holistically pontificate installed base portals after maintainable products.</p>
                         </article>
                     </div>
@@ -366,73 +367,88 @@
                 </div>
 
             </div>
-        </div>
 
 
-        {% block extra_scripts %}
-        <script>
-            $(document).ready(function ($) {
-                $('#steps > div').click(function () {
-                    var i = $(this).attr('data-step') - 1;
 
-                    $('#steps > div').each(function (index) {
-                        if (index < i) {
-                            $(this).addClass('done');
-                            $(this).removeClass('active');
-                        } else if (index == i) {
-                            $(this).addClass('active');
-                            $(this).removeClass('done');
-                        } else {
-                            $(this).removeClass('done');
-                            $(this).removeClass('active');
-                        }
-                    });
 
-                    $('article').each(function (index) {
-                        if (index < i - 1) {
-                            clearClasses($(this));
-                            $(this).addClass('active_m_2');
-                        } else if (index > i + 1) {
-                            clearClasses($(this));
-                            $(this).addClass('active_p_2');
-                        } else if (index < i) {
-                            clearClasses($(this));
-                            $(this).addClass('active_m_1');
-                        } else if (index > i) {
-                            clearClasses($(this));
-                            $(this).addClass('active_p_1');
-                        } else {
-                            clearClasses($(this));
-                            $(this).addClass('active');
-                        }
-                    });
+            {% block extra_scripts %}
+            <script>
+                $(document).ready(function ($) {
+                    $('#steps > div').click(function () {
+                        var i = $(this).attr('data-step') - 1;
 
-                    function clearClasses(item) {
-                        var a = [
-                            "active_m_2",
-                            "active_m_1",
-                            "active",
-                            "active_p_1",
-                            "active_p_2"
-                        ];
-                        a.forEach(function (class_name) {
-                            item.removeClass(class_name);
+                        $('#steps > div').each(function (index) {
+                            if (index < i) {
+                                $(this).addClass('done');
+                                $(this).removeClass('active');
+                            } else if (index == i) {
+                                $(this).addClass('active');
+                                $(this).removeClass('done');
+                            } else {
+                                $(this).removeClass('done');
+                                $(this).removeClass('active');
+                            }
                         });
-                    }
+
+                        $('article').each(function (index) {
+                            if (index < i - 1) {
+                                clearClasses($(this));
+                                $(this).addClass('active_m_2');
+                            } else if (index > i + 1) {
+                                clearClasses($(this));
+                                $(this).addClass('active_p_2');
+                            } else if (index < i) {
+                                clearClasses($(this));
+                                $(this).addClass('active_m_1');
+                            } else if (index > i) {
+                                clearClasses($(this));
+                                $(this).addClass('active_p_1');
+                            } else {
+                                clearClasses($(this));
+                                $(this).addClass('active');
+                            }
+                        });
+
+                        function clearClasses(item) {
+                            var a = [
+                                "active_m_2",
+                                "active_m_1",
+                                "active",
+                                "active_p_1",
+                                "active_p_2"
+                            ];
+                            a.forEach(function (class_name) {
+                                item.removeClass(class_name);
+                            });
+                        }
+
+                    });
 
                 });
-
-            });
-        </script>
-        {% endblock extra_scripts %}
+            </script>
+            {% endblock extra_scripts %}
 
 
 
 
 
-    </div>
+        </div>
+        <div class="col-md-4">
+            PROGRAM LENGTH
+            12 weeks
+            Monday to Friday, 9am to 5:30pm
 
-    </div>
+            REQUIREMENTS
+            Aged 18-29
+            Not working regularly more than 16 hours per week, and not in education or training
+            Can demonstrate your interest in a career in technology
+            Have the legal right to work & live in the UK
+            Currently living in Birmingham, Solihull, Sandwell, Dudley, Walsall, Wolverhampton, or Coventry (includes
+            Bedworth/Nuneaton)
+            Available full time for 12 weeks, and ready to start a full time job straight after the course
+            4 OUT OF 5
+            participants have a job within 1 month of graduating
+        </div>
 </section>
 
 {% endblock content %}
