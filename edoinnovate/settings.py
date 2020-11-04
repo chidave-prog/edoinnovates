@@ -118,7 +118,7 @@ MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_SWITCHER = config('STATIC_SWITCHER')
 STATIC_ROOT=''
-STATICFILES_DIRS=''
+STATICFILES_DIRS=('',)
 if STATIC_SWITCHER == 'local':
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)      
 else:
