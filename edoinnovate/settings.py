@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = False #config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
     "www.edoinnovate.com",
@@ -119,11 +119,11 @@ STATIC_URL = '/static/'
 STATIC_SWITCHER = config('STATIC_SWITCHER')
 STATIC_ROOT=''
 STATICFILES_DIRS=('',)
-if STATIC_SWITCHER == 'local':
+if STATIC_SWITCHER == 'local':   
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)      
-else:
+else:   
     STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
 
 
-
+    
 django_heroku.settings(locals(), staticfiles=False)
