@@ -4,7 +4,21 @@
 {% block content %}
 
 
-
+<div class="container" style="display: none;" id="myForm">
+    <div class="row">
+        <div class="form-popup" id="popform_size">
+            <form action="/action_page.php" class="form-container col-md-6 mx-auto">
+                <a href="javascript:void(0);"
+                    class="float-right px-1 h3 text-danger rounded-circle border border-danger"
+                    onclick="closeForm()"><b>&times;</b></a>
+                <input type="text" id="search" placeholder="Search" name="search" class="form-control" required>
+                <div class="mx-auto text-center">
+                    <button type="submit" class="btn btn-outline-info">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <section id="hero">
     <div id="carousel-index" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -28,7 +42,7 @@
                     </p>
                     <p class="animated zoomIn" style="animation-delay: 2s">
                         <a class="venobox btn-watch-video btn btn-danger shadow" href="https://youtu.be/xU4Tmb_jUkc"
-                            data-vbtype="video" data-autoplay="true"> Watch
+                            data-vbtype="video" data-autoplay="true"> <i>&ensp;</i> Watch
                             Video <i class="icofont-play-alt-2"></i></a>
                     </p>
                 </div>
@@ -159,9 +173,8 @@
 
 </section>
 
-<main id="main">
 
-    <!-- ======= About Section ======= -->
+<main id="main">
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
 
@@ -205,7 +218,7 @@
                 </div>
             </div>
 
-            <div class="row" id="opportunity">
+            <div class="row">
 
                 <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                     <img src="../static/assets/img/edo/about.png" class="img-fluid" alt="">
@@ -251,9 +264,6 @@
 
         </div>
     </section>
-
-
-
     <section id="about-boxes" class="about-boxes">
         <div class="container" data-aos="fade-up">
 
@@ -261,7 +271,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
                         <img src="../static/assets/img/edo/about/edo-jobs-logo.jpg" style="height: 12em;"
-                            class="img-fluid card-img-top" alt="...">
+                            class="img-fluid card-img-top border" alt="...">
                         <div class="card-icon">
                             <i class="ri-brush-4-line"></i>
                         </div>
@@ -388,7 +398,7 @@
     </section>
 
 
-    <section id="opportunity" class="features">
+    <section id="what_we_do" class="features">
         <div class="container" data-aos="fade-up">
 
             <ul class="nav nav-tabs row d-flex">
@@ -418,23 +428,24 @@
                 </li>
             </ul>
 
-            <div class="tab-content">
+            <div class="tab-content border-bottom">
                 <div class="tab-pane active show" id="tab-1">
                     <div class="w3-content w3-display-container">
                         <div class="row mySlides">
                             <h3 class="text-info col-12">AWS RE/START EDO</h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/clients/aws.png" alt="gist" id="tab_img" />
-                                    </div>
                                     <div class="single-post-content-wrapper text-justify">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus omnis
+                                        assumenda aspernatur corrupti soluta amet animi asperiores delectus.
+                                        Dignissimos, nihil! Voluptatum quae eius ad dolor repudiandae quod atque, magni
+                                        quaerat?
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="font-weight-bold text-success">See More..</a>
                                         </p>
                                     </div>
 
@@ -448,19 +459,15 @@
 
                         <div class="row mySlides">
                             <h3 class="text-info col-md-12">COVEN LAB </h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt="gist"
-                                            id="tab_img" />
-                                    </div>
                                     <div class="single-post-content-wrapper text-justify">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="font-weight-bold text-success">See More..</a>
                                         </p>
                                     </div>
 
@@ -488,16 +495,14 @@
                             <h3 class="text-info col-12">AWS RE/START EDO</h3>
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/clients/aws.png" alt="gist" id="tab_img" />
-                                    </div>
+
                                     <div class="single-post-content-wrapper text-justify">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
                                         </p>
                                     </div>
 
@@ -513,17 +518,17 @@
                             <h3 class="text-info col-md-12">COVEN LAB </h3>
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
+                                    <!-- <div class="image-wrapper float-left pr-3">
                                         <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt="gist"
                                             id="tab_img" />
-                                    </div>
+                                    </div> -->
                                     <div class="single-post-content-wrapper text-justify">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
                                         </p>
                                     </div>
 
@@ -559,7 +564,7 @@
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
                                         </p>
                                     </div>
 
@@ -585,7 +590,7 @@
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
                                         </p>
                                     </div>
 
@@ -621,7 +626,7 @@
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
                                         </p>
                                     </div>
 
@@ -647,7 +652,7 @@
                                         Possimus maiores dolores voluptatum enim soluta omnis debitis
                                         quam ab nemo necessitatibus.
                                         <p class="text-right">
-                                            <a href="" class="btn btn-success btn-xs">APPLY</a>
+                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
                                         </p>
                                     </div>
 
@@ -697,123 +702,12 @@
         </div>
     </section>
 
-    <section id="services" class="services section-bg">
-        <div class="container" data-aos="fade-up">
 
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>What We Do</p>
-            </div>
 
-            <div class="row" data-aos="fade-up" data-aos-delay="200">
 
-                <div class="col-md-6 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="la la-business-time"></i>
-                        <h4><a href="#">START UPs</a></h4>
-                        <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat tarad
-                            limino ata</p>
-                        <p class="text-right">
-                            <a href="" class="text-success"><b>Register</b></a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-4 mt-md-0">
-                    <div class="icon-box">
-                        <i class="la la-cuit"></i>
-                        <h4><a href="#">HALLS AND OFFICES</a></h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur
-                        </p>
-                        <p class="text-right">
-                            <a href="" class="text-success"><b>Book A space</b></a>
-                        </p>
-                    </div>
-                </div>
+    {% include "../pages/testimony.html" %}
 
-            </div>
 
-        </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="zoom-in">
-
-            <div class="owl-carousel testimonials-carousel">
-
-                <div class="testimonial-item">
-                    <img src="../static/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                        Accusantium
-                        quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="../static/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram
-                        malis
-                        quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="../static/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis
-                        minim tempor
-                        labore quem eram duis noster aute amet eram fore quis sint minim.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="../static/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim
-                        velit minim
-                        dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="../static/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
-                        culpa
-                        labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- End Testimonials Section -->
-
-    <!-- ======= Portfolio Section ======= -->
     <section id="hub-gallery" class="portfolio">
         <div class="container" data-aos="fade-up">
 
@@ -946,8 +840,8 @@
             </div>
 
         </div>
-    </section><!-- End Portfolio Section -->
-
+    </section>
+    {% include "../pages/news.html" %}
     <section id="team" class="team">
         <div class="container">
 
@@ -1071,85 +965,11 @@
             </div>
 
         </div>
-    </section><!-- End Team Section -->
-
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-        <div class="container" data-aos="fade-up">
-
-            <div class=" section-title">
-                <h2>Contact</h2>
-                <p>Contact Us</p>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-6">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <i class="bx bx-map"></i>
-                                <h3>Our Address</h3>
-                                <p>59, I.C.E road, off wire road, Benin City, Edo state.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-box mt-4">
-                                <i class="bx bx-envelope"></i>
-                                <h3>Email Us</h3>
-                                <p>info@edoinnovates.com</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-box mt-4">
-                                <i class="bx bx-phone-call"></i>
-                                <h3>Call Us</h3>
-                                <p>+2347087129792</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6 mt-4 mt-lg-0">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="form-row">
-                            <div class="col-md-5 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                <div class="validate"></div>
-                            </div>
-                            <div class="col-md-5 form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                                <div class="validate"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                                data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                            <div class="validate"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                data-msg="Please write something for us" placeholder="Message"></textarea>
-                            <div class="validate"></div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
-                    </form>
-                </div>
-
-            </div>
-
-        </div>
     </section>
+
+
+    {% include "../pages/contact.html" %}
+
 
 </main>
 

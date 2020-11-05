@@ -4,7 +4,21 @@
 {% block content %}
 
 
-
+<div class="container" style="display: none;" id="myForm">
+    <div class="row">
+        <div class="form-popup" id="popform_size">
+            <form action="/action_page.php" class="form-container col-md-6 mx-auto">
+                <a href="javascript:void(0);"
+                    class="float-right px-1 h3 text-danger rounded-circle border border-danger"
+                    onclick="closeForm()"><b>&times;</b></a>
+                <input type="text" id="search" placeholder="Search" name="search" class="form-control" required>
+                <div class="mx-auto text-center">
+                    <button type="submit" class="btn btn-outline-info">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <section id="hero">
     <div id="carousel-index" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -159,9 +173,8 @@
 
 </section>
 
-<main id="main">
 
-    <!-- ======= About Section ======= -->
+<main id="main">
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
 
@@ -251,9 +264,6 @@
 
         </div>
     </section>
-
-
-
     <section id="about-boxes" class="about-boxes">
         <div class="container" data-aos="fade-up">
 
@@ -261,7 +271,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
                         <img src="../static/assets/img/edo/about/edo-jobs-logo.jpg" style="height: 12em;"
-                            class="img-fluid card-img-top" alt="...">
+                            class="img-fluid card-img-top border" alt="...">
                         <div class="card-icon">
                             <i class="ri-brush-4-line"></i>
                         </div>
@@ -418,287 +428,322 @@
                 </li>
             </ul>
 
-            <div class="tab-content">
+            <div class="tab-content border-bottom">
+
                 <div class="tab-pane active show" id="tab-1">
+                    {% for prog in programme%}
+                    {%if prog.programme_type == 'TRAINING' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row mySlides">
-                            <h3 class="text-info col-12">AWS RE/START EDO</h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                        <div class="row {{prog.programme_type}}">
+                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
+                                    {{prog.date_to|date}}|</span></h3>
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/clients/aws.png" alt="gist" id="tab_img" />
-                                    </div>
                                     <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">See More..</a>
+                                        <p class="text-justify">
+                                            {{prog.description|truncatechars:1000}} &ensp;
+                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
+                                                More..</a>
                                         </p>
                                     </div>
 
                                 </article>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/aws-cohot-1.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
+                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                    alt="" class="img-fluid" id="tab_img_2">
                             </div>
                         </div>
-
-                        <div class="row mySlides">
-                            <h3 class="text-info col-md-12">COVEN LAB </h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt="gist"
-                                            id="tab_img" />
-                                    </div>
-                                    <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">See More..</a>
-                                        </p>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
-                            </div>
-                        </div>
-                        <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                            onclick="plusDivs(-1)">
-                            <i class="la la-arrow-left"></i>
-                        </button>
-                        <button class="text-white btn btn-warning float-right"
-                            onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                            <i class="la la-arrow-right"></i>
-                        </button>
                     </div>
+                    {%endif%}
+                    {%endfor%}
+
+                    {% for prog in programme|slice:":1" %}
+                    {%if prog.programme_type == 'TRAINING' %}
+                    {% if forloop.counter == 0 %}
+                    <marquee behavior="" direction="">
+                        There Are Currently No Avalible Programme in This Category <b>Please Check Back soon</b>
+                    </marquee>
+                    {%endif%}
+                    {%endif%}
+                    {%endfor%}
+
+                    {% for prog in programme|slice:":1" %}
+                    {%if prog.programme_type == 'TRAINING' %}
+                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
+                        onclick="plusDivs(-1)">
+                        <i class="la la-arrow-left"></i>
+                    </button>
+                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
+                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
+                        <i class="la la-arrow-right"></i>
+                    </button>
+                    <script>
+                        var slideIndex = 1;
+                        showDivs(slideIndex);
+
+                        function plusDivs(n) {
+                            showDivs(slideIndex += n);
+                        }
+
+                        function showDivs(n) {
+                            var i;
+                            var x = document.getElementsByClassName("{{prog.programme_type}}");
+                            if (n > x.length) { slideIndex = 1 }
+                            if (n < 1) { slideIndex = x.length }
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
+                            x[slideIndex - 1].style.display = "";
+                        }
+                    </script>
+                    {%endif%}
+                    {%endfor%}
+                    {% for prog in programme|slice:":2" %}
+                    {%if prog.programme_type == 'TRAINING' %}
+                    {%if not forloop.last %}
+                    <script>
+                        document.getElementById('next_but').style = "display: '';";                   
+                    </script>
+                    {% endif %}
+                    {%endif%}
+                    {%endfor%}
                 </div>
 
                 <div class="tab-pane" id="tab-2">
+                    {% for prog in programme%}
+                    {%if prog.programme_type == 'COMPETITION' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row mySlides">
-                            <h3 class="text-info col-12">AWS RE/START EDO</h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                        <div class="row {{prog.programme_type}}">
+                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
+                                    {{prog.date_to|date}}|</span></h3>
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/clients/aws.png" alt="gist" id="tab_img" />
-                                    </div>
                                     <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
+                                        <p class="text-justify">
+                                            {{prog.description|truncatechars:1000}} &ensp;
+                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
+                                                More..</a>
                                         </p>
                                     </div>
 
                                 </article>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/aws-cohot-1.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
+                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                    alt="" class="img-fluid" id="tab_img_2">
                             </div>
                         </div>
-
-                        <div class="row mySlides">
-                            <h3 class="text-info col-md-12">COVEN LAB </h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt="gist"
-                                            id="tab_img" />
-                                    </div>
-                                    <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
-                                        </p>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
-                            </div>
-                        </div>
-                        <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                            onclick="plusDivs(-1)">
-                            <i class="la la-arrow-left"></i>
-                        </button>
-                        <button class="text-white btn btn-warning float-right"
-                            onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                            <i class="la la-arrow-right"></i>
-                        </button>
                     </div>
+                    {%endif%}
+                    {%endfor%}
+
+                    {% for prog in programme|slice:":1" %}
+                    {%if prog.programme_type == 'TRAINING' %}
+                    {% if forloop.counter == 0 %}
+                    <marquee behavior="" direction="">
+                        There Are Currently No Avalible Programme in This Category <b>Please Check Back soon</b>
+                    </marquee>
+                    {%endif%}
+                    {%endif%}
+                    {%endfor%}
+
+                    {% for prog in programme|slice:":1" %}
+                    {%if prog.programme_type == 'COMPETITION' %}
+                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
+                        onclick="plusDivs(-1)">
+                        <i class="la la-arrow-left"></i>
+                    </button>
+                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
+                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
+                        <i class="la la-arrow-right"></i>
+                    </button>
+                    <script>
+                        var slideIndex = 1;
+                        showDivs(slideIndex);
+
+                        function plusDivs(n) {
+                            showDivs(slideIndex += n);
+                        }
+
+                        function showDivs(n) {
+                            var i;
+                            var x = document.getElementsByClassName("{{prog.programme_type}}");
+                            if (n > x.length) { slideIndex = 1 }
+                            if (n < 1) { slideIndex = x.length }
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
+                            x[slideIndex - 1].style.display = "";
+                        }
+                    </script>
+                    {%endif%}
+                    {%endfor%}
+                    {% for prog in programme|slice:":2" %}
+                    {%if prog.programme_type == 'COMPETITION' %}
+                    {%if not forloop.last %}
+                    <script>
+                        document.getElementById('next_but').style = "display: '';";                   
+                    </script>
+                    {% endif %}
+                    {%endif%}
+                    {%endfor%}
                 </div>
+
                 <div class="tab-pane" id="tab-3">
+
+                    {% for prog in programme%}
+                    {%if prog.programme_type == 'SCHOLARSHIP' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row mySlides">
-                            <h3 class="text-info col-12">AWS RE/START EDO</h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                        <div class="row {{prog.programme_type}}">
+                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
+                                    {{prog.date_to|date}}|</span></h3>
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/clients/aws.png" alt="gist" id="tab_img" />
-                                    </div>
                                     <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
+                                        <p class="text-justify">
+                                            {{prog.description|truncatechars:1000}} &ensp;
+                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
+                                                More..</a>
                                         </p>
                                     </div>
 
                                 </article>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/aws-cohot-1.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
+                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                    alt="" class="img-fluid" id="tab_img_2">
                             </div>
                         </div>
-
-                        <div class="row mySlides">
-                            <h3 class="text-info col-md-12">COVEN LAB </h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt="gist"
-                                            id="tab_img" />
-                                    </div>
-                                    <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
-                                        </p>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
-                            </div>
-                        </div>
-                        <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                            onclick="plusDivs(-1)">
-                            <i class="la la-arrow-left"></i>
-                        </button>
-                        <button class="text-white btn btn-warning float-right"
-                            onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                            <i class="la la-arrow-right"></i>
-                        </button>
                     </div>
+                    {%endif%}
+                    {%endfor%}
+
+                    {% for prog in programme|slice:":1" %}
+                    {%if prog.programme_type == 'SCHOLARSHIP' %}
+                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
+                        onclick="plusDivs(-1)">
+                        <i class="la la-arrow-left"></i>
+                    </button>
+                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
+                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
+                        <i class="la la-arrow-right"></i>
+                    </button>
+                    <script>
+                        var slideIndex = 1;
+                        showDivs(slideIndex);
+
+                        function plusDivs(n) {
+                            showDivs(slideIndex += n);
+                        }
+
+                        function showDivs(n) {
+                            var i;
+                            var x = document.getElementsByClassName("{{prog.programme_type}}");
+                            if (n > x.length) { slideIndex = 1 }
+                            if (n < 1) { slideIndex = x.length }
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
+                            x[slideIndex - 1].style.display = "";
+                        }
+                    </script>
+                    {%endif%}
+                    {%endfor%}
+                    {% for prog in programme|slice:":2" %}
+                    {%if prog.programme_type == 'SCHOLARSHIP' %}
+                    {%if not forloop.last %}
+                    <script>
+                        document.getElementById('next_but').style = "display: '';";                   
+                    </script>
+                    {% endif %}
+                    {%endif%}
+                    {%endfor%}
                 </div>
                 <div class="tab-pane" id="tab-4">
+                    {% for prog in programme%}
+                    {%if prog.programme_type == 'OPPORTUNITY' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row mySlides">
-                            <h3 class="text-info col-12">AWS RE/START EDO</h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                        <div class="row {{prog.programme_type}}">
+                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
+                                    {{prog.date_to|date}}|</span></h3>
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
                                 <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/clients/aws.png" alt="gist" id="tab_img" />
-                                    </div>
                                     <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
+                                        <p class="text-justify">
+                                            {{prog.description|truncatechars:1000}} &ensp;
+                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
+                                                More..</a>
                                         </p>
                                     </div>
 
                                 </article>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/aws-cohot-1.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
+                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                    alt="" class="img-fluid" id="tab_img_2">
                             </div>
                         </div>
-
-                        <div class="row mySlides">
-                            <h3 class="text-info col-md-12">COVEN LAB </h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="image-wrapper float-left pr-3">
-                                        <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt="gist"
-                                            id="tab_img" />
-                                    </div>
-                                    <div class="single-post-content-wrapper text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                                        Possimus maiores dolores voluptatum enim soluta omnis debitis
-                                        quam ab nemo necessitatibus.
-                                        <p class="text-right">
-                                            <a href="" class="btn btn-outline-success btn-sm">APPLY</a>
-                                        </p>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="../static/assets/img/edo/opportunities/competitions.jpg" alt=""
-                                    class="img-fluid" id="tab_img_2">
-                            </div>
-                        </div>
-                        <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                            onclick="plusDivs(-1)">
-                            <i class="la la-arrow-left"></i>
-                        </button>
-                        <button class="text-white btn btn-warning float-right"
-                            onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                            <i class="la la-arrow-right"></i>
-                        </button>
                     </div>
+                    {%endif%}
+                    {%endfor%}
+
+                    {% for prog in programme|slice:":1" %}
+                    {%if prog.programme_type == 'TRAINING' %}
+                    {% if forloop.counter == 0 %}
+                    <marquee behavior="" direction="">
+                        There Are Currently No Avalible Programme in This Category <b>Please Check Back soon</b>
+                    </marquee>
+                    {%endif%}
+                    {%endif%}
+                    {%endfor%}
+
+                    {% for prog in programme|slice:":1" %}
+                    {%if prog.programme_type == 'OPPORTUNITY' %}
+                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
+                        onclick="plusDivs(-1)">
+                        <i class="la la-arrow-left"></i>
+                    </button>
+                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
+                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
+                        <i class="la la-arrow-right"></i>
+                    </button>
+                    <script>
+                        var slideIndex = 1;
+                        showDivs(slideIndex);
+
+                        function plusDivs(n) {
+                            showDivs(slideIndex += n);
+                        }
+
+                        function showDivs(n) {
+                            var i;
+                            var x = document.getElementsByClassName("{{prog.programme_type}}");
+                            if (n > x.length) { slideIndex = 1 }
+                            if (n < 1) { slideIndex = x.length }
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
+                            x[slideIndex - 1].style.display = "";
+                        }
+                    </script>
+                    {%endif%}
+                    {%endfor%}
+                    {% for prog in programme|slice:":2" %}
+                    {%if prog.programme_type == 'OPPORTUNITY' %}
+                    {%if not forloop.last %}
+                    <script>
+                        document.getElementById('next_but').style = "display: '';";                   
+                    </script>
+                    {% endif %}
+                    {%endif%}
+                    {%endfor%}
                 </div>
             </div>
-            <div>
-
-            </div>
-            {% block extra_scripts %}
-            <script>
-                var slideIndex = 1;
-                showDivs(slideIndex);
-
-                function plusDivs(n) {
-                    showDivs(slideIndex += n);
-                }
-
-                function showDivs(n) {
-                    var i;
-                    var x = document.getElementsByClassName("mySlides");
-                    if (n > x.length) { slideIndex = 1 }
-                    if (n < 1) { slideIndex = x.length }
-                    for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                    }
-                    x[slideIndex - 1].style.display = "";
-                }
-            </script>
-            {% endblock extra_scripts %}
-
         </div>
     </section>
 
 
-    {% include "../pages/news.html" %}
 
     {% include "../pages/testimony.html" %}
 
@@ -836,7 +881,7 @@
 
         </div>
     </section>
-
+    {% include "../pages/news.html" %}
     <section id="team" class="team">
         <div class="container">
 

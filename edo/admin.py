@@ -1,6 +1,10 @@
 from django.contrib import admin
-from .models import (Contact,
+from .models import (
+                    Contact,
                     Programme,
+                    PostView,
+                    Comment,
+                    Blog,
                     Application,
                     Gallery,
                     Team,
@@ -12,6 +16,9 @@ from .models import (Contact,
 
 admin.site.register(Programme)
 admin.site.register(Application)
+admin.site.register(PostView,)
+admin.site.register(Comment)
+admin.site.register(Blog)
 admin.site.register(Gallery)
 admin.site.register(Contact)
 admin.site.register(Testimony)

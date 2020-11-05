@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-{%load static%}
 
 <head>
   <meta charset="utf-8">
@@ -20,7 +19,7 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/css/compiled-4.19.1.min.css' %}" rel="stylesheet">
+  <link href="../static/'assets/css/compiled-4.19.1.min.css" rel="stylesheet">
   <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -70,7 +69,17 @@
 
   <!-- Template Main JS File -->
   <script src="../static/assets/js/main.js"></script>
+  <script>
+    className = "mobile-nav-active"
+    function openForm() {
+      document.getElementById("myForm").style.display = "";
+      document.getElementsByClassName('mobile-nav-toggle')[0].click();
+    }
 
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+  </script>
 
 
   {% block extra_scripts %} {% endblock extra_scripts %}

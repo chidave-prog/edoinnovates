@@ -1,4 +1,8 @@
 from django.db import models
+from django.urls import reverse
+from django.contrib.auth.models import User
+from tinymce import HTMLField
+from django.template.defaultfilters import slugify
 import sys
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from PIL import Image
@@ -40,22 +44,11 @@ def edit_photo(photo):
     return photo
 
 
-
-class Contact(models.Model):
-    full_names = models.CharField(max_length=200)
-    email = models.EmailField()
-    subject = models.CharField(
-        help_text='subject', max_length=100)
-    message = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return str(self.email)
-
 OPT_TYPE = [
     ('TRAINING', 'TRAINING'),
     ('COMPETITION', 'COMPETITION'),
-    ('SCHOLARSHIP', 'SCHOLARSHIP'),   
+    ('SCHOLARSHIP', 'SCHOLARSHIP'),  
+    ('OPPORTUNITY', 'OPPORTUNITY'),   
 ]
 GENDER = [
     ('Male', 'Male'),
@@ -69,16 +62,91 @@ PHOTO_TYPE = [
 ]
 
 
+
+class Contact(models.Model):
+    full_names = models.CharField(max_length=200)
+    email = models.EmailField()
+    subject = models.CharField(
+        help_text='subject', max_length=100)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.email)
+
+
+
+
+class PostView(models.Model):
+    visited = models.CharField(max_length=200, blank=True, null=True)
+    blog = models.ForeignKey(
+        'Blog', blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.visited)
+
+    def save(self, *args, **kwargs):
+        if self.quote:
+            self.visited = self.quote
+
+class Comment(models.Model):
+    full_names = models.CharField(max_length=200)
+    phone_number = models.CharField(help_text='phone number', max_length=20)
+    email = models.EmailField(blank=True, null=True)
+    content = models.TextField()
+    blog = models.ForeignKey(
+        'Blog', related_name='blog_comment', on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    reply = models.TextField(blank=True, null=True)
+    replyed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.full_names} commented on {self.blog}" 
+
+
+class Blog(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)   
+    devotion = HTMLField()
+    caption_picture = models.ImageField(
+        upload_to='devotion', blank=True, null=True)
+    slug = models.SlugField(blank=True, null=True)
+    publish = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog-detail', kwargs={'slug': self.slug})
+
+    @property
+    def get_reviews(self):
+        return self.blog_comment.all().order_by('-created_at')
+
+    @property
+    def total_reviews(self):
+        return Comment.objects.filter(blog=self).count()
+
+    @property
+    def view_count(self):
+        return PostView.objects.filter(blog=self).count()
+
+
 class Programme(models.Model):
     programme_type = models.CharField(max_length=20,
                             choices=OPT_TYPE,                            
                             help_text='select programme type')
     title = models.CharField(max_length=200)
-    description = models.TextField()
-    sponsor_or_partner_logo = models.ImageField(upload_to='sponsor_or_partner')
+    description = models.TextField()    
     programme_banner = models.ImageField(upload_to='programme_banner')
+    link_to_program = models.URLField(blank=True, null=True)
     date_from = models.DateField()
     date_to = models.DateField()
+    publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)    
 
     def __str__(self):
@@ -137,12 +205,14 @@ class Newsletter(models.Model):
 
 class Testimony(models.Model):
     full_names = models.CharField(max_length=200)
-    phone_number = models.IntegerField(help_text='phone number')
-    programme_benefited_from = models.CharField(blank=True, null=True, max_length=20)
+    phone_number = models.IntegerField()
+    programme_benefited_from =  models.ForeignKey(
+        'Programme', null=True, on_delete=models.CASCADE)
     email = models.EmailField(blank=True, null=True)
     testimony = models.TextField()
     add_a_photo = models.ImageField(
         upload_to='Testimony_image', blank=True, null=True)
+    publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)  
 
     def __str__(self):

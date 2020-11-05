@@ -1,16 +1,15 @@
-<!-- ======= Header ======= -->
 <header id="header" class="fixed-top ">
     <div class="container-fluid d-flex align-items-center justify-content-between">
-
-        <h1 class="logo"><a href="index.html">
+        <h1 class="logo"><a href="/">
                 <img src="../static/assets/img/edo/logo&badges/badge.png" alt="">
             </a></h1>
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">HOME</a></li>
+                <li {% if request.path == '/' %} class="active" {% endif %}><a href="/">HOME</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li class="drop-down">
-                    <a href="/#what_we_do">WHAT WE DO</a>
+                    <a {% if request.path == '/' %} href="#what_we_do" {% else %} href="/#what_we_do" {% endif %}>WHAT
+                        WE DO</a>
                     <ul>
                         <li class="drop-down"><a href="#">TRAININGS</a>
                             <ul>
@@ -24,11 +23,13 @@
                     </ul>
                 </li>
 
-                <li><a href="#hub-gallery">HUB & GALLERY</a></li>
-                <li><a href="#news">NEWS</a></li>
+                <li><a {% if request.path == '/' %} href="#hub-gallery" {% else %} href="/#hub-gallery" {% endif %}>HUB
+                        & GALLERY</a></li>
+                <li><a {% if request.path == '/' %} href="#news" {% else %} href="/#news" {% endif %}>NEWS</a></li>
 
-                <li><a href="#contact">CONTACT</a></li>
-
+                <li><a {% if request.path == '/' %} href="#contact" {% else %} href="/#contact" {% endif %}>CONTACT</a>
+                </li>
+                <li><a href="javascript:void(0);" onclick="openForm()"><i class="la la-search"></i></a></li>
             </ul>
         </nav>
     </div>
