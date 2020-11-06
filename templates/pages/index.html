@@ -760,52 +760,91 @@
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">Gallery</li>
-                        <li data-filter=".filter-card">HUB</li>
-                        <li data-filter=".filter-web">Sartups</li>
+                        <li data-filter=".filter-gallery">Gallery</li>
+                        <li data-filter=".filter-hub">HUB</li>
+                        <li data-filter=".filter-sartups">Sartups</li>
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="../static/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                {%if gallery%}
+                {% for photo in gallery%}
+                {%if photo.photo_type == 'Gallery' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-gallery">
+                    <img src="{%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>App 1</h4>
-                        <p>App</p>
-                        <a href="../static/assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                        <h4>{{photo.title}}</h4>
+                        <p>{{photo.photo_type}}</p>
+                        <a href="{%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i
+                                class="bx bx-plus"></i></a>
+                        <a href="{{photo.get_absolute_url}}" class="details-link" title="More Details"><i
                                 class="bx bx-link"></i></a>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="../static/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                {%endif%}
+                {%if photo.photo_type == 'HUB' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-hub">
+                    <img src="{%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <a href="../static/assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                        <h4>{{photo.title}}</h4>
+                        <p>{{photo.photo_type}}</p>
+                        <a href="{%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i
+                                class="bx bx-plus"></i></a>
+                        <a href="{{photo.get_absolute_url}}" class="details-link" title="More Details"><i
                                 class="bx bx-link"></i></a>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="../static/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+                {%endif%}
+                {%if photo.photo_type == 'Sartups' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-sartups">
+                    <img src="{%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>App 2</h4>
-                        <p>App</p>
-                        <a href="../static/assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                        <h4>{{photo.title}}</h4>
+                        <p>{{photo.photo_type}}</p>
+                        <a href="{%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i
+                                class="bx bx-plus"></i></a>
+                        <a href="{{photo.get_absolute_url}}" class="details-link" title="More Details"><i
                                 class="bx bx-link"></i></a>
                     </div>
                 </div>
+                {%endif%}
+                {%empty%}
+                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <div class="mx-auto text-center h4 text-primary p-3">
+                            Photos will be Published Soon!
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+                {%endif%}
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                     <img src="../static/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Card 2</h4>
@@ -816,7 +855,6 @@
                                 class="bx bx-link"></i></a>
                     </div>
                 </div>
-
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <img src="../static/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
@@ -875,10 +913,111 @@
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i
                                 class="bx bx-link"></i></a>
                     </div>
-                </div>
+                </div> -->
 
             </div>
-
+            <!-- <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                {%if gallery%}
+                {% for photo in gallery%}
+                {%if photo.photo_type == 'Gallery' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-course">
+                    <div class="portfolio-wrap">
+                        <img src=" {%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" class="img-fluid" id="prog_img" alt="">
+                        <div class="portfolio-info">
+                            <h6 class="font-weight-bold">{{photo.title}}</h6>
+                            <p>Gallery</p>
+                            <div class="portfolio-links">
+                                <a href="{%if photo.photo%}
+                                        {{photo.photo.url}}
+                                        {%else%}
+                                        ../static/assets/img/edo/logo&badges/badge.png
+                                        {%endif%}" data-gall="portfolioGallery" class="venobox"
+                                    title="{{photo.title}}"><i class="la la-eye"></i></a>
+                                <a href="{{photo.get_absolute_url}}" title="More Details"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%else%}
+                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <div class="mx-auto text-center h4 text-primary p-3">
+                            Photos will be Published Soon!
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%if photo.photo_type == 'HUB' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-seminar">
+                    <div class="portfolio-wrap">
+                        <img src=" {%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" class="img-fluid" id="prog_img" alt="">
+                        <div class="portfolio-info">
+                            <h6 class="font-weight-bold">{{photo.title}}</h6>
+                            <p>HUB</p>
+                            <div class="portfolio-links">
+                                <a href="{%if photo.photo%}
+                                        {{photo.photo.url}}
+                                        {%else%}
+                                        ../static/assets/img/edo/logo&badges/badge.png
+                                        {%endif%}" data-gall="portfolioGallery" class="venobox"
+                                    title="{{photo.title}}"><i class="la la-eye"></i></a>
+                                <a href="{{photo.get_absolute_url}}" title="More Details"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%else%}
+                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <div class="mx-auto text-center h4 text-primary p-3">
+                            Photos will be Published Soon!
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%if photo.photo_type == 'Sartups' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-workshop">
+                    <div class="portfolio-wrap">
+                        <img src=" {%if photo.photo%}
+                                {{photo.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" class="img-fluid" id="prog_img" alt="">
+                        <div class="portfolio-info">
+                            <h6 class="font-weight-bold">{{photo.title}}</h6>
+                            <p>Sartups</p>
+                            <div class="portfolio-links">
+                                <a href="{%if photo.photo%}
+                                        {{photo.photo.url}}
+                                        {%else%}
+                                        ../static/assets/img/edo/logo&badges/badge.png
+                                        {%endif%}" data-gall="portfolioGallery" class="venobox"
+                                    title="{{photo.title}}"><i class="la la-eye"></i></a>
+                                <a href="{{photo.get_absolute_url}}" title="More Details"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%endfor%}
+                {%else%}
+                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <div class="mx-auto text-center h4 text-primary p-3">
+                            Photos will be Published Soon!
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+            </div> -->
         </div>
     </section>
     {% include "../pages/news.html" %}

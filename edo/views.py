@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 from .models import (
                     Contact,
                     Programme,
@@ -25,7 +26,7 @@ def Home(request):
         'title_tag'  : "EDO INNOVATE| Touching Lives",
         'programme': Programme.objects.filter(publish=True).order_by('-created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
-        'gallery': Gallery.objects.all().order_by('created_at'),
+        'gallery': Gallery.objects.filter(publish=True).order_by('-created_at'),
        
         'team': Team.objects.all().order_by('created_at'),
     }
@@ -43,3 +44,9 @@ def AwsRestartBenin(request):
     }
     return render(request, 'pages/aws.html', context)
 
+
+class GalleryDetailView(generic.DetailView):
+    model = Gallery
+    context_object_name = 'gallery'
+    template_name = 'pages/gallery.html'
+    

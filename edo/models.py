@@ -171,10 +171,23 @@ class Gallery(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()    
     photo = models.ImageField(upload_to='Photo_Gallery')
+    photo_2 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
+    photo_3 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
+    link_address_4_start_ups = models.URLField(blank=True, null=True)
+    slug = models.SlugField(blank=True, null=True)
+    publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)  
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(str(self.title))
+        super(Gallery, self).save(*args, **kwargs)
+
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.title} of  {self.photo_type}"
+
+    def get_absolute_url(self):
+        return reverse('gallery-detail', kwargs={'slug': self.slug})
+
 
 
 class Team(models.Model):
@@ -187,6 +200,7 @@ class Team(models.Model):
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
     instagram = models.URLField(blank=True, null=True)
+    publish = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.full_names}"
