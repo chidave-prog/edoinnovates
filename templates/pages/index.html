@@ -1,24 +1,11 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load social_share %}
 {% block content %}
 
 
-<div class="container" style="display: none;" id="myForm">
-    <div class="row">
-        <div class="form-popup" id="popform_size">
-            <form action="/action_page.php" class="form-container col-md-6 mx-auto">
-                <a href="javascript:void(0);"
-                    class="float-right px-1 h3 text-danger rounded-circle border border-danger"
-                    onclick="closeForm()"><b>&times;</b></a>
-                <input type="text" id="search" placeholder="Search" name="search" class="form-control" required>
-                <div class="mx-auto text-center">
-                    <button type="submit" class="btn btn-outline-info">Search</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 <section id="hero">
     <div id="carousel-index" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -260,10 +247,11 @@
                 </div>
 
 
-            </div>AWS Re/Start
+            </div>
 
         </div>
     </section>
+
     <section id="about-boxes" class="about-boxes">
         <div class="container" data-aos="fade-up">
 
@@ -343,61 +331,6 @@
         </div>
     </section>
 
-
-    <section id="clients" class="clients">
-        <div class="container" data-aos="zoom-in">
-
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/aws.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg" class="img-fluid"
-                        alt="">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/08-Zenolight.jpg" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Drake.png" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Facebook.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Firstbank.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/google.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/HPLife.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Linkedin.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Microsoft.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Siemiens.png" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/xignma.png class=" img-fluid" alt="">
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
     <section id="what_we_do" class="features">
         <div class="container" data-aos="fade-up">
 
@@ -444,6 +377,27 @@
                                             {{prog.description|truncatechars:1000}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
+                                        <div class="row">
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_linkedin '{{prog.link_to_program}}' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                    data-action="share/whatsapp/share" target="_blank"> <i
+                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                </a>
+                                            </td>
+                                        </div>
                                         </p>
                                     </div>
 
@@ -524,6 +478,27 @@
                                             {{prog.description|truncatechars:1000}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
+                                        <div class="row">
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_linkedin '{{prog.link_to_program}}' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                    data-action="share/whatsapp/share" target="_blank"> <i
+                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                </a>
+                                            </td>
+                                        </div>
                                         </p>
                                     </div>
 
@@ -605,6 +580,27 @@
                                             {{prog.description|truncatechars:1000}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
+                                        <div class="row">
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_linkedin '{{prog.link_to_program}}' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                    data-action="share/whatsapp/share" target="_blank"> <i
+                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                </a>
+                                            </td>
+                                        </div>
                                         </p>
                                     </div>
 
@@ -674,6 +670,27 @@
                                             {{prog.description|truncatechars:1000}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
+                                        <div class="row">
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_linkedin '{{prog.link_to_program}}' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                            </td>
+                                            <td>&nbsp; &nbsp;</td>
+                                            <td class="h4">
+                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                    data-action="share/whatsapp/share" target="_blank"> <i
+                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                </a>
+                                            </td>
+                                        </div>
                                         </p>
                                     </div>
 
@@ -743,10 +760,7 @@
         </div>
     </section>
 
-
-
     {% include "../pages/testimony.html" %}
-
 
     <section id="hub-gallery" class="portfolio">
         <div class="container" data-aos="fade-up">
@@ -843,184 +857,12 @@
                 </div>
                 {%endfor%}
                 {%endif%}
-
-                <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="../static/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <a href="../static/assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="../static/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Web 2</h4>
-                        <p>Web</p>
-                        <a href="../static/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="../static/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>App 3</h4>
-                        <p>App</p>
-                        <a href="../static/assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="../static/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <a href="../static/assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="../static/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <a href="../static/assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="../static/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <a href="../static/assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div> -->
-
             </div>
-            <!-- <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                {%if gallery%}
-                {% for photo in gallery%}
-                {%if photo.photo_type == 'Gallery' %}
-                <div class="col-lg-4 col-md-6 portfolio-item filter-course">
-                    <div class="portfolio-wrap">
-                        <img src=" {%if photo.photo%}
-                                {{photo.photo.url}}
-                                {%else%}
-                                ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="img-fluid" id="prog_img" alt="">
-                        <div class="portfolio-info">
-                            <h6 class="font-weight-bold">{{photo.title}}</h6>
-                            <p>Gallery</p>
-                            <div class="portfolio-links">
-                                <a href="{%if photo.photo%}
-                                        {{photo.photo.url}}
-                                        {%else%}
-                                        ../static/assets/img/edo/logo&badges/badge.png
-                                        {%endif%}" data-gall="portfolioGallery" class="venobox"
-                                    title="{{photo.title}}"><i class="la la-eye"></i></a>
-                                <a href="{{photo.get_absolute_url}}" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {%else%}
-                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <div class="mx-auto text-center h4 text-primary p-3">
-                            Photos will be Published Soon!
-                        </div>
-                    </div>
-                </div>
-                {%endif%}
-                {%if photo.photo_type == 'HUB' %}
-                <div class="col-lg-4 col-md-6 portfolio-item filter-seminar">
-                    <div class="portfolio-wrap">
-                        <img src=" {%if photo.photo%}
-                                {{photo.photo.url}}
-                                {%else%}
-                                ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="img-fluid" id="prog_img" alt="">
-                        <div class="portfolio-info">
-                            <h6 class="font-weight-bold">{{photo.title}}</h6>
-                            <p>HUB</p>
-                            <div class="portfolio-links">
-                                <a href="{%if photo.photo%}
-                                        {{photo.photo.url}}
-                                        {%else%}
-                                        ../static/assets/img/edo/logo&badges/badge.png
-                                        {%endif%}" data-gall="portfolioGallery" class="venobox"
-                                    title="{{photo.title}}"><i class="la la-eye"></i></a>
-                                <a href="{{photo.get_absolute_url}}" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {%else%}
-                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <div class="mx-auto text-center h4 text-primary p-3">
-                            Photos will be Published Soon!
-                        </div>
-                    </div>
-                </div>
-                {%endif%}
-                {%if photo.photo_type == 'Sartups' %}
-                <div class="col-lg-4 col-md-6 portfolio-item filter-workshop">
-                    <div class="portfolio-wrap">
-                        <img src=" {%if photo.photo%}
-                                {{photo.photo.url}}
-                                {%else%}
-                                ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="img-fluid" id="prog_img" alt="">
-                        <div class="portfolio-info">
-                            <h6 class="font-weight-bold">{{photo.title}}</h6>
-                            <p>Sartups</p>
-                            <div class="portfolio-links">
-                                <a href="{%if photo.photo%}
-                                        {{photo.photo.url}}
-                                        {%else%}
-                                        ../static/assets/img/edo/logo&badges/badge.png
-                                        {%endif%}" data-gall="portfolioGallery" class="venobox"
-                                    title="{{photo.title}}"><i class="la la-eye"></i></a>
-                                <a href="{{photo.get_absolute_url}}" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {%endif%}
-                {%endfor%}
-                {%else%}
-                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <div class="mx-auto text-center h4 text-primary p-3">
-                            Photos will be Published Soon!
-                        </div>
-                    </div>
-                </div>
-                {%endif%}
-            </div> -->
         </div>
     </section>
-    {% include "../pages/news.html" %}
+
+    {% include "../pages/news.html"  with blog=blog %}
+
     <section id="team" class="team">
         <div class="container">
 
@@ -1030,123 +872,85 @@
             </div>
 
             <div class="row">
+{% for member in team%}
+                <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="{{forloop.counter}}00">
+                    <div class="member">
+                        <img id="team_img" src="{%if member.picture%} {{member.picture.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                            class="img-fluid rounded-circle" alt="" id="team_img">
+                        <div class="member-info">
+                            <div class="member-info-content">
+                                <h4>{{member.full_names}}</h4>
+                                <span>{{member.position}}</span>
+                            </div>
+                            <div class="social">
+                                <a href="{{member.link_to_your_whatsapp_number}}"><i class="icofont-whatsapp"></i></a> 
+                                <a href="{{member.link_to_your_twitter_account}}"><i class="icofont-twitter"></i></a>                                                         
+                                <a href="{{member.link_to_your_linkedin_account}}"><i class="icofont-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{%endfor%}
+ </div>
 
-                <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="member">
-                        <img id="team_img" src="{% static 'assets/img/team/team-1.jpg' %}"
-                            class="img-fluid rounded-circle" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
 
-                <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="member">
-                        <img id="team_img" src="{% static 'assets/img/team/team-2.jpg' %}"
-                            class="img-fluid rounded-circle" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
+    <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-in">
+            <div class="section-title text-left" data-aos="fade-up">
+                <h2>Powered By:</h2>
+                <p>OUR PARTNERS</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/aws.png" class="img-fluid" alt="">
                 </div>
-                <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="member">
-                        <img id="team_img" src="{% static 'assets/img/team/team-1.jpg' %}"
-                            class="img-fluid rounded-circle" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="member">
-                        <img id="team_img" src="{% static 'assets/img/team/team-3.jpg' %}"
-                            class="img-fluid rounded-circle" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>William Anderson</h4>
-                                <span>CTO</span>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg" class="img-fluid"
+                        alt="">
                 </div>
 
-                <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="member">
-                        <img id="team_img" src="{% static 'assets/img/team/team-2.jpg' %}"
-                            class="img-fluid rounded-circle" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/08-Zenolight.jpg" class="img-fluid" alt="">
                 </div>
-                <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="member">
-                        <img id="team_img" src="{% static 'assets/img/team/team-1.jpg' %}"
-                            class="img-fluid rounded-circle" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/Drake.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/Facebook.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/Firstbank.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/google.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/HPLife.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/Linkedin.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/Microsoft.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/Siemiens.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="../static/assets/img/edo/clients/xignma.png class=" img-fluid" alt="">
                 </div>
             </div>
 
         </div>
     </section>
-
-
     {% include "../pages/contact.html" %}
 
 

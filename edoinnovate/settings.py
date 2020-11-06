@@ -33,6 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'edo',
+    'django_social_share',
+    'tinymce',
+    'widget_tweaks',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [

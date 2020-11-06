@@ -1,3 +1,4 @@
+{%load static%}
 <section id="news" class="services section-bg">
     <div class="container" data-aos="fade-up">
 
@@ -6,125 +7,43 @@
             <p>NEWS</p>
         </div>
 
-        <div class="row" data-aos="fade-up" data-aos-delay="200">
-
+        <div class="row" data-aos="fade-up" data-aos-delay="200">            
+            {% for news in blog%}
             <div class="col-md-6 mt-4 mt-md-0 card-header">
                 <div class="shadow rounded card px-2">
                     <article class="col-md-12 single-post no-gutters border-top py-3">
-                        <strong class="h4 pt-2">
-                            Title of Blog
+                      
+                        <strong class="h4 pt-2 font-weight-bold py-1">
+                           {{news.title}}
                         </strong>
                         <div class="image-wrapper float-left pr-3">
-                            <img src="../static/assets/img/edo/opportunities/competitions.jpg" class="img-fluid"
+                            <img src="{%if news.caption_picture%}
+                            {{news.caption_picture.url}}
+                            {%else%}
+                            {%static 'assets/img/edo/logo&badges/badge.png' %}
+                            {%endif%}" class="img-fluid"
                                 alt="gist" id="tab_img" />
                         </div>
                         <div class="single-post-content-wrapper text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                            Possimus maiores dolores voluptatum enim soluta omnis debitis
-                            quam ab nemo necessitatibus.
+                            {{news.content|safe|striptags|truncatechars:340}}
                         </div>
                     </article>
                     <div class="row pb-2">
                         <div class="col-8 float-left">
-                            &ensp;99+&thinsp;<i class="la la-eye h6"></i>
-                            |&ensp;50&thinsp;<i class="la la-comment h6"></i>
+                            &ensp;{{news.view_count}}&thinsp;<i class="la la-eye h6"></i>
+                            |&ensp;{{news.total_comments}}&thinsp;<i class="la la-comment h6"></i>
                         </div>
                         <div class="col-4 float-right">
-                            <a href="" class="font-weight-bold text-success">See Details..</a>
+                            <a href="{{news.get_absolute_url}}" class="font-weight-bold text-success">See Details..</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6 mt-4 mt-md-0 card-header">
-                <div class="shadow rounded card px-2">
-                    <article class="col-md-12 single-post no-gutters border-top py-3">
-                        <strong class="h4 pt-2">
-                            Title of Blog
-                        </strong>
-                        <div class="image-wrapper float-left pr-3">
-                            <img src="../static/assets/img/edo/opportunities/competitions.jpg" class="img-fluid"
-                                alt="gist" id="tab_img" />
-                        </div>
-                        <div class="single-post-content-wrapper text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                            Possimus maiores dolores voluptatum enim soluta omnis debitis
-                            quam ab nemo necessitatibus.
-                        </div>
-                    </article>
-                    <div class="row pb-2">
-                        <div class="col-8 float-left">
-                            &ensp;99+&thinsp;<i class="la la-eye h6"></i>
-                            |&ensp;50&thinsp;<i class="la la-comment h6"></i>
-                        </div>
-                        <div class="col-4 float-right">
-                            <a href="" class="font-weight-bold text-success">See Details..</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 mt-4 mt-md-0 card-header">
-                <div class="shadow rounded card px-2">
-                    <article class="col-md-12 single-post no-gutters border-top py-3">
-                        <strong class="h4 pt-2">
-                            Title of Blog
-                        </strong>
-                        <div class="image-wrapper float-left pr-3">
-                            <img src="../static/assets/img/edo/opportunities/competitions.jpg" class="img-fluid"
-                                alt="gist" id="tab_img" />
-                        </div>
-                        <div class="single-post-content-wrapper text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                            Possimus maiores dolores voluptatum enim soluta omnis debitis
-                            quam ab nemo necessitatibus.
-                        </div>
-                    </article>
-                    <div class="row pb-2">
-                        <div class="col-8 float-left">
-                            &ensp;99+&thinsp;<i class="la la-eye h6"></i>
-                            |&ensp;50&thinsp;<i class="la la-comment h6"></i>
-                        </div>
-                        <div class="col-4 float-right">
-                            <a href="" class="font-weight-bold text-success">See Details..</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 mt-4 mt-md-0 card-header">
-                <div class="shadow rounded card px-2">
-                    <article class="col-md-12 single-post no-gutters border-top py-3">
-                        <strong class="h4 pt-2">
-                            Title of Blog
-                        </strong>
-                        <div class="image-wrapper float-left pr-3">
-                            <img src="../static/assets/img/edo/opportunities/competitions.jpg" class="img-fluid"
-                                alt="gist" id="tab_img" />
-                        </div>
-                        <div class="single-post-content-wrapper text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Nihil ad, ex eaque fuga minus reprehenderit asperiores earum incidunt.
-                            Possimus maiores dolores voluptatum enim soluta omnis debitis
-                            quam ab nemo necessitatibus.
-                        </div>
-                    </article>
-                    <div class="row pb-2">
-                        <div class="col-8 float-left">
-                            &ensp;99+&thinsp;<i class="la la-eye h6"></i>
-                            |&ensp;50&thinsp;<i class="la la-comment h6"></i>
-                        </div>
-                        <div class="col-4 float-right">
-                            <a href="" class="font-weight-bold text-success">See Details..</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {%empty%}
+        No Avaliable Blog Post
+        {%endfor%}         
         </div>
-
-
     </div>
 </section>
+
+

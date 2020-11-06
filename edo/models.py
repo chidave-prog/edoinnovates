@@ -109,13 +109,20 @@ class Comment(models.Model):
 class Blog(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)   
-    devotion = HTMLField()
+    content = HTMLField()
     caption_picture = models.ImageField(
-        upload_to='devotion', blank=True, null=True)
+        upload_to='news', blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
     publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(str(self.title))
+        super(Blog, self).save(*args, **kwargs)   
+
+    def get_absolute_url(self):
+        return reverse('blog-detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -124,11 +131,11 @@ class Blog(models.Model):
         return reverse('blog-detail', kwargs={'slug': self.slug})
 
     @property
-    def get_reviews(self):
+    def get_comment(self):
         return self.blog_comment.all().order_by('-created_at')
 
     @property
-    def total_reviews(self):
+    def total_comments(self):
         return Comment.objects.filter(blog=self).count()
 
     @property
@@ -195,12 +202,13 @@ class Team(models.Model):
     position = models.CharField(max_length=50)
     email = models.EmailField()    
     picture = models.ImageField(upload_to='team_picture')
-    phone_number = models.IntegerField(help_text='phone number')   
-    linkedin = models.URLField(blank=True, null=True)
-    facebook = models.URLField(blank=True, null=True)
-    twitter = models.URLField(blank=True, null=True)
-    instagram = models.URLField(blank=True, null=True)
+    link_to_your_whatsapp_number = models.IntegerField(help_text='phone number')   
+    link_to_your_linkedin_account = models.URLField(blank=True, null=True)    
+    link_to_your_twitter_account = models.URLField(blank=True, null=True)
+    # facebook = models.URLField(blank=True, null=True)
+    # instagram = models.URLField(blank=True, null=True)
     publish = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
         return f"{self.full_names}"

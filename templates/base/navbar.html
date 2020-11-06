@@ -25,11 +25,12 @@
 
                 <li><a {% if request.path == '/' %} href="#hub-gallery" {% else %} href="/#hub-gallery" {% endif %}>HUB
                         & GALLERY</a></li>
-                <li><a {% if request.path == '/' %} href="#news" {% else %} href="/#news" {% endif %}>NEWS</a></li>
+                <li><a href="#news" onclick="document.getElementById('newslink').click();">NEWS</a></li>
 
                 <li><a {% if request.path == '/' %} href="#contact" {% else %} href="/#contact" {% endif %}>CONTACT</a>
                 </li>
                 <li><a href="javascript:void(0);" onclick="openForm()"><i class="la la-search"></i></a></li>
+                <a href="/news/" id="newslink"></a>
             </ul>
         </nav>
     </div>

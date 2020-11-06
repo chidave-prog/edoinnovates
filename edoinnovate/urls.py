@@ -9,6 +9,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('mrasemota/', admin.site.urls),
     path('', include('edo.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ]
 admin.site.site_header = "EDO INNOVATE"
 admin.site.site_title = "EDO INNOVATE"

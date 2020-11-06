@@ -195,3 +195,23 @@ header .carousel-inner .item img {
         padding: 1em;
     }
 }
+
+header {
+    background: rgb(21 34 43 / 24%);
+}
+#team_img{
+    width: 10em;
+height: 10em;
+}
+
+element.style {
+}
+.team .member { 
+background: #ffffff00  !important;
+}
+@media (max-width: 768px) {
+#team_img{
+    width: auto;
+    height: auto;
+}
+}

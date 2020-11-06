@@ -52,6 +52,20 @@
   {% endfor %}
   {% endif %}
   </div>
+  <div class="container" style="display: none;" id="myForm">
+    <div class="row">
+      <div class="form-popup" id="popform_size">
+        <form action="/action_page.php" class="form-container col-md-6 mx-auto">
+          <a href="javascript:void(0);" class="float-right px-1 h3 text-danger rounded-circle border border-danger"
+            onclick="closeForm()"><b>&times;</b></a>
+          <input type="text" id="search" placeholder="Search" name="search" class="form-control" required>
+          <div class="mx-auto text-center">
+            <button type="submit" class="btn btn-outline-info">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   {% block content %} {% endblock content %}
   {% include "../base/footer.html" %}
 
