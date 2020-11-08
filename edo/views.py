@@ -1,6 +1,9 @@
+from django.conf import settings
+from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect, JsonResponse
 from django.db.models import Q
+from django.contrib import messages
 from django.template.loader import render_to_string
 from django.views import generic
 from .models import (
@@ -81,17 +84,13 @@ def Contact(request):
                         " from " + request.POST.get("full_names"))
         message = '%s' % (request.POST.get("message"))
         emailFrom = request.POST.get("email")
-        emailTo = ['rhematose@hotmail.com']
+        emailTo = ['ohikhuemi@hotmail.com']
         send_mail(subject, message, emailFrom, emailTo,
                     fail_silently=True),
         messages.info(request,
                         "Thanks reaching-out to us. God Bless you.")
-    if request.is_ajax():
-        context = {'contact': True}
-        html = render_to_string(
-            'search_section.html', context, request=request)
-        # return JsonResponse({'form': html})
-        return JsonResponse({'form': "sucessfully subscribed!"})
+    if request.is_ajax():    
+        return JsonResponse({'form': "Message Sent!"})
 
 
 
