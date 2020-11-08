@@ -1,0 +1,27 @@
+{% extends '../base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<section id="search">
+<div class="row">   
+    <ul class="col-md-6 mx-auto" style="list-style:disc; margin-top: 5em;"> 
+        {%if keyword%}
+        <p class="h3 py-2 text-center"><u>Search Results for <b>{{keyword}}</b></u></p>
+        {%endif%}
+            {% for search in search_result%}
+            <li class="text-justify border-bottom">                
+                <a href="{% if search.get_absolute_url %}{{search.get_absolute_url}}{% elif search.link_to_program %}{{search.link_to_program}}{%endif%}" class="h6">
+                    {{search.title|upper}}
+                </a>        
+            </li>
+            {%empty%}
+            <p class="text-center h6 text-danger">
+                No Match Found
+            </p>
+            {%endfor%}
+    </ul>   
+</div>
+</section>
+
+{% endblock content %}

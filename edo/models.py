@@ -105,7 +105,6 @@ class Comment(models.Model):
     def __str__(self):
         return f"{self.full_names} commented on {self.blog}" 
 
-
 class Blog(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)   
@@ -142,7 +141,6 @@ class Blog(models.Model):
     def view_count(self):
         return PostView.objects.filter(blog=self).count()
 
-
 class Programme(models.Model):
     programme_type = models.CharField(max_length=20,
                             choices=OPT_TYPE,                            
@@ -172,7 +170,6 @@ class Application(models.Model):
     def __str__(self):
         return f"{self.programme} | {self.first_name} | {self.email} |  {self.aproved}"
 
-
 class Gallery(models.Model):
     photo_type = models.CharField(max_length=100,choices=PHOTO_TYPE)
     title = models.CharField(max_length=200)
@@ -194,8 +191,6 @@ class Gallery(models.Model):
 
     def get_absolute_url(self):
         return reverse('gallery-detail', kwargs={'slug': self.slug})
-
-
 
 class Team(models.Model):
     full_names = models.CharField(max_length=150)
@@ -223,7 +218,6 @@ class Newsletter(models.Model):
 
     def __str__(self):
         return self.sub_email
-
 
 class Testimony(models.Model):
     full_names = models.CharField(max_length=200)

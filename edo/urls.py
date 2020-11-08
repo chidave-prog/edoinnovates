@@ -1,12 +1,12 @@
 from django.urls import path, include, re_path
 from django.conf.urls import url
-from .views import (Home,Newsletter, Search, Contact, AwsRestartBenin,GalleryDetailView, BlogListView, 
+from .views import (Home,Subscription, Search, Contact, AwsRestartBenin,GalleryDetailView, BlogListView, 
 BlogDetailView)
 
 
 urlpatterns = [
     path('', Home, name='home'), 
-    path('newsletter/', Newsletter, name='newsletter'), 
+    path('newsletter/', Subscription, name='newsletter'), 
     path('search/', Search, name='search'),
      path('contact/', Contact, name='contact'), 
     path('aws-restart-Benin/', AwsRestartBenin, name='aws-restart-Benin'),  

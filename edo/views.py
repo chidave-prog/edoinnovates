@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse,HttpResponseRedirect, JsonResponse
+from django.db.models import Q
 from django.template.loader import render_to_string
 from django.views import generic
 from .models import (
@@ -14,28 +15,82 @@ from .models import (
                     Testimony,
                     Newsletter
                     )
-def Newsletter(request):
-    if request.POST.get("sub_email"):
+
+description=""
+keywords=""
+
+def Subscription(request):
+    sub = request.POST.get("sub_email")
+    exists = Newsletter.objects.filter(sub_email=sub).exists()
+    print('\n',exists) 
+    if sub and not exists:
         newsletter, created = Newsletter.objects.get_or_create(
-            sub_email=request.POST.get("sub_email"),
+            sub_email=sub,
             subscribe=True
         )
         newsletter.save()
-        if request.is_ajax():       
-            return JsonResponse({'form': "sucessfully subscribed!"})
+        if request.is_ajax():          
+            return JsonResponse({'form': "<i class='la la-thumbs-up'></i>  sucessfully subscribed!"})  
+    else:
+        if request.is_ajax(): 
+            return JsonResponse({'form': "This Email is Already subscribed!"})       
+
+   
     
 def Search(request):
-    keyword = request.POST.get("search")
-    if keyword:
-        context = {
-                'title_tag'  : "EDO INNOVATE|" + f"{keyword}",
-        }
-        if request.is_ajax():
-            html = render_to_string('pages/search.html',context,request=request)
-            return JsonResponse({'form': html})
+    context = {'title_tag': 'EDO INNOVATE: SEARCH PAGE'}
+    opt = request.POST.get("opt")
+    search = request.POST.get("search")
+    if search and opt:
+        if opt == 'programmes':
+            search_result = Programme.objects.all().filter(
+                Q(title__icontains=search)
+                    | Q(description__icontains=search)
+                    | Q(date_from__icontains=search)
+                    | Q(date_to__icontains=search)
+                    ,publish=True
+            ).distinct()
+            context.update({
+                'search_result': search_result, 
+                'keyword': search,               
+            })           
+            return render(request, 'pages/search.html', context)
+        elif opt == 'news':
+            search_result = Blog.objects.all().filter(
+             Q(title__icontains=search)
+            | Q(content__icontains=search)
+            ,publish=True
+            ).distinct()
+            context.update({
+                'search_result': search_result, 
+                'keyword': search,              
+            })           
+            return render(request, 'pages/search.html', context)
+    return render(request, 'pages/search.html', context)
         
 def Contact(request):
-    if request.is_ajax():       
+    if request.POST.get("full_names") and request.POST.get("email") and request.POST.get("subject") and request.POST.get("message"):
+        contact, created = Contact.objects.get_or_create(
+            full_names=request.POST.get("full_names"),
+            email=request.POST.get("email"),
+            message=request.POST.get("message")
+        )
+        contact.save()
+
+        subject = str("Contact:  " + request.POST.get("subject") +
+                        " from " + request.POST.get("full_names"))
+        message = '%s' % (request.POST.get("message"))
+        emailFrom = request.POST.get("email")
+        emailTo = ['rhematose@hotmail.com']
+        send_mail(subject, message, emailFrom, emailTo,
+                    fail_silently=True),
+        messages.info(request,
+                        "Thanks reaching-out to us. God Bless you.")
+    if request.is_ajax():
+        context = {'contact': True}
+        html = render_to_string(
+            'search_section.html', context, request=request)
+        # return JsonResponse({'form': html})
         return JsonResponse({'form': "sucessfully subscribed!"})
 
 

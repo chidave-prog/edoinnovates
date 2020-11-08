@@ -45,12 +45,14 @@
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Our Newsletter</h4>
                     <p>Sucribe to get Latest Information about the Edo Innovate Community</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                    <form method="POST" action="."  id="sub_form">
+                        {% csrf_token %}
+                        <input type="email" name="sub_email" required>
+                        <input id="sub_form_btn" type="submit" value="Subscribe">
                     </form>
-
+                    <span id="response" class="text-success text-center py-2">                  
+                    </span>
                 </div>
-
             </div>
         </div>
     </div>
@@ -65,3 +67,31 @@
 
 <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 <div id="preloader"></div>
+{%load static%}
+<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function (event) {
+        $(document).on('submit', '#sub_form', function (event) {
+            event.preventDefault();
+            document.getElementById('sub_form_btn').value = "Adding...";            
+            var sub_email = document.querySelector("input[name=sub_email]").value;           
+            $.ajax({
+                type: 'POST',
+                url: '/newsletter/',
+                data: {
+                    'sub_email': sub_email,                  
+                    'csrfmiddlewaretoken': '{{ csrf_token}}'
+                },
+                dataType: 'json',
+                success: function (response) {
+                    document.getElementById('sub_form_btn').value = "Subscribe";  
+                    $('#response').html(response['form'])
+                    console.log($('#response').html(response['form']));
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText);
+                },
+            });
+        });
+    });
+</script>
