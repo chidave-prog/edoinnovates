@@ -176,8 +176,4 @@ else:
     EMAIL_HOST = 'smtp.mailgun.org'
 
 
-
-
-
-    
 django_heroku.settings(locals(), staticfiles=False)
