@@ -7,25 +7,26 @@
             <p>NEWS</p>
         </div>
 
-        <div class="row" data-aos="fade-up" data-aos-delay="200">            
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
             {% for news in blog%}
             <div class="col-md-6 mt-4 mt-md-0 card-header">
-                <div class="shadow rounded card px-2">
+                <div class="shadow rounded card px-2"
+                    style="border-top-right-radius: 2em !important; border-bottom-left-radius: 2em !important;">
                     <article class="col-md-12 single-post no-gutters border-top py-3">
-                      
+
                         <strong class="h4 pt-2 font-weight-bold py-1">
-                           {{news.title}}
+                            {{news.title}}
                         </strong>
                         <div class="image-wrapper float-left pr-3">
                             <img src="{%if news.caption_picture%}
                             {{news.caption_picture.url}}
                             {%else%}
                             {%static 'assets/img/edo/logo&badges/badge.png' %}
-                            {%endif%}" class="img-fluid"
-                                alt="gist" id="tab_img" />
+                            {%endif%}" class="img-fluid" alt="gist" id="tab_img" />
                         </div>
                         <div class="single-post-content-wrapper text-justify">
                             {{news.content|safe|striptags|truncatechars:340}}
+                            <a href="{{news.get_absolute_url}}" class="font-weight-bold text-success">See Details..</a>
                         </div>
                     </article>
                     <div class="row pb-2">
@@ -33,17 +34,12 @@
                             &ensp;{{news.view_count}}&thinsp;<i class="la la-eye h6"></i>
                             |&ensp;{{news.total_comments}}&thinsp;<i class="la la-comment h6"></i>
                         </div>
-                        <div class="col-4 float-right">
-                            <a href="{{news.get_absolute_url}}" class="font-weight-bold text-success">See Details..</a>
-                        </div>
                     </div>
                 </div>
             </div>
-        {%empty%}
-        No Avaliable Blog Post
-        {%endfor%}         
+            {%empty%}
+            No Avaliable Blog Post
+            {%endfor%}
         </div>
     </div>
 </section>
-
-

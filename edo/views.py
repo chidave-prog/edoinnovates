@@ -110,7 +110,8 @@ def AwsRestartBenin(request):
         'title_tag'  : "EDO INNOVATE| AWS Re/Start Benin",
         'programme': Programme.objects.all().order_by('created_at'),
         'gallery': Gallery.objects.all().order_by('created_at'),
-        'testimony': Testimony.objects.all().order_by('created_at'),
+        'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
+        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
         'team': Team.objects.all().order_by('created_at'),
     }
     return render(request, 'pages/aws.html', context)
@@ -129,7 +130,7 @@ class BlogListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = "EDO INNOVATE| NEWS",     
+        context['title_tag'] = "EDO INNOVATE| NEWS"    
         return context
 
 class BlogDetailView(generic.DetailView):
@@ -139,5 +140,5 @@ class BlogDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = "EDO INNOVATE| NEWS",     
+        context['title_tag'] = "EDO INNOVATE| NEWS"     
         return context

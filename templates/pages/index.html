@@ -368,16 +368,16 @@
                     {%if prog.programme_type == 'TRAINING' %}
                     <div class="w3-content w3-display-container">
                         <div class="row {{prog.programme_type}}">
-                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
-                                    {{prog.date_to|date}}|</span></h3>
+                            <p class="text-info col-12 h4">{{prog.title}} <span>|{{prog.date_from|date}} -
+                                    {{prog.date_to|date}}|</span></p>
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
                                 <article class="col-md-12 single-post no-gutters border-top">
                                     <div class="single-post-content-wrapper text-justify">
                                         <p class="text-justify">
-                                            {{prog.description|truncatechars:1000}} &ensp;
+                                            {{prog.description|truncatechars:700}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
-                                        <div class="row">
+                                        <div class="row mx-auto text-center">
                                             <td>&nbsp; &nbsp;</td>
                                             <td class="h4">
                                                 {% post_to_linkedin '{{prog.link_to_program}}' %}
@@ -872,10 +872,11 @@
             </div>
 
             <div class="row">
-{% for member in team%}
+                {% for member in team%}
                 <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="{{forloop.counter}}00">
                     <div class="member">
-                        <img id="team_img" src="{%if member.picture%} {{member.picture.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                        <img id="team_img"
+                            src="{%if member.picture%} {{member.picture.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
                             class="img-fluid rounded-circle" alt="" id="team_img">
                         <div class="member-info">
                             <div class="member-info-content">
@@ -883,15 +884,15 @@
                                 <span>{{member.position}}</span>
                             </div>
                             <div class="social">
-                                <a href="{{member.link_to_your_whatsapp_number}}"><i class="icofont-whatsapp"></i></a> 
-                                <a href="{{member.link_to_your_twitter_account}}"><i class="icofont-twitter"></i></a>                                                         
+                                <a href="{{member.link_to_your_whatsapp_number}}"><i class="icofont-whatsapp"></i></a>
+                                <a href="{{member.link_to_your_twitter_account}}"><i class="icofont-twitter"></i></a>
                                 <a href="{{member.link_to_your_linkedin_account}}"><i class="icofont-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-{%endfor%}
- </div>
+                {%endfor%}
+            </div>
 
         </div>
     </section>

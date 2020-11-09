@@ -2,6 +2,146 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
+<style>
+    article .active {
+        z-index: 999;
+    }
+
+    #steps {
+        margin-top: 4em;
+        position: relative !important;
+        top: 3em !important;
+        float: left;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+    }
+
+    #steps div {
+        float: left;
+        border-radius: 50%;
+        background-color: #6f8db3;
+        padding: 1vw;
+        margin: 1vw;
+        box-sizing: border-box;
+        width: 6vw;
+        height: 6vw;
+        color: #828588;
+        font-size: 2rem;
+        text-align: center;
+        cursor: pointer;
+        /* box-shadow: inset 100px 0 0 #0e56ad; */
+        box-shadow: inset -100px 0 0 #f7f7f7
+    }
+
+    #steps div.active {
+        color: #fff;
+        background-color: #38434b;
+        box-shadow: inset 0 0 0 #38e;
+    }
+
+    #steps div.done {
+        color: #38e;
+        box-shadow: inset -100px 0 0 #91bff6;
+    }
+
+    .article_container {
+        float: left;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40vw;
+    }
+
+    article {
+        border-radius: 2em;
+        width: 100%;
+        top: 0;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: -0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+    }
+
+    article.active_m_2 {
+        left: -110vw;
+        opacity: 0;
+    }
+
+    article.active_m_1 {
+        left: -110%;
+        opacity: 0.3;
+    }
+
+    article.active {
+        left: 0;
+        opacity: 1;
+    }
+
+    article.active_p_1 {
+        left: 110%;
+        opacity: -6.7;
+    }
+
+    article.active_p_2 {
+        left: 110vw;
+        opacity: 0;
+    }
+
+    article * {
+        border-radius: 2em;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    article h2 {
+        background-color: #38434b;
+        color: #fff;
+        font-size: 1.5rem;
+        letter-spacing: 0.12rem;
+    }
+
+    article p {
+        width: 100%;
+        line-height: 1.2rem;
+    }
+
+    * {
+        transition: all 1000ms;
+    }
+
+    #stage_sec {
+        padding: 0em !important;
+        overflow: visible;
+        margin-bottom: 3em;
+    }
+
+    @media (max-width: 768px) {
+        #stage_sec {
+            padding: 0em !important;
+
+        }
+
+        #steps {
+            margin-top: 13em;
+            /* z-index: 99999; */
+            position: relative !important;
+            top: 3em !important;
+        }
+
+        #steps div {
+            width: 16vw;
+            height: 16vw;
+        }
+
+        article {
+            width: 21em;
+            top: 0;
+            left: -6em !important;
+        }
+    }
+</style>
 <section id="hero">
     <div id="carousel-index" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
@@ -83,24 +223,23 @@
         </div>
     </div>
     <a class="carousel-control-prev" href="#carousel-index" role="button" data-slide="prev">
-        <span class=" h1 text-white la la-arrow-left" aria-hidden="true"></span>
+        <span class=" h1 text-white la la-angle-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#carousel-index" role="button" data-slide="next">
-        <span class=" h1 text-white la la-arrow-right" aria-hidden="true"></span>
+        <span class=" h1 text-white la la-angle-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
     </div>
 </section>
 
 <section class="container">
-    <p style="font-size: 3vw;">
-        <strong>
-            READY TO LAUNCH A CAREER IN TECH?
-        </strong>
-    </p>
+    <div class="section-title pb-1" style="padding-bottom: 4px !important;">
+        <h2>Hello World</h2>
+        <p> READY TO LAUNCH A CAREER IN TECH?</p>
+    </div>
     <div class="row border-bottom pb-2">
-        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto" data-aos="fade-up">
+        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto pt-3" data-aos="fade-up">
             <p>
                 AWS re/Start is a free 12 week bootcamp to kickstart your career in tech as a Cloud Support Practitioner
                 — run in collaboration with Amazon Web Services and Prince’s Trust. Take the Where Do I Belong in Tech
@@ -119,322 +258,66 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-8 pt-3">
-            <ul class="row border-left border-right" id="padis">
-
-                <li class="text-justify p-2">
-                    <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="text-success">Free
-                        training and
-                        qualification</b> You’ll
-                    learn
-                    all you
-                    need to be
-                    successful in a cloud technology career – from the coding languages & technical knowledge of cloud
-                    computing to the employment skills that will help you achieve your potential. At the end of the
-                    programme you’ll be ready to take your AWS Cloud Practitioner Certification – and we’ll fund you to
-                    do it.
-                </li>
-                <li class="text-justify p-2">
-                    <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="text-success">Connect with employers</b> At the end of the programme, Generation will
-                    connect
-                    you with employers
-                    hiring
-                    for cloud and devops engineer roles, support you through your application, and help you transition
-                    into
-                    your working life.
-                </li>
-
-                <li class="text-justify p-2">
-                    <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="text-success">Free travel and lunch</b> And if you’re receiving universal credit or other
-                    benefits, we’ll work with
-                    you to
-                    make sure you continue to receive these during the programme.
-                </li>
-
-            </ul>
-            <p class="text-center">
-                Applications are closed for our November programme. Our next programme will be in February 2021, please
-                register your interest, and we’ll contact you once applications open.
-            <h6>
-                <small>
-                    This programme is delivered in collaboration with West Midlands Combined Authority, AWS (Amazon Web
-                    Services) and the Prince’s Trust.
-                </small>
-            </h6>
-            </p>
-            <style>
-                header {
-                    width: 100vw;
-                    margin: 0;
-                    float: left;
-                    padding: 1rem 0;
-                }
-
-                article .active {
-                    z-index: 999;
-                }
-
-                #steps {
-                    margin-top: 9em;
-                    z-index: 99999;
-                    position: relative !important;
-                    top: 3em !important;
-                    float: left;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background-color: #fff;
-                    box-shadow: -0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
-                }
-
-                #steps div {
-                    float: left;
-                    border-radius: 50%;
-                    background-color: #6f8db3;
-                    padding: 1vw;
-                    margin: 1vw;
-                    box-sizing: border-box;
-                    width: 9vw;
-                    height: 6vw;
-                    color: #c0dafa;
-                    font-size: 2rem;
-                    text-align: center;
-                    cursor: pointer;
-                    box-shadow: inset 100px 0 0 #0e56ad;
-                }
-
-                #steps div.active {
-                    color: #fff;
-                    /* background-color: #38e;
-                     */
-                    background-color: #38434b;
-                    box-shadow: inset 0 0 0 #38e;
-                }
-
-                #steps div.done {
-                    color: #38e;
-                    box-shadow: inset -100px 0 0 #91bff6;
-                }
-
-                .article_container {
-                    float: left;
-                    position: relative;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 40vw;
-                }
-
-                article {
-                    width: 100%;
-                    top: 0;
-                    position: absolute;
-                    background-color: #fff;
-                    box-shadow: -0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
-                }
-
-                article.active_m_2 {
-                    left: -110vw;
-                    opacity: 0;
-                }
-
-                article.active_m_1 {
-                    left: -110%;
-                    opacity: 0.3;
-                }
-
-                article.active {
-                    left: 0;
-                    opacity: 1;
-                }
-
-                article.active_p_1 {
-                    left: 110%;
-                    /* opacity: 0.3; */
-                    opacity: -6.7;
-                }
-
-                article.active_p_2 {
-                    left: 110vw;
-                    opacity: 0;
-                }
-
-                article * {
-                    box-sizing: border-box;
-                    width: 100%;
-                    margin: 0;
-                    padding: 1rem;
-                }
-
-                article h2 {
-                    background-color: #38e;
-                    color: #fff;
-                    font-size: 1.5rem;
-                    letter-spacing: 0.12rem;
-                }
-
-                article p {
-                    width: 100%;
-                    line-height: 1.2rem;
-                }
-
-                * {
-                    transition: all 1000ms;
-                }
-
-                @media (max-width: 768px) {
-                    #steps {
-                        margin-top: 13em;
-                        z-index: 99999;
-                        position: relative !important;
-                        top: 3em !important;
-                    }
-
-                    #steps div {
-                        width: 16vw;
-                        height: 16vw;
-                    }
-
-                    article {
-                        width: 21em;
-                        top: 0;
-                        left: -6em !important;
-                    }
-                }
-            </style>
-
-
-            <div class="container" style="position: relative;">
-                <div class="row">
-                    <div class="article_container col-md-12">
-                        <article class="active">
-                            <h2>STEP 1: COMPLETE SOME ONLINE TASKS</h2>
-                            <p class="card">
-                                In your own time, complete some short tasks related to the programme. Don’t worry, you
-                                don’t need to have any existing knowledge or experience to be able to complete them.
-                            </p>
-                        </article>
-                        <article class="active_p_1">
-                            <h2>STEP 2: COME TO AN INFORMATION SESSION</h2>
-                            <p class="card">Efficiently unleash cross-media information without cross-media value.
-                                Quickly maximize
-                                timely
-                                deliverables for real-time schemas. Dramatically maintain clicks-and-mortar
-                                solutions
-                                without
-                                functional solutions.</p>
-                        </article>
-                        <article class="active_p_2">
-                            <h2>STEP 3: COMPLETELY</h2>
-                            <p class="card">Completely synergize resource sucking relationships via premier niche
-                                markets.
-                                Professionally
-                                cultivate one-to-one customer service with robust ideas. Dynamically innovate
-                                resource-leveling
-                                customer service for state of the art customer service.</p>
-                        </article>
-                        <article class="active_p_2">
-                            <h2>STEP 4: OBJECTIVELY</h2>
-                            <p class="card">Objectively innovate empowered manufactured products whereas parallel
-                                platforms.
-                                Holisticly
-                                predominate extensible testing procedures for reliable supply chains. Dramatically
-                                engage
-                                top-line web services vis-a-vis cutting-edge deliverables.</p>
-                        </article>
-                        <article class="active_p_2">
-                            <h2>STEP 5: PROACTIVELY</h2>
-                            <p class="card">Proactively envisioned multimedia based expertise and cross-media growth
-                                strategies.
-                                Seamlessly
-                                visualize quality intellectual capital without superior collaboration and
-                                idea-sharing.
-                                Holistically pontificate installed base portals after maintainable products.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="steps">
-                    <div data-step="1" class="active">1</div>
-                    <div data-step="2">2</div>
-                    <div data-step="3">3</div>
-                    <div data-step="4">4</div>
-                    <div data-step="5">5</div>
-                </div>
-
-            </div>
-
-
-
-
-            {% block extra_scripts %}
-            <script>
-                $(document).ready(function ($) {
-                    $('#steps > div').click(function () {
-                        var i = $(this).attr('data-step') - 1;
-
-                        $('#steps > div').each(function (index) {
-                            if (index < i) {
-                                $(this).addClass('done');
-                                $(this).removeClass('active');
-                            } else if (index == i) {
-                                $(this).addClass('active');
-                                $(this).removeClass('done');
-                            } else {
-                                $(this).removeClass('done');
-                                $(this).removeClass('active');
-                            }
-                        });
-
-                        $('article').each(function (index) {
-                            if (index < i - 1) {
-                                clearClasses($(this));
-                                $(this).addClass('active_m_2');
-                            } else if (index > i + 1) {
-                                clearClasses($(this));
-                                $(this).addClass('active_p_2');
-                            } else if (index < i) {
-                                clearClasses($(this));
-                                $(this).addClass('active_m_1');
-                            } else if (index > i) {
-                                clearClasses($(this));
-                                $(this).addClass('active_p_1');
-                            } else {
-                                clearClasses($(this));
-                                $(this).addClass('active');
-                            }
-                        });
-
-                        function clearClasses(item) {
-                            var a = [
-                                "active_m_2",
-                                "active_m_1",
-                                "active",
-                                "active_p_1",
-                                "active_p_2"
-                            ];
-                            a.forEach(function (class_name) {
-                                item.removeClass(class_name);
-                            });
-                        }
-
-                    });
-
-                });
-            </script>
-            {% endblock extra_scripts %}
-
-
-
-
-
+    <div class="row  shadow py-2">
+        <div class="col-12 section-title">
+            <h2>AWS Benin</h2>
+            <p>What You Get</p>
         </div>
-        <div class="col-md-4 pt-2">
-            <div class="shadow">
+        <ul class="col-md-8 border-left border-right pb-3" id="padis">
+            <li class="text-justify p-2">
+                <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
+                <b class="text-success">Free
+                    training and
+                    qualification</b> You’ll
+                learn
+                all you
+                need to be
+                successful in a cloud technology career – from the coding languages & technical knowledge of cloud
+                computing to the employment skills that will help you achieve your potential. At the end of the
+                programme you’ll be ready to take your AWS Cloud Practitioner Certification – and we’ll fund you to
+                do it.
+            </li>
+            <li class="text-justify p-2">
+                <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
+                <b class="text-success">Connect with employers</b> At the end of the programme, Generation will
+                connect
+                you with employers
+                hiring
+                for cloud and devops engineer roles, support you through your application, and help you transition
+                into
+                your working life.
+            </li>
+
+            <li class="text-justify p-2">
+                <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
+                <b class="text-success">Free travel and lunch</b> And if you’re receiving universal credit or other
+                benefits, we’ll work with
+                you to
+                make sure you continue to receive these during the programme.
+            </li>
+            <li>
+                <marquee behavior="" direction="">
+                    <h6 class="text-warning">
+                        <b>
+                            Applications are closed for our November programme. Our next programme will be in February
+                            2021, please
+                            register your interest, and we’ll contact you once applications open.
+                        </b>
+
+                    </h6>
+
+                </marquee>
+                <p class="text-center h4">
+                    <small>
+                        This programme is delivered in collaboration with West Midlands Combined Authority, AWS (Amazon
+                        Web
+                        Services) and the Prince’s Trust.
+                    </small> </p>
+            </li>
+
+        </ul>
+        <div class="col-md-4">
+            <div class="">
                 <div class="text-center py-1">
                     <h3> PROGRAM LENGTH</h3>
                     <h1 class="text-warning" style="font-family:Arial Black;">12 weeks</h1>
@@ -467,92 +350,147 @@
                     </li>
                 </ul>
             </div>
-            <section id="testimonials" class="testimonials">
-                <div class="container" data-aos="zoom-in">
 
-                    <div class="owl-carousel testimonials-carousel">
-
-                        <div class="testimonial-item">
-                            <img src="../static/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                rhoncus.
-                                Accusantium
-                                quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-
-                        <div class="testimonial-item">
-                            <img src="../static/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                cillum eram
-                                malis
-                                quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-
-                        <div class="testimonial-item">
-                            <img src="../static/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam
-                                duis
-                                minim tempor
-                                labore quem eram duis noster aute amet eram fore quis sint minim.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-
-                        <div class="testimonial-item">
-                            <img src="../static/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat
-                                minim
-                                velit minim
-                                dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-
-                        <div class="testimonial-item">
-                            <img src="../static/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>John Larson</h3>
-                            <h4>Entrepreneur</h4>
-                            <p>
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster
-                                veniam enim
-                                culpa
-                                labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi
-                                cillum quid.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
         </div>
+    </div>
 </section>
 
+<div id="aws_reg_sec" class="d-none">
+    <div class="pt-5 text-right">
+        <a href="javascript:void(0);" id="aws_reg_cancel"
+            onclick="document.getElementById('aws_reg_sec').className='d-none';">
+            <b class="h1 text-white font-weight-bold">&times;</b></a>
+    </div>
+    <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeymFLJBohJYOBRi_WbXlx9JDnLDc6mTxuuNpghnKUtprJcIw/viewform?embedded=true"
+        width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
+        class="pt-4 col-md-12">Loading…</iframe>
+</div>
+<section id="stage_sec">
+    <div class="col-md-12">
+        <div class="container pb-5" style="position: relative;">
+            <div class="row">
+                <div class="article_container col-md-12">
+                    <article class="active">
+                        <h2>STEP 1: Register on The Edo Innovate Website</h2>
+                        <p class="">
+                            In your own time, complete some short tasks related to the programme. Don’t worry, you
+                            don’t need to have any existing knowledge or experience to be able to complete them.
+                            <a href="javascript:void(0);" class="text-info"
+                                onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
+                                <b>Register</b>
+                            </a>
+                        </p>
+                    </article>
+                    <article class="active_p_1">
+                        <h2>STEP 2: COME TO AN INFORMATION SESSION</h2>
+                        <p class="card">Efficiently unleash cross-media information without cross-media value.
+                            Quickly maximize
+                            timely
+                            deliverables for real-time schemas. Dramatically maintain clicks-and-mortar
+                            solutions
+                            without
+                            functional solutions.</p>
+                    </article>
+                    <article class="active_p_2">
+                        <h2>STEP 3: COMPLETELY</h2>
+                        <p class="card">Completely synergize resource sucking relationships via premier niche
+                            markets.
+                            Professionally
+                            cultivate one-to-one customer service with robust ideas. Dynamically innovate
+                            resource-leveling
+                            customer service for state of the art customer service.</p>
+                    </article>
+                    <article class="active_p_2">
+                        <h2>STEP 4: OBJECTIVELY</h2>
+                        <p class="card">Objectively innovate empowered manufactured products whereas parallel
+                            platforms.
+                            Holisticly
+                            predominate extensible testing procedures for reliable supply chains. Dramatically
+                            engage
+                            top-line web services vis-a-vis cutting-edge deliverables.</p>
+                    </article>
+                    <article class="active_p_2">
+                        <h2>STEP 5: PROACTIVELY</h2>
+                        <p class="card">Proactively envisioned multimedia based expertise and cross-media growth
+                            strategies.
+                            Seamlessly
+                            visualize quality intellectual capital without superior collaboration and
+                            idea-sharing.
+                            Holistically pontificate installed base portals after maintainable products.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pb-2">
+            <div id="steps">
+                <div data-step="1" class="active">1</div>
+                <div data-step="2">2</div>
+                <div data-step="3">3</div>
+                <div data-step="4">4</div>
+                <div data-step="5">5</div>
+            </div>
+
+        </div>
+        {% block extra_scripts %}
+        <script>
+            $(document).ready(function ($) {
+                $('#steps > div').click(function () {
+                    var i = $(this).attr('data-step') - 1;
+
+                    $('#steps > div').each(function (index) {
+                        if (index < i) {
+                            $(this).addClass('done');
+                            $(this).removeClass('active');
+                        } else if (index == i) {
+                            $(this).addClass('active');
+                            $(this).removeClass('done');
+                        } else {
+                            $(this).removeClass('done');
+                            $(this).removeClass('active');
+                        }
+                    });
+
+                    $('article').each(function (index) {
+                        if (index < i - 1) {
+                            clearClasses($(this));
+                            $(this).addClass('active_m_2');
+                        } else if (index > i + 1) {
+                            clearClasses($(this));
+                            $(this).addClass('active_p_2');
+                        } else if (index < i) {
+                            clearClasses($(this));
+                            $(this).addClass('active_m_1');
+                        } else if (index > i) {
+                            clearClasses($(this));
+                            $(this).addClass('active_p_1');
+                        } else {
+                            clearClasses($(this));
+                            $(this).addClass('active');
+                        }
+                    });
+
+                    function clearClasses(item) {
+                        var a = [
+                            "active_m_2",
+                            "active_m_1",
+                            "active",
+                            "active_p_1",
+                            "active_p_2"
+                        ];
+                        a.forEach(function (class_name) {
+                            item.removeClass(class_name);
+                        });
+                    }
+
+                });
+
+            });
+        </script>
+        {% endblock extra_scripts %}
+    </div>
+</section>
+{% include "../pages/testimony.html" with testimonies=testimonies %}
+{% include "../pages/contact.html" %}
 {% endblock content %}
