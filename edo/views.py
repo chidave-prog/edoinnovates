@@ -71,26 +71,24 @@ def Search(request):
             return render(request, 'pages/search.html', context)
     return render(request, 'pages/search.html', context)
         
-def Contact(request):
+def ContactPage(request):
     if request.POST.get("full_names") and request.POST.get("email") and request.POST.get("subject") and request.POST.get("message"):
         contact, created = Contact.objects.get_or_create(
             full_names=request.POST.get("full_names"),
             email=request.POST.get("email"),
+            subject=request.POST.get("subject"),
             message=request.POST.get("message")
         )
         contact.save()
 
-        subject = str("Contact:  " + request.POST.get("subject") +
-                        " from " + request.POST.get("full_names"))
-        message = '%s' % (request.POST.get("message"))
+        subject = f"Contact Message From Edo Innovate Site:  {request.POST.get('subject')}" 
+        message = '%s %s %s' % (request.POST.get("message"), "\n from: \n", request.POST.get('full_names'))
         emailFrom = request.POST.get("email")
-        emailTo = ['ohikhuemi@hotmail.com']
+        emailTo = ['asemotaizoduwa@edojobs.org', 'believe.ohiozua@gmail.com']
         send_mail(subject, message, emailFrom, emailTo,
-                    fail_silently=True),
-        messages.info(request,
-                        "Thanks reaching-out to us. God Bless you.")
-    if request.is_ajax():    
-        return JsonResponse({'form': "Message Sent!"})
+                    fail_silently=True),      
+        if request.is_ajax():    
+            return JsonResponse({'form': "Message Sent!"})
 
 
 
