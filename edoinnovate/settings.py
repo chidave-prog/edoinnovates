@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django_social_share',
     'tinymce',
     'widget_tweaks',
-    'crispy_forms'
+    'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -144,16 +145,38 @@ TINYMCE_DEFAULT_CONFIG = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
+
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_SWITCHER = config('STATIC_SWITCHER')
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_ROOT=''
 STATICFILES_DIRS=('',)
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = 'info@edoinnovate.com'
+
 if STATIC_SWITCHER == 'local':   
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)      
 else:   
     STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = None
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    EMAIL_HOST = 'smtp.mailgun.org'
+
+
+
 
 
     

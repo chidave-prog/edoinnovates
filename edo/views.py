@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse,HttpResponseRedirect, JsonResponse
 from django.db.models import Q
 from django.contrib import messages
@@ -18,7 +18,7 @@ from .models import (
                     Testimony,
                     Newsletter
                     )
-
+from .forms import (CommentForm, CommentReplyForm)
 description=""
 keywords=""
 
@@ -122,6 +122,11 @@ class GalleryDetailView(generic.DetailView):
     context_object_name = 'gallery'
     template_name = 'pages/gallery.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title_tag'] = "EDO INNOVATE| Gallery"     
+        return context
+
 class BlogListView(generic.ListView):
     model = Blog
     paginate_by = 8
@@ -132,6 +137,7 @@ class BlogListView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['title_tag'] = "EDO INNOVATE| NEWS"    
         return context
+    
 
 class BlogDetailView(generic.DetailView):
     model = Blog
@@ -140,5 +146,29 @@ class BlogDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = "EDO INNOVATE| NEWS"     
+        context['title_tag'] = "EDO INNOVATE| NEWS" 
+        context['form'] = CommentForm
+        context['replyForm'] = CommentReplyForm    
         return context
+    
+    def post(self, request, *args, **kwargs):
+        blog_id = self.get_object()
+        form = CommentForm(request.POST)
+        reply = CommentReplyForm(request.POST)
+        if form.is_valid():
+            form.instance.blog = blog_id
+            form.save()
+            messages.info(request,
+                          "Thanks For Your Comment.")            
+            return redirect(reverse("blog-detail", kwargs={'slug': blog_id.slug}))
+
+        if reply.is_valid():
+            target_comment = request.POST.get('target_comment')
+            add_reply = Comment.objects.get(pk=target_comment)
+            add_reply.user = request.user
+            add_reply.reply = request.POST.get('reply')
+            add_reply.replyed = True
+            add_reply.save()
+            messages.info(request,
+                          "You Have Replied")           
+            return redirect(reverse("blog-detail", kwargs={'slug': blog_id.slug}))

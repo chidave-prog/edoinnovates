@@ -6,9 +6,10 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li {% if request.path == '/' %} class="active" {% endif %}><a href="/">HOME</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a {% if request.path == '/' %} href="#about" {% else %} href="/#about/" {% endif %}>About Us</a>
+                </li>
                 <li class="drop-down">
-                    <a {% if request.path == '/' %} href="#what_we_do" {% else %} href="/#what_we_do" {% endif %}>WHAT
+                    <a {% if request.path == '/' %} href="#what_we_do" {% else %} href="/#what_we_do/" {% endif %}>WHAT
                         WE DO</a>
                     <ul>
                         <li class="drop-down"><a href="#">TRAININGS</a>
@@ -23,11 +24,11 @@
                     </ul>
                 </li>
 
-                <li><a {% if request.path == '/' %} href="#hub-gallery" {% else %} href="/#hub-gallery" {% endif %}>HUB
+                <li><a {% if request.path == '/' %} href="#hub-gallery" {% else %} href="/#hub-gallery/" {% endif %}>HUB
                         & GALLERY</a></li>
                 <li><a href="#news" onclick="document.getElementById('newslink').click();">NEWS</a></li>
 
-                <li><a {% if request.path == '/' %} href="#contact" {% else %} href="/#contact" {% endif %}>CONTACT</a>
+                <li><a {% if request.path == '/' %} href="#contact" {% else %} href="/#contact/" {% endif %}>CONTACT</a>
                 </li>
                 <li><a href="#search" id="search_link" onclick="openForm()"><i class="la la-search"></i></a></li>
                 <a href="/news/" id="newslink"></a>

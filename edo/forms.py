@@ -41,7 +41,22 @@ class CommentForm(forms.ModelForm):
             'content',
         )
 
+class CommentReplyForm(forms.ModelForm):
+    reply = forms.CharField(label="", widget=forms.Textarea(
+                                  attrs={
+                                      'class': "h6",
+                                      'style': 'border-radius: .7em; border: 1px solid #14b3fde3; hover:#14b3fde3;',
+                                      'placeholder': 'reply',
+                                      'rows': '3',
+                                      'cols': '80',
+                                  }))
 
+    class Meta:
+        model = Comment
+        fields = (
+            'reply',
+        )
+           
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
@@ -52,3 +67,7 @@ class ApplicationForm(forms.ModelForm):
                 'email',
                 'phone_number',
                 'address',)
+
+
+
+    

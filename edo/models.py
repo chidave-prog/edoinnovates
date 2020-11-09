@@ -60,9 +60,7 @@ PHOTO_TYPE = [
     ('HUB', 'HUB'),
     ('Sartups', 'Sartups'),  
 ]
-
-
-
+  
 class Contact(models.Model):
     full_names = models.CharField(max_length=200)
     email = models.EmailField()
@@ -73,9 +71,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return str(self.email)
-
-
-
 
 class PostView(models.Model):
     visited = models.CharField(max_length=200, blank=True, null=True)
@@ -130,7 +125,7 @@ class Blog(models.Model):
         return reverse('blog-detail', kwargs={'slug': self.slug})
 
     @property
-    def get_comment(self):
+    def get_comments(self):
         return self.blog_comment.all().order_by('-created_at')
 
     @property

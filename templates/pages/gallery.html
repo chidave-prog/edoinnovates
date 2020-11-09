@@ -2,16 +2,19 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
-
-<main id="main">
+<style>
+    header {
+        background: rgb(56 67 75);
+    }
+</style>
+<main id="main" style="padding-top: 3em;">
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
-
             <div class="d-flex justify-content-between align-items-center">
                 <h2>Portfolio Details</h2>
                 <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li>Portfolio Details</li>
+                    <li><a href="/">Home</a></li>
+                    <li>Gallery / {{gallery.title}}</li>
                 </ol>
             </div>
 
@@ -22,37 +25,63 @@
         <div class="container">
 
             <div class="portfolio-details-container">
-
                 <div class="owl-carousel portfolio-details-carousel">
-                    <img src="assets/img/portfolio/portfolio-details-1.jpg" class="img-fluid" alt="">
-                    <img src="assets/img/portfolio/portfolio-details-2.jpg" class="img-fluid" alt="">
-                    <img src="assets/img/portfolio/portfolio-details-3.jpg" class="img-fluid" alt="">
+                    <img src="{%if gallery.photo%}
+                                {{gallery.photo.url}}
+                                {%else%}
+                                ../static/assets/img/edo/logo&badges/badge.png
+                                {%endif%}" class="img-fluid" alt="">
+                    {%if gallery.photo_2%}
+                    <img src="{{gallery.photo_2.url}}" class="img-fluid" alt="">
+                    {%endif%}
+                    {%if gallery.photo_3%}
+                    <img src="{{gallery.photo_3.url}}" class="img-fluid" alt="">
+                    {%endif%}
                 </div>
 
                 <div class="portfolio-info">
-                    <h3>Project information</h3>
+                    <h3>Photo Information</h3>
                     <ul>
-                        <li><strong>Category</strong>: Web design</li>
-                        <li><strong>Client</strong>: ASU Company</li>
-                        <li><strong>Project date</strong>: 01 March, 2020</li>
-                        <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                        <li><strong>Category</strong>:{{gallery.photo_type}}</li>
+                        <!-- <li><strong>Client</strong>: {{gallery.title}}</li> -->
+                        <li><strong>Date</strong> {{gallery.created_at|date}}</li>
+
+                        <li>
+                            {%if gallery.photo_type == 'Sartups' %}
+                            <strong>Project URL</strong>: <a href="{{gallery.link_address_4_start_ups}}">
+                                Visit website
+                            </a>
+                            {%elif gallery.photo_type == 'HUB' %}
+                            <strong>For Bookings</strong>: <a href="javascript:void(0);"
+                                onclick="document.getElementById('contact_sek').className='';">
+                                <b class="text-info">Contact Us</b>
+                            </a>
+                            {%elif gallery.photo_type == 'Gallery' %}
+                            <strong>For Inquiries</strong>: <a href="javascript:void(0);"
+                                onclick="document.getElementById('contact_sek').className='';">
+                                <b class="text-info">Contact Us</b>
+                            </a>
+                            {%endif%}
+                        </li>
                     </ul>
                 </div>
 
             </div>
 
             <div class="portfolio-description">
-                <h2>This is an example of portfolio detail</h2>
+                <h2>{{gallery.title}}</h2>
                 <p>
-                    Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia
-                    quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem
-                    officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum
-                    deserunt eius.
+                    {{gallery.description}}
                 </p>
             </div>
-
         </div>
     </section>
 
+    <div id="contact_sek" class="d-none">
+        <hr>
+        <a href="javascript:void(0);" onclick="document.getElementById('contact_sek').className='d-none';"
+            class="text-danger h6 float-right" style="position: relative; right: 3em;"> <b>Close</b></a>
+        {% include "../pages/contact.html" %}
+    </div>
 </main>
 {% endblock content %}
