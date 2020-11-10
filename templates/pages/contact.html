@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-            </div>           
+            </div>
 
             <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
 
@@ -51,10 +51,10 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="form-row"> 
+                    <div class="form-row">
                         <h6 class="py-3 text-dark shadow border text-center px-2 col-12 mx-auto">
                             <span> We Are Eager To Hear From you</span>
-                         </h6>                     
+                        </h6>
                         <div class="col-md-6 form-group">
                             <input type="text" name="full_names" class="form-control" id="name" placeholder="Your Name"
                                 data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
@@ -76,10 +76,9 @@
                             data-msg="Please write something for us" placeholder="Message"></textarea>
                         <div class="validate"></div>
                     </div>
-                    <div id="msg_sent" class="text-success text-center h4">
-
+                    <div id="msg_sent" class="text-success text-center h6">
                     </div>
-                    <div class="text-center">                   
+                    <div class="text-center">
                         <button id="contact_submit" type="submit" class="btn btn-outline-info btn-sm">Send
                             Message</button>
                     </div>
@@ -112,7 +111,7 @@
                                 dataType: 'json',
                                 success: function (response) {
                                     document.getElementById('contact_submit').innerHTML = "Send Message";
-                                    document.getElementById('contact_submit').className = "btn btn-outline-info btn-sm";                                    
+                                    document.getElementById('contact_submit').className = "btn btn-outline-info btn-sm";
                                     var full_names = document.querySelector("input[name=full_names]").value = '';
                                     var email = document.querySelector("input[name=email]").value = '';
                                     var subject = document.querySelector("input[name=subject]").value = '';

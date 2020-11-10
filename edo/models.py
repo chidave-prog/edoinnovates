@@ -193,7 +193,7 @@ class Team(models.Model):
     position = models.CharField(max_length=50)
     email = models.EmailField()    
     picture = models.ImageField(upload_to='team_picture')
-    link_to_your_whatsapp_number = models.IntegerField(default='+123', help_text='phone number in International formart e.g (+2348012345...)')   
+    whatsapp_number = models.IntegerField(default='+123', help_text='phone number in International formart without the plus e.g (2348012345...)')   
     link_to_your_linkedin_account = models.URLField(blank=True, null=True)    
     link_to_your_twitter_account = models.URLField(blank=True, null=True)
     # facebook = models.URLField(blank=True, null=True)
@@ -206,7 +206,11 @@ class Team(models.Model):
 
     def save(self, *args, **kwargs):  
         edit_photo(self.picture)
+        if self.whatsapp_number:
+            self.whatsapp_number= str(self.whatsapp_number).replace('+','')
         super(Team, self).save(*args, **kwargs)
+       
+
 
 class Newsletter(models.Model):
     sub_email = models.EmailField(blank=True, null=True)
