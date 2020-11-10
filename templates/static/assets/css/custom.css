@@ -194,8 +194,10 @@ header .carousel-inner .item img {
 }
 
 header {
-    background: rgb(21 34 43 / 24%);
+    /* background: rgb(21 34 43 / 24%); */
+    background: rgb(54 65 74);
 }
+
 #team_img{
     width: 10em;
 height: 10em;

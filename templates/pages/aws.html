@@ -3,6 +3,10 @@
 {% load i18n %}
 {% block content %}
 <style>
+    header {
+        background: rgb(60 59 68 / 0%);
+    }
+
     article .active {
         z-index: 999;
     }
@@ -117,7 +121,16 @@
         margin-bottom: 3em;
     }
 
+    #note_sec {
+        padding-top: 4em;
+
+    }
+
     @media (max-width: 768px) {
+        #note_sec {
+            padding-top: 1em;
+        }
+
         #stage_sec {
             padding: 0em !important;
 
@@ -179,8 +192,8 @@
                                 make creative projects. We have passion, ideas,<br />
                                 and ambition for interesting projects.</p>
                             <p class="animated zoomIn" style="animation-delay: 2s">
-                                <a href="#stage_sec" class="btn btn-secondary text-white">Get In Touch
-                                    <i class="la la-arrow-right"></i></a>
+                                <a href="#stage_sec_start" class="btn btn-outline-secondary text-white">Get Started
+                                    <i class="la la-arrow-down"></i></a>
                             </p>
                         </div>
                     </div>
@@ -200,8 +213,8 @@
                             creative websites that will make you more successful.
                         </p>
                         <p class="animated zoomIn" style="animation-delay: 2s">
-                            <a href="#stage_sec" class="btn btn-warning text-white">Get In Touch
-                                <i class="la la-arrow-right"></i></a>
+                            <a href="#stage_sec_start" class="btn btn-outline-warning text-white">Get Started
+                                <i class="la la-arrow-down"></i></a>
                         </p>
                     </div>
                 </div>
@@ -219,8 +232,8 @@
                         maintenance of websites in our days.
                     </p>
                     <p class="animated zoomIn" style="animation-delay: 2s">
-                        <a href="#stage_sec" class="btn btn-default text-white">Get In Touch
-                            <i class="la la-arrow-right"></i></a>
+                        <a href="#stage_sec_start" class="btn btn-outline-default text-white">Get Started
+                            <i class="la la-arrow-down"></i></a>
                     </p>
                 </div>
             </div>
@@ -238,12 +251,12 @@
 </section>
 
 <section class="container">
-    <div class="section-title pb-1" style="padding-bottom: 4px !important;">
+    <div class="section-title py-3" style="padding-bottom: 4px !important;">
         <h2>Hello World</h2>
         <p> READY TO LAUNCH A CAREER IN TECH?</p>
     </div>
     <div class="row border-bottom pb-2">
-        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto pt-3" data-aos="fade-up">
+        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto" data-aos="fade-up" id="note_sec">
             <p>
                 AWS re/Start is a free 12 week bootcamp to kickstart your career in tech as a Cloud Support Practitioner
                 — run in collaboration with Amazon Web Services and Prince’s Trust. Take the Where Do I Belong in Tech
@@ -257,83 +270,87 @@
 
         </div>
         <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="../static/assets/img/edo/opportunities/aws-cohot-1.jpg" alt="" class="img-fluid shadow card"
-                style="border-radius: 1em;">
+            <img src="../static/assets/img/edo/opportunities/aws-cohot-1.jpg" alt="" class="img-fluid"
+                style="border-radius: .5em;">
         </div>
     </div>
 
-    <div class="row  shadow py-2">
+    <div class="row  py-2">
         <div class="col-12 section-title">
             <h2>AWS Benin</h2>
             <p>What You Get</p>
         </div>
         <ul class="col-md-8 border-left border-right pb-3" id="padis">
-            <li class="text-justify p-2">
-                <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                <b class="text-success">Free
-                    training and
-                    qualification</b> You’ll
-                learn
-                all you
-                need to be
-                successful in a cloud technology career – from the coding languages & technical knowledge of cloud
-                computing to the employment skills that will help you achieve your potential. At the end of the
-                programme you’ll be ready to take your AWS Cloud Practitioner Certification – and we’ll fund you to
-                do it.
-            </li>
-            <li class="text-justify p-2">
-                <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                <b class="text-success">Connect with employers</b> At the end of the programme, Generation will
-                connect
-                you with employers
-                hiring
-                for cloud and devops engineer roles, support you through your application, and help you transition
-                into
-                your working life.
-            </li>
+            <div class="shadow p-3">
+                <li class="text-justify p-2">
+                    <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
+                    <b class="text-success">Free
+                        training and
+                        qualification</b> You’ll
+                    learn
+                    all you
+                    need to be
+                    successful in a cloud technology career – from the coding languages & technical knowledge of cloud
+                    computing to the employment skills that will help you achieve your potential. At the end of the
+                    programme you’ll be ready to take your AWS Cloud Practitioner Certification – and we’ll fund you to
+                    do it.
+                </li>
+                <li class="text-justify p-2">
+                    <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
+                    <b class="text-success">Connect with employers</b> At the end of the programme, Generation will
+                    connect
+                    you with employers
+                    hiring
+                    for cloud and devops engineer roles, support you through your application, and help you transition
+                    into
+                    your working life.
+                </li>
 
-            <li class="text-justify p-2">
-                <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                <b class="text-success">Free travel and lunch</b> And if you’re receiving universal credit or other
-                benefits, we’ll work with
-                you to
-                make sure you continue to receive these during the programme.
-            </li>
-            <li>
-                <marquee behavior="" direction="">
-                    <h6 class="text-warning">
-                        <b>
-                            Applications are closed for our November programme. Our next programme will be in February
-                            2021, please
-                            register your interest, and we’ll contact you once applications open.
-                        </b>
+                <li class="text-justify p-2">
+                    <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
+                    <b class="text-success">Free travel and lunch</b> And if you’re receiving universal credit or other
+                    benefits, we’ll work with
+                    you to
+                    make sure you continue to receive these during the programme.
+                </li>
+                <li>
+                    <marquee behavior="" direction="">
+                        <h6 class="text-warning">
+                            <b>
+                                Applications are closed for our November programme. Our next programme will be in
+                                February
+                                2021, please
+                                register your interest, and we’ll contact you once applications open.
+                            </b>
 
-                    </h6>
+                        </h6>
 
-                </marquee>
-                <p class="text-center h4">
-                    <small>
-                        This programme is delivered in collaboration with West Midlands Combined Authority, AWS (Amazon
-                        Web
-                        Services) and the Prince’s Trust.
-                    </small> </p>
-            </li>
+                    </marquee>
+                    <p class="text-center h4">
+                        <small>
+                            This programme is delivered in collaboration with West Midlands Combined Authority, AWS
+                            (Amazon
+                            Web
+                            Services) and the Prince’s Trust.
+                        </small> </p>
+                </li>
+            </div>
 
         </ul>
         <div class="col-md-4">
-            <div class="">
-                <div class="text-center py-1">
+            <div class="shadow p-2">
+                <div class="py-1 text-center">
                     <h3> PROGRAM LENGTH</h3>
                     <h1 class="text-warning" style="font-family:Arial Black;">12 weeks</h1>
                     Monday to Friday, 9am to 5:30pm
                 </div>
 
-                <h6 class="text-center pt-2"> <b>REQUIREMENTS</b></h6>
-                <ul style="list-style: none;" class="text">
-                    <li>
+                <h6 class="text-center"> <b>REQUIREMENTS</b></h6>
+                <ul style="list-style: none;" class="text-left" id="stage_sec_start">
+                    <li class="">
                         <i class="la la-cog"></i> Aged 18-29
                     </li>
-                    <li>
+                    <li class="">
                         <i class="la la-cog"></i> Not working regularly more than 16 hours per week, and not in
                         education or training
                     </li>
@@ -343,15 +360,13 @@
                     <li>
                         <i class="la la-cog"></i> Have the legal right to work & live in the UK
                     </li>
+
                     <li>
-                        <i class="la la-cog"></i> Currently living in Birmingham, Solihull, Sandwell, Dudley, Walsall,
-                        Wolverhampton, or Coventry
-                        (includes Bedworth/Nuneaton)
-                    </li>
-                    <li>
-                        <i class="la la-cog"></i> Available full time for 12 weeks, and ready to start a full time job
+                        <i class="la la-cog"></i> Available full time for 12 weeks, and ready to start a full time
+                        job
                         straight after the course
                     </li>
+
                 </ul>
             </div>
 
@@ -368,19 +383,23 @@
     <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSeymFLJBohJYOBRi_WbXlx9JDnLDc6mTxuuNpghnKUtprJcIw/viewform?embedded=true"
         width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
-        class="pt-4 col-md-12">Loading…</iframe>
+        class="pt-4 col-md-12 animated zoomIn" data-aos="fade-up" data-aos-delay="100"
+        style="animation-delay: 1s">Loading…</iframe>
 </div>
 <section id="stage_sec">
     <div class="col-md-12">
         <div class="container pb-5" style="position: relative;">
             <div class="row">
                 <div class="article_container col-md-12">
-                    <article class="active">
-                        <h2>STEP 1: Register on The Edo Innovate Website</h2>
+                    <article class="active" style="z-index: 99 !important;">
+                        <h2 class="">STEP 1: <a href="javascript:void(0);" class="text-center text-info"
+                                onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
+                                <b>REGISTRATION</b>
+                            </a></h2>
                         <p class="">
                             In your own time, complete some short tasks related to the programme. Don’t worry, you
                             don’t need to have any existing knowledge or experience to be able to complete them.
-                            <a href="javascript:void(0);" class="text-info text-center"
+                            <a href="javascript:void(0);" class="text-center text-info"
                                 onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
                                 <b>Register</b>
                             </a>

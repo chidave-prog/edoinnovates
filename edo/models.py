@@ -142,7 +142,7 @@ class Programme(models.Model):
                             choices=OPT_TYPE,                            
                             help_text='select programme type')
     title = models.CharField(max_length=200)
-    description = models.TextField()    
+    description = models.TextField(help_text='NOTE: word limit of 700', max_length=700)    
     programme_banner = models.ImageField(upload_to='programme_banner')
     link_to_program = models.URLField(blank=True, null=True)
     date_from = models.DateField()
@@ -193,7 +193,7 @@ class Team(models.Model):
     position = models.CharField(max_length=50)
     email = models.EmailField()    
     picture = models.ImageField(upload_to='team_picture')
-    link_to_your_whatsapp_number = models.IntegerField(help_text='phone number')   
+    link_to_your_whatsapp_number = models.IntegerField(default='+123', help_text='phone number in International formart e.g (+2348012345...)')   
     link_to_your_linkedin_account = models.URLField(blank=True, null=True)    
     link_to_your_twitter_account = models.URLField(blank=True, null=True)
     # facebook = models.URLField(blank=True, null=True)
