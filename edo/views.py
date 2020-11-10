@@ -143,9 +143,13 @@ class BlogDetailView(generic.DetailView):
     model = Blog
     context_object_name = 'news'
     template_name = 'pages/news-details.html'
-
-    def get_context_data(self, **kwargs):
+    
+    def get_context_data(self, **kwargs):        
         context = super().get_context_data(**kwargs)
+        view=Blog.objects.get(pk=self.get_object().pk)
+        if view:
+            view.views= int(view.views) + 1
+            view.save() 
         context['title_tag'] = "EDO INNOVATE| NEWS" 
         context['form'] = CommentForm
         context['replyForm'] = CommentReplyForm    

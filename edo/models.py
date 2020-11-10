@@ -106,6 +106,7 @@ class Blog(models.Model):
     content = HTMLField()
     caption_picture = models.ImageField(
         upload_to='news', blank=True, null=True)
+    views = models.IntegerField(default=0, blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
     publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

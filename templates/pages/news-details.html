@@ -10,7 +10,7 @@
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Portfolio Details</h2>
+                <h2>News Details</h2>
                 <ol>
                     <li><a href="/">Home</a></li>
                     <li>News / {{news.title}}</li>
@@ -48,7 +48,7 @@
 
                             <div class="row pb-2">
                                 <div class="col-8 mx-auto text-center">
-                                    &ensp;{{news.view_count}}&thinsp;<i class="la la-eye h6"></i>
+                                    &ensp;{{news.views}}&thinsp;<i class="la la-eye h6"></i>
                                     |&ensp;{{news.total_comments}}&thinsp;<i class="la la-comment h6"></i>
                                 </div>
                                 <footer class="mx-auto text-center pb-3">
@@ -64,7 +64,7 @@
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small">
-                                                {% post_to_twitter 'New post: {{news.title}} @' news.get_absolute_url '<i class="btn btn-info btn-xs la la-twitter"></i>'%}
+                                                {% post_to_twitter 'Latest: {{news.title}} @' news.get_absolute_url '<i class="btn btn-info btn-xs la la-twitter"></i>'%}
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small">
@@ -72,7 +72,7 @@
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small"> <a
-                                                    href="whatsapp://send?text=*Edo Innovate:  {{news.title}}:* {{news.content|striptags|truncatechars:450}} See More@ http://www.edoinnovate.com{{news.get_absolute_url}}"
+                                                    href="whatsapp://send?text=*Latest From Edo Innovate:  {{news.title}}:* {{news.content|striptags|truncatechars:450}} See More@ http://www.edoinnovate.com{{news.get_absolute_url}}"
                                                     data-action="share/whatsapp/share" target="_blank"> <i
                                                         class="btn btn-success btn-xs la la-whatsapp"></i>
                                                 </a>
@@ -111,18 +111,18 @@
                     {{comment.content}}
                 </small>
                 {%if comment.replyed%}
-                <div class="h6 ml-5">
+                <div class="h6 ml-5" style="background-color: #ece4e44d;">
                     <span>
                         <b class="h6 font-weight-bold">{{comment.user|title}}</b>
                     </span>
                     <br>
-                    <div class="border rounded text-left p-1">
+                    <div class="rounded text-left p-1">
                         <small class="text-muted">
                             {{comment.reply}}
                         </small>
                         {%if comment.replyed and request.user.is_authenticated%}
-                        <br><a
-                            href="/secretsof_the_secretplace_admin/ministry/devotionalreview/{{comment.pk}}/change/">edith
+                        <br><a href="/mrasemota/edo/comment/{{comment.pk}}/change/" target="blank" class="text-warning"
+                            style="font-size: 12px;"><i class="la la-edit"></i> edith
                             reply</a>
                         {%endif%}
                     </div>
@@ -134,7 +134,7 @@
                         {% csrf_token %}
                         {{replyForm|crispy}}
                         <input type="hidden" name="target_comment" value="{{comment.pk}}">
-                        <button class="btn btn-outline-info" type="submit">reply</button>
+                        <button class="btn btn-outline-info btn-sm" type="submit">reply</button>
                     </form>
                 </details>
                 {%endif%}
