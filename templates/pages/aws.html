@@ -159,21 +159,44 @@
         padding-bottom: 4px !important;
     }
 </style>
+
 <section id="hero">
-    <div id="carousel-index" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item slide1 active">
+    <div id="carousel-index" class="myCarousel carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <!-- <li data-target="#carousel-index" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-index" data-slide-to="1"></li>
+            <li data-target="#carousel-index" data-slide-to="2"></li>
+            <li data-target="#carousel-index" data-slide-to="3"></li> -->
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            {%if pageslider%}
+            {%for slide in pageslider%}
+            {%if slide.select_page == 'home'%}
+            <div class="carousel-item  {%if forloop.counter == 1%}active{%endif%} item">
+                <img src="{{slide.slide_image.url}}" class="img-fluid" alt="" id="slide_img">
                 <div class="carousel-caption text-center mx-auto" data-aos="fade-up" data-aos-delay="150"
                     id="caption_text">
-                    <h1 class="animated fadeInUp text-warning" style="animation-delay: 1s">
-                        AWS RE/START
+                    <small class="section-title h6">
+                        {{slide.caption_top_title_small|linebreaksbr}}
+                    </small>
+
+                    <h1 class="animated {{slide.top_slider_animation_gesture}}" style="animation-delay: 1s">
+                        {{slide.caption_mid_title_large|linebreaksbr}}
                     </h1>
-                    <p class="text-center animated fadeInDown pb-2 h2" style="animation-delay: 1s;">
-                        Edo Benin City
+                    <p class="text-center animated {{slide.bottom_slider_animation_gesture}} pb-2"
+                        style="animation-delay: 1s;">
+                        {{slide.caption_buttom_title_small|linebreaksbr}}
+                    </p>
+                    <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 2s">
+                        <a href="#stage_sec_start" class="btn btn-outline-warning">{{slide.button_caption}} <i
+                                class="la la-arrow-right"></i></a>
                     </p>
                 </div>
             </div>
-            <div class="carousel-item slide2">
+            {%endif%}
+            {%endfor%}
+            {%else%}
+            <div class="carousel-item active slide2">
                 <div class="carousel-caption">
                     <div class="slide-text slide_style_left">
                         <div class="animated fadeInUp" style="animation-delay: 1s">
@@ -199,44 +222,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item slide3">
-                <div class="carousel-caption">
-                    <div class="slide-text slide_style_left">
-                        <h1 class="animated fadeInUp" style="animation-delay: 1s">
-                            Coven Labs is a Data Science<br />and AI Program
-                        </h1>
-
-                        <p class="animated fadeInDown" style="animation-delay: 1s">
-                            we make websites are the number one ranked design
-                            and
-                            marketing team. We build unique and<br />
-                            creative websites that will make you more successful.
-                        </p>
-                        <p class="animated zoomIn" style="animation-delay: 2s">
-                            <a href="#stage_sec_start" class="btn btn-outline-warning text-white">Get Started
-                                <i class="la la-arrow-down"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item slide4">
-            <div class="carousel-caption">
-                <div class="slide-text slide_style_left">
-                    <h1 class="animated fadeInUp" style="animation-delay: 1s">
-                        We ‎Provide Office Space for Rent
-                    </h1>
-                    <p class="animated fadeInDown" style="animation-delay: 1s">
-                        WAs you know, web design encompasses many different skills and disciplines in the production
-                        and<br />
-                        maintenance of websites in our days.
-                    </p>
-                    <p class="animated zoomIn" style="animation-delay: 2s">
-                        <a href="#stage_sec_start" class="btn btn-outline-default text-white">Get Started
-                            <i class="la la-arrow-down"></i></a>
-                    </p>
-                </div>
-            </div>
+            {%endif%}
         </div>
     </div>
     <a class="carousel-control-prev" href="#carousel-index" role="button" data-slide="prev">
@@ -249,6 +235,7 @@
     </a>
     </div>
 </section>
+
 
 <section class="container">
     <div class="section-title py-3" style="padding-bottom: 4px !important;">

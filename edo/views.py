@@ -18,6 +18,8 @@ from .models import (
                     Testimony,
                     Newsletter
                     )
+from decor.models import Pageslider
+
 from .forms import (CommentForm, CommentReplyForm)
 description=""
 keywords=""
@@ -100,6 +102,7 @@ def Home(request):
         'gallery': Gallery.objects.filter(publish=True).order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
         'team': Team.objects.filter(publish=True).order_by('-created_at'),
+        'pageslider': Pageslider.objects.filter(publish=True),
     }
     return render(request, 'pages/index.html', context)
 

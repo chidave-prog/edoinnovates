@@ -28,6 +28,10 @@
     transform: translate3d(0, 0, 0);
 }
 
+#slide_img{
+    height: 100%; width: 100%;
+}
+
 .slide1 {
     background: url("../img/edo/slides/slide-1.jpg") top center;
 }

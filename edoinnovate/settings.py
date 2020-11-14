@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
     "django_pagination_bootstrap",
+    'decor',
 ]
 
 MIDDLEWARE = [
@@ -173,20 +174,19 @@ else:
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = None
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = None
+    AWS_S3_REGION_NAME = "us-east-2"
+    AWS_S3_SIGNATURE_VERSION = "s3v4"
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'     
+    # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'    
     EMAIL_HOST = 'smtp.mailgun.org'  
 
 
-    AWS_S3_FILE_OVERWRITE = False
-    AWS_DEFAULT_ACL = None
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+   
 
-    # look for files first in aws 
-    # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-    # In India these settings work
-    AWS_S3_REGION_NAME = "us-east-2"
-    AWS_S3_SIGNATURE_VERSION = "s3v4"
+   
+    
 
 
 
