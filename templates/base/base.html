@@ -11,8 +11,8 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/edo/logo&badges/favicon.ico" rel="icon">
-  <link href="{% static 'assets/img/edo/logo&badges/favicon.ico" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/edo/logo&badges/favicon.ico'%}" rel="icon">
+  <link href="{% static 'assets/img/edo/logo&badges/favicon.ico'%}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link
@@ -56,17 +56,18 @@
     <div class="row">
       <div class="form-popup" id="popform_size">
         <form action="/search/" method="POST" class="form-container col-md-6 mx-auto" id="search_form">
-           {% csrf_token %}
+          {% csrf_token %}
           <a href="javascript:void(0);" class="float-right px-1 h3 text-danger rounded-circle border border-danger"
             onclick="closeForm()"><b>&times;</b></a>
           <input type="text" id="search" placeholder="Search" name="search" class="form-control" required>
           <select name="opt" id="opt" class="form-control mx-auto col-6">
             <option value="programmes">Programmes</option>
-            <option value="news">News</option>           
-        </select>
+            <option value="news">News</option>
+          </select>
           <div class="mx-auto text-center">
-            <button type="submit" class="btn btn-outline-info btn-sm" onclick="document.getElementById('sach').innerHTML='Searching....';"> 
-            <span  id="sach">Search</span>  
+            <button type="submit" class="btn btn-outline-info btn-sm"
+              onclick="document.getElementById('sach').innerHTML='Searching....';">
+              <span id="sach">Search</span>
             </button>
           </div>
         </form>
