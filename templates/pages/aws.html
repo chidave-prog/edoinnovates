@@ -171,7 +171,7 @@
         <div class="carousel-inner" role="listbox">
             {%if pageslider%}
             {%for slide in pageslider%}
-            {%if slide.select_page == 'home'%}
+            {%if slide.select_page == 'aws_page'%}
             <div class="carousel-item  {%if forloop.counter == 1%}active{%endif%} item">
                 <img src="{{slide.slide_image.url}}" class="img-fluid" alt="" id="slide_img">
                 <div class="carousel-caption text-center mx-auto" data-aos="fade-up" data-aos-delay="150"
