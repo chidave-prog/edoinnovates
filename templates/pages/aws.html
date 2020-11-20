@@ -162,15 +162,15 @@
 
 <section id="hero">
     <div id="carousel-index" class="myCarousel carousel slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <!-- <li data-target="#carousel-index" data-slide-to="0" class="active"></li>
+        <!-- <ol class="carousel-indicators">
+            <li data-target="#carousel-index" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-index" data-slide-to="1"></li>
             <li data-target="#carousel-index" data-slide-to="2"></li>
-            <li data-target="#carousel-index" data-slide-to="3"></li> -->
-        </ol>
+            <li data-target="#carousel-index" data-slide-to="3"></li>
+        </ol> -->
         <div class="carousel-inner" role="listbox">
             {%if pageslider%}
-            {%for slide in pageslider%}
+            {%for slide in pageslider|slice:"1"%}
             {%if slide.select_page == 'aws_page'%}
             <div class="carousel-item  {%if forloop.counter == 1%}active{%endif%} item">
                 <img src="{{slide.slide_image.url}}" class="img-fluid" alt="" id="slide_img">
@@ -189,7 +189,8 @@
                     </p>
                     <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 2s">
                         <a href="#stage_sec_start" class="btn btn-outline-warning">{{slide.button_caption}} <i
-                                class="la la-arrow-right"></i></a>
+                                class="la la-arrow-right"></i>
+                        </a>
                     </p>
                 </div>
             </div>
@@ -200,16 +201,13 @@
                 <div class="carousel-caption">
                     <div class="slide-text slide_style_left">
                         <div class="animated fadeInUp" style="animation-delay: 1s">
-                            <small class="section-title h6">
-                                EDOBITS - A
-                                WEB/GRAPHIC ORGANIZATION
-                            </small>
-
                             <h1>
-                                Become a professional
+                                AWS ReStart
                             </h1>
+                            <small class="section-title h6">
+                                Benin
+                            </small>
                         </div>
-
                         <div class="animated fadeInDown" style="animation-delay: 1s">
                             <p data-animation="animated fadeInLeft">We are creative and interactive business agency, we
                                 make creative projects. We have passion, ideas,<br />
@@ -225,14 +223,14 @@
             {%endif%}
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carousel-index" role="button" data-slide="prev">
+    <!-- <a class="carousel-control-prev" href="#carousel-index" role="button" data-slide="prev">
         <span class=" h1 text-white la la-angle-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#carousel-index" role="button" data-slide="next">
         <span class=" h1 text-white la la-angle-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-    </a>
+    </a> -->
     </div>
 </section>
 
@@ -265,62 +263,43 @@
     <div class="row  py-2">
         <div class="col-12 section-title">
             <h2>AWS Benin</h2>
-            <p>What You Get</p>
+            <p>ABOUT THE PROGRAM</p>
         </div>
         <ul class="col-md-8 border-left border-right pb-3" id="padis">
             <div class="shadow p-3">
                 <li class="text-justify p-2">
                     <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
                     <b class="text-success">Free
-                        training and
-                        qualification</b> You’ll
-                    learn
-                    all you
-                    need to be
-                    successful in a cloud technology career – from the coding languages & technical knowledge of cloud
-                    computing to the employment skills that will help you achieve your potential. At the end of the
-                    programme you’ll be ready to take your AWS Cloud Practitioner Certification – and we’ll fund you to
-                    do it.
+                        Trainings and
+                        Qualification</b>
+                    You will learn AWS Cloud fundamentals to enable you succeed in entry-level cloud positions. Through
+                    real-world, scenario-based exercises, labs, and coursework, you will build Linux, Python,
+                    networking, security, and relational database skills.
                 </li>
                 <li class="text-justify p-2">
                     <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="text-success">Connect with employers</b> At the end of the programme, Generation will
-                    connect
-                    you with employers
-                    hiring
-                    for cloud and devops engineer roles, support you through your application, and help you transition
-                    into
-                    your working life.
+                    <b class="text-success">Professional Skills Development</b>
+                    AWS re/Start also provids learners with professional skills including effective communication,
+                    collaboration, resume writing, and interview coaching to prepare them for employer meetings and
+                    interviews.
                 </li>
 
-                <li class="text-justify p-2">
-                    <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="text-success">Free travel and lunch</b> And if you’re receiving universal credit or other
-                    benefits, we’ll work with
-                    you to
-                    make sure you continue to receive these during the programme.
-                </li>
                 <li>
                     <marquee behavior="" direction="">
                         <h6 class="text-warning">
                             <b>
-                                Applications are closed for our November programme. Our next programme will be in
-                                February
-                                2021, please
-                                register your interest, and we’ll contact you once applications open.
+                                Applications for the next cohort will soon commence, please do well to check back
+                                soon..!
                             </b>
-
                         </h6>
 
                     </marquee>
-                    <p class="text-center h4">
+                    <p class="text-center h4 text-success font-weight-bold">
                         <small>
-                            This programme is delivered in collaboration with West Midlands Combined Authority, AWS
-                            (Amazon
-                            Web
-                            Services) and the Prince’s Trust.
-                        </small> </p>
+                            Women and youths are strongly encouraged to apply</p>
+                    </small>
                 </li>
+
             </div>
 
         </ul>
@@ -335,23 +314,21 @@
                 <h6 class="text-center"> <b>REQUIREMENTS</b></h6>
                 <ul style="list-style: none;" class="text-left" id="stage_sec_start">
                     <li class="">
-                        <i class="la la-cog"></i> Aged 18-29
+                        <i class="la la-cog text-left"></i> Must be 18 years and above
                     </li>
-                    <li class="">
-                        <i class="la la-cog"></i> Not working regularly more than 16 hours per week, and not in
-                        education or training
+                    <li class="text-align">
+                        <i class="la la-cog text-left"></i> Must have at completed secondary school education
                     </li>
-                    <li>
-                        <i class="la la-cog"></i> Can demonstrate your interest in a career in technology
+                    <li class="text-align">
+                        <i class="la la-cog text-left"></i> Must have the ability to commit to a 12 week full-time
+                        (Monday-Friday) in class training program
                     </li>
-                    <li>
-                        <i class="la la-cog"></i> Have the legal right to work & live in the UK
+                    <li class="text-align">
+                        <i class="la la-cog text-left"></i> Must own or have access to a laptop
                     </li>
 
-                    <li>
-                        <i class="la la-cog"></i> Available full time for 12 weeks, and ready to start a full time
-                        job
-                        straight after the course
+                    <li class="text-align">
+                        <i class="la la-cog text-left"></i> Must have interest in cloud computing
                     </li>
 
                 </ul>
@@ -384,50 +361,35 @@
                                 <b>REGISTRATION</b>
                             </a></h2>
                         <p class="">
-                            In your own time, complete some short tasks related to the programme. Don’t worry, you
-                            don’t need to have any existing knowledge or experience to be able to complete them.
+                            All interested Candidates are expected to
                             <a href="javascript:void(0);" class="text-center text-info"
                                 onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
-                                <b>Register</b>
+                                <b> Submit an application</b>
                             </a>
                         </p>
                     </article>
                     <article class="active_p_1">
-                        <h2>STEP 2: COME TO AN INFORMATION SESSION</h2>
-                        <p class="card">Efficiently unleash cross-media information without cross-media value.
-                            Quickly maximize
-                            timely
-                            deliverables for real-time schemas. Dramatically maintain clicks-and-mortar
-                            solutions
-                            without
-                            functional solutions.</p>
+                        <h2>STEP 2: TAKE AN ONLINE TEST</h2>
+                        <p class="card">Take an online test</p>
                     </article>
                     <article class="active_p_2">
-                        <h2>STEP 3: COMPLETELY</h2>
-                        <p class="card">Completely synergize resource sucking relationships via premier niche
-                            markets.
-                            Professionally
-                            cultivate one-to-one customer service with robust ideas. Dynamically innovate
-                            resource-leveling
-                            customer service for state of the art customer service.</p>
+                        <h2>STEP 3: ASSESSMENT</h2>
+                        <p class="card">Each training requires either an academic assessment, tech assessment or both
+                        </p>
                     </article>
                     <article class="active_p_2">
-                        <h2>STEP 4: OBJECTIVELY</h2>
-                        <p class="card">Objectively innovate empowered manufactured products whereas parallel
-                            platforms.
-                            Holisticly
-                            predominate extensible testing procedures for reliable supply chains. Dramatically
-                            engage
-                            top-line web services vis-a-vis cutting-edge deliverables.</p>
+                        <h2>STEP 4: INTERVIEW</h2>
+                        <p class="card">
+                            Candidates who meet the assessment criteria would be invited for an interview
+                        </p>
                     </article>
                     <article class="active_p_2">
-                        <h2>STEP 5: PROACTIVELY</h2>
-                        <p class="card">Proactively envisioned multimedia based expertise and cross-media growth
-                            strategies.
-                            Seamlessly
-                            visualize quality intellectual capital without superior collaboration and
-                            idea-sharing.
-                            Holistically pontificate installed base portals after maintainable products.</p>
+                        <h2>STEP 5: ADMISSION</h2>
+                        <p class="card">
+                            Successful candidates would be offered admission into the program. Please note, this
+                            application process is very competitive and not all applicants will be accepted for our
+                            limited slots.
+                        </p>
                     </article>
                 </div>
             </div>
