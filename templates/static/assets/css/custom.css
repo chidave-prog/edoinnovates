@@ -259,3 +259,99 @@ background: #ffffff00  !important;
             top: 2em !important;
         }
     }
+    
+#color_bullet .color_bullet_li::before {       
+    content: "\2022";  
+    color: #f78a02;
+    font-weight: bold; 
+    display: inline-block; 
+    width: 2em;
+    margin-left: 0em;         
+}
+
+#color_bullet .color_bullet_li_2::before {       
+    content: "\2022";  
+    color:  #168dde;;
+    font-weight: bold; 
+    display: inline-block; 
+    width: 2em; 
+    margin-left: 0em;        
+}
+
+.number-circle-list {
+        list-style: none;
+        padding-left: 1rem;
+        counter-reset: circle-counter;
+}
+
+.number-circle-list--list-item {
+    counter-increment: circle-counter;
+    margin-bottom: 0.25rem;
+}
+
+.number-circle-list--list-item:before {
+    content: counter(circle-counter);
+    background-color: #e1e1e1;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    color: black;
+    text-align: center;
+    margin-right: 0.5rem;
+    position: relative;
+    top: -2px;
+}
+
+.number-circle-list--list-item:last-child {
+    margin-bottom: 0;
+}
+
+.number-circle-list--list-item .number-circle-list--list-item {
+    margin-left: 0.25rem;
+}
+
+.number-circle-list--primary-color .number-circle-list--list-item:before {
+    background-color: #0d5cab;
+    color: white;
+}
+
+.number-circle-list--secondary-color .number-circle-list--list-item:before {
+    background-color: #72c267;
+    color: white;
+}
+
+.number-circle-list--tertiary-color .number-circle-list--list-item:before {
+    background-color: #168dde;
+    color: white;
+}
+
+#color_bullet .warn_li:before {
+    background-color:#f78a02;
+    color: white;
+}
+  
+
+#stage_sec {
+    padding: 0em !important;
+    overflow: visible;
+    margin-bottom: 3em;
+    }
+    
+    #note_sec {
+    padding-top: 4em;
+    
+    }
+    
+    @media (max-width: 768px) {
+    #note_sec {
+    padding-top: 1em;
+    }
+    
+    #stage_sec {
+    padding: 0em !important;
+    
+    }
+}

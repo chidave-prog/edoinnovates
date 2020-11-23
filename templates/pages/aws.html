@@ -7,156 +7,29 @@
         background: rgb(60 59 68 / 0%);
     }
 
-    article .active {
-        z-index: 999;
-    }
-
-    #steps {
-        margin-top: 4em;
-        position: relative !important;
-        top: 3em !important;
-        float: left;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #fff;
-    }
-
-    #steps div {
-        float: left;
-        border-radius: 50%;
-        background-color: #6f8db3;
-        padding: 1vw;
-        margin: 1vw;
-        box-sizing: border-box;
-        width: 6vw;
-        height: 6vw;
-        color: #828588;
-        font-size: 2rem;
-        text-align: center;
-        cursor: pointer;
-        /* box-shadow: inset 100px 0 0 #0e56ad; */
-        box-shadow: inset -100px 0 0 #f7f7f7
-    }
-
-    #steps div.active {
-        color: #fff;
-        background-color: #38434b;
-        box-shadow: inset 0 0 0 #38e;
-    }
-
-    #steps div.done {
-        color: #38e;
-        box-shadow: inset -100px 0 0 #91bff6;
-    }
-
-    .article_container {
-        float: left;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40vw;
-    }
-
-    article {
-        border-radius: 2em;
-        width: 100%;
-        top: 0;
-        position: absolute;
-        background-color: #fff;
-        box-shadow: -0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
-    }
-
-    article.active_m_2 {
-        left: -110vw;
-        opacity: 0;
-    }
-
-    article.active_m_1 {
-        left: -110%;
-        opacity: 0.3;
-    }
-
-    article.active {
-        left: 0;
-        opacity: 1;
-    }
-
-    article.active_p_1 {
-        left: 110%;
-        opacity: -6.7;
-    }
-
-    article.active_p_2 {
-        left: 110vw;
-        opacity: 0;
-    }
-
-    article * {
-        border-radius: 2em;
-        box-sizing: border-box;
-        width: 100%;
-        margin: 0;
-        padding: 1rem;
-    }
-
-    article h2 {
-        background-color: #38434b;
-        color: #fff;
-        font-size: 1.5rem;
-        letter-spacing: 0.12rem;
-    }
-
-    article p {
-        width: 100%;
-        line-height: 1.2rem;
-    }
-
-    * {
-        transition: all 1000ms;
-    }
-
-    #stage_sec {
-        padding: 0em !important;
-        overflow: visible;
-        margin-bottom: 3em;
-    }
-
-    #note_sec {
-        padding-top: 4em;
-
-    }
-
-    @media (max-width: 768px) {
-        #note_sec {
-            padding-top: 1em;
+    @-webkit-keyframes zoom {
+        from {
+            -webkit-transform: scale(1, 1);
         }
 
-        #stage_sec {
-            padding: 0em !important;
-
-        }
-
-        #steps {
-            margin-top: 13em;
-            /* z-index: 99999; */
-            position: relative !important;
-            top: 3em !important;
-        }
-
-        #steps div {
-            width: 16vw;
-            height: 16vw;
-        }
-
-        article {
-            width: 21em;
-            top: 0;
-            left: -6em !important;
+        to {
+            -webkit-transform: scale(1.5, 1.5);
         }
     }
 
-    .section-title {
-        padding-bottom: 4px !important;
+    @keyframes zoom {
+        from {
+            transform: scale(1, 1);
+        }
+
+        to {
+            transform: scale(1.5, 1.5);
+        }
+    }
+
+    .carousel-inner .item>img {
+        -webkit-animation: zoom 25s;
+        animation: zoom 25s;
     }
 </style>
 
@@ -197,24 +70,25 @@
             {%endif%}
             {%endfor%}
             {%else%}
-            <div class="carousel-item active slide2">
+            <div class="carousel-item active item">
+                <img src="../static/assets/img/edo/slides/slides-2.jpg" class="img-fluid" alt="" id="slide_img">
                 <div class="carousel-caption">
                     <div class="slide-text slide_style_left">
                         <div class="animated fadeInUp" style="animation-delay: 1s">
-                            <h1>
-                                AWS ReStart
-                            </h1>
                             <small class="section-title h6">
-                                Benin
+                                AWS Restart
                             </small>
+
+                            <h1>
+                                Benin
+                            </h1>
                         </div>
+
                         <div class="animated fadeInDown" style="animation-delay: 1s">
-                            <p data-animation="animated fadeInLeft">We are creative and interactive business agency, we
-                                make creative projects. We have passion, ideas,<br />
-                                and ambition for interesting projects.</p>
+                            <p data-animation="animated fadeInLeft"></p>
                             <p class="animated zoomIn" style="animation-delay: 2s">
-                                <a href="#stage_sec_start" class="btn btn-outline-secondary text-white">Get Started
-                                    <i class="la la-arrow-down"></i></a>
+                                <a href="#what_we_do" class="btn btn-secondary text-white">Get In Touch
+                                    <i class="la la-arrow-right"></i></a>
                             </p>
                         </div>
                     </div>
@@ -237,10 +111,9 @@
 
 <section class="container">
     <div class="section-title py-3" style="padding-bottom: 4px !important;">
-        <h2>Hello World</h2>
         <p> READY TO LAUNCH A CAREER IN TECH?</p>
     </div>
-    <div class="row border-bottom pb-2">
+    <div class="row border-bottom pb-2" data-aos="fade-up" data-aos-delay="100">
         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto" data-aos="fade-up" id="note_sec">
             <p>
                 AWS re/Start is a free 12 week bootcamp to kickstart your career in tech as a Cloud Support Practitioner
@@ -260,80 +133,105 @@
         </div>
     </div>
 
-    <div class="row  py-2">
-        <div class="col-12 section-title">
+    <div class="row  py-2" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-12 section-title mx-auto text-center">
             <h2>AWS Benin</h2>
             <p>ABOUT THE PROGRAM</p>
         </div>
-        <ul class="col-md-8 border-left border-right pb-3" id="padis">
-            <div class="shadow p-3">
-                <li class="text-justify p-2">
+        <div class="col-md-8 border-left border-right pb-3 shadow" id="padis">
+            <ul class="p-3" style="list-style: none;">
+                <li class="text-justify p-2" data-aos="fade-up" data-aos-delay="100">
                     <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="text-success">Free
+                    <b class="">Free
                         Trainings and
                         Qualification</b>
                     You will learn AWS Cloud fundamentals to enable you succeed in entry-level cloud positions. Through
                     real-world, scenario-based exercises, labs, and coursework, you will build Linux, Python,
                     networking, security, and relational database skills.
                 </li>
-                <li class="text-justify p-2">
+                <li class="text-justify p-2" data-aos="fade-up" data-aos-delay="100">
                     <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="text-success">Professional Skills Development</b>
+                    <b class="">Professional Skills Development</b>
                     AWS re/Start also provids learners with professional skills including effective communication,
                     collaboration, resume writing, and interview coaching to prepare them for employer meetings and
                     interviews.
                 </li>
+            </ul>
 
-                <li>
-                    <marquee behavior="" direction="">
-                        <h6 class="text-warning">
-                            <b>
-                                Applications for the next cohort will soon commence, please do well to check back
-                                soon..!
-                            </b>
-                        </h6>
 
-                    </marquee>
-                    <p class="text-center h4 text-success font-weight-bold">
-                        <small>
-                            Women and youths are strongly encouraged to apply</p>
-                    </small>
+
+
+            <ol class="faq-list number-circle-list number-circle-list--tertiary-color" id="color_bullet">
+
+                <li class="number-circle-list--list-item warn_li" data-aos="fade-up" data-aos-delay="100">
+
+                    <a data-toggle="collapse" href="#faq1">
+                        <span class="text-left font-weight-bold">Learner
+                            Profile
+                        </span>
+                        <i class="text-right float-right la la-angle-down font-weight-bold"></i>
+                    </a>
+
+                    <ul id="faq1" class="collapse show text-justify" data-parent=".faq-list" style="list-style: none;">
+                        <p class="font-weight-bold">
+                            Requirements for the AWS Restart Programme
+                        </p>
+                        <li class="color_bullet_li">
+                            Must be 18 years and above
+                        </li>
+                        <li class="color_bullet_li">
+                            Must have at completed secondary school education
+                        </li>
+                        <li class="color_bullet_li">
+                            Must commit to a 12 week full-time (Mon-Fri) in-class training
+                        </li>
+                        <li class="color_bullet_li">
+                            Must own or have access to a laptop
+                        </li>
+                        <li class="color_bullet_li">
+                            Must have interest in cloud computing
+                        </li>
+                    </ul>
                 </li>
 
+
+                <li class="number-circle-list--list-item" data-aos="fade-up" data-aos-delay="150">
+                    <a data-toggle="collapse" href="#faq2" class="collapsed font-weight-bold">
+                        Application Proccess
+                        <i class="text-right float-right la la-angle-down font-weight-bold"></i>
+                    </a>
+                    <ul id="faq2" class="collapse" data-parent=".faq-list" style="list-style: none;">
+                        <p class="font-weight-bold">
+                            To Register For the Programm
+                        </p>
+                        <li class="color_bullet_li_2">
+                            <a href="javascript:void(0);" class="text-center text-info"
+                                onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
+                                Submit an application
+                            </a>
+                        </li>
+                        <li class="color_bullet_li_2">
+                            Take an online test
+                        </li>
+                        <li class="color_bullet_li_2">
+                            Candidates who meet the assessment criteria would be invited for an interview
+                        </li>
+                        <li class="color_bullet_li_2">
+                            Successful candidates would be offered admission into the program. Please note, this
+                            application process is very competitive and not all applicants will be accepted for our
+                            limited slots.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+
+        <div class="col-md-4 shadow" data-aos="fade-left" data-aos-delay="100">
+            <div class="py-1 text-center">
+                <h3> Testimonies</h3>
             </div>
-
-        </ul>
-        <div class="col-md-4">
-            <div class="shadow p-2">
-                <div class="py-1 text-center">
-                    <h3> PROGRAM LENGTH</h3>
-                    <h1 class="text-warning" style="font-family:Arial Black;">12 weeks</h1>
-                    Monday to Friday, 9am to 5:30pm
-                </div>
-
-                <h6 class="text-center"> <b>REQUIREMENTS</b></h6>
-                <ul style="list-style: none;" class="text-left" id="stage_sec_start">
-                    <li class="">
-                        <i class="la la-cog text-left"></i> Must be 18 years and above
-                    </li>
-                    <li class="text-align">
-                        <i class="la la-cog text-left"></i> Must have at completed secondary school education
-                    </li>
-                    <li class="text-align">
-                        <i class="la la-cog text-left"></i> Must have the ability to commit to a 12 week full-time
-                        (Monday-Friday) in class training program
-                    </li>
-                    <li class="text-align">
-                        <i class="la la-cog text-left"></i> Must own or have access to a laptop
-                    </li>
-
-                    <li class="text-align">
-                        <i class="la la-cog text-left"></i> Must have interest in cloud computing
-                    </li>
-
-                </ul>
-            </div>
-
+            {% include "../pages/testimony.html" with testimonies=testimonies %}
         </div>
     </div>
 </section>
@@ -350,119 +248,9 @@
         class="pt-4 col-md-12 animated zoomIn" data-aos="fade-up" data-aos-delay="100"
         style="animation-delay: 1s">Loading…</iframe>
 </div>
-<section id="stage_sec">
-    <div class="col-md-12">
-        <div class="container pb-5" style="position: relative;">
-            <div class="row">
-                <div class="article_container col-md-12">
-                    <article class="active" style="z-index: 99 !important;">
-                        <h2 class="">STEP 1: <a href="javascript:void(0);" class="text-center text-info"
-                                onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
-                                <b>REGISTRATION</b>
-                            </a></h2>
-                        <p class="">
-                            All interested Candidates are expected to
-                            <a href="javascript:void(0);" class="text-center text-info"
-                                onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
-                                <b> Submit an application</b>
-                            </a>
-                        </p>
-                    </article>
-                    <article class="active_p_1">
-                        <h2>STEP 2: TAKE AN ONLINE TEST</h2>
-                        <p class="card">Take an online test</p>
-                    </article>
-                    <article class="active_p_2">
-                        <h2>STEP 3: ASSESSMENT</h2>
-                        <p class="card">Each training requires either an academic assessment, tech assessment or both
-                        </p>
-                    </article>
-                    <article class="active_p_2">
-                        <h2>STEP 4: INTERVIEW</h2>
-                        <p class="card">
-                            Candidates who meet the assessment criteria would be invited for an interview
-                        </p>
-                    </article>
-                    <article class="active_p_2">
-                        <h2>STEP 5: ADMISSION</h2>
-                        <p class="card">
-                            Successful candidates would be offered admission into the program. Please note, this
-                            application process is very competitive and not all applicants will be accepted for our
-                            limited slots.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </div>
 
-        <div class="row pb-2">
-            <div id="steps">
-                <div data-step="1" class="active">1</div>
-                <div data-step="2">2</div>
-                <div data-step="3">3</div>
-                <div data-step="4">4</div>
-                <div data-step="5">5</div>
-            </div>
 
-        </div>
-        {% block extra_scripts %}
-        <script>
-            $(document).ready(function ($) {
-                $('#steps > div').click(function () {
-                    var i = $(this).attr('data-step') - 1;
 
-                    $('#steps > div').each(function (index) {
-                        if (index < i) {
-                            $(this).addClass('done');
-                            $(this).removeClass('active');
-                        } else if (index == i) {
-                            $(this).addClass('active');
-                            $(this).removeClass('done');
-                        } else {
-                            $(this).removeClass('done');
-                            $(this).removeClass('active');
-                        }
-                    });
 
-                    $('article').each(function (index) {
-                        if (index < i - 1) {
-                            clearClasses($(this));
-                            $(this).addClass('active_m_2');
-                        } else if (index > i + 1) {
-                            clearClasses($(this));
-                            $(this).addClass('active_p_2');
-                        } else if (index < i) {
-                            clearClasses($(this));
-                            $(this).addClass('active_m_1');
-                        } else if (index > i) {
-                            clearClasses($(this));
-                            $(this).addClass('active_p_1');
-                        } else {
-                            clearClasses($(this));
-                            $(this).addClass('active');
-                        }
-                    });
-
-                    function clearClasses(item) {
-                        var a = [
-                            "active_m_2",
-                            "active_m_1",
-                            "active",
-                            "active_p_1",
-                            "active_p_2"
-                        ];
-                        a.forEach(function (class_name) {
-                            item.removeClass(class_name);
-                        });
-                    }
-
-                });
-
-            });
-        </script>
-        {% endblock extra_scripts %}
-    </div>
-</section>
-{% include "../pages/testimony.html" with testimonies=testimonies %}
 {% include "../pages/contact.html" %}
 {% endblock content %}

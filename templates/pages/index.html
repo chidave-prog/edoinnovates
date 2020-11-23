@@ -8,8 +8,7 @@
     header {
         background: rgb(60 59 68 / 0%);
     }
-</style>
-<style>
+
     @-webkit-keyframes zoom {
         from {
             -webkit-transform: scale(1, 1);
@@ -72,7 +71,7 @@
                     {%else%}
                     <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 2s">
                         <a href="#what_we_do" class="btn btn-outline-default">{{slide.button_caption}} <i
-                                class="la la-arrow-right"></i></a>
+                                class="la la-arrow-down"></i></a>
                     </p>
                     {%endif%}
                 </div>
@@ -101,7 +100,7 @@
                                 and ambition for interesting projects.</p>
                             <p class="animated zoomIn" style="animation-delay: 2s">
                                 <a href="#what_we_do" class="btn btn-secondary text-white">Get In Touch
-                                    <i class="la la-arrow-right"></i></a>
+                                    <i class="la la-arrow-down"></i></a>
                             </p>
                         </div>
                     </div>
@@ -338,27 +337,27 @@
                                             {{prog.description|truncatechars:700}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
-                                        <div class="row mx-auto text-center">
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                    data-action="share/whatsapp/share" target="_blank"> <i
-                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                </a>
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
-                                            </td>
-                                        </div>
+                                            <div class="row mx-auto text-center">
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                        data-action="share/whatsapp/share" target="_blank"> <i
+                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                    </a>
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                </td>
+                                            </div>
                                         </p>
                                     </div>
 
@@ -439,27 +438,27 @@
                                             {{prog.description|truncatechars:1000}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
-                                        <div class="row">
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_linkedin '{{prog.link_to_program}}' %}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                    data-action="share/whatsapp/share" target="_blank"> <i
-                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                </a>
-                                            </td>
-                                        </div>
+                                            <div class="row">
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_linkedin '{{prog.link_to_program}}' %}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                        data-action="share/whatsapp/share" target="_blank"> <i
+                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                    </a>
+                                                </td>
+                                            </div>
                                         </p>
                                     </div>
 
@@ -541,27 +540,27 @@
                                             {{prog.description|truncatechars:1000}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
-                                        <div class="row">
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_linkedin '{{prog.link_to_program}}' %}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                    data-action="share/whatsapp/share" target="_blank"> <i
-                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                </a>
-                                            </td>
-                                        </div>
+                                            <div class="row">
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_linkedin '{{prog.link_to_program}}' %}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                        data-action="share/whatsapp/share" target="_blank"> <i
+                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                    </a>
+                                                </td>
+                                            </div>
                                         </p>
                                     </div>
 
@@ -631,27 +630,27 @@
                                             {{prog.description|truncatechars:1000}} &ensp;
                                             <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
                                                 More..</a>
-                                        <div class="row">
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_linkedin '{{prog.link_to_program}}' %}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                            </td>
-                                            <td>&nbsp; &nbsp;</td>
-                                            <td class="h4">
-                                                <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                    data-action="share/whatsapp/share" target="_blank"> <i
-                                                        class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                </a>
-                                            </td>
-                                        </div>
+                                            <div class="row">
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_linkedin '{{prog.link_to_program}}' %}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                </td>
+                                                <td>&nbsp; &nbsp;</td>
+                                                <td class="h4">
+                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                        data-action="share/whatsapp/share" target="_blank"> <i
+                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                    </a>
+                                                </td>
+                                            </div>
                                         </p>
                                     </div>
 
