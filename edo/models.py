@@ -60,7 +60,13 @@ PHOTO_TYPE = [
     ('HUB', 'HUB'),
     ('Sartups', 'Sartups'),  
 ]
-  
+TEAM_CATEGORY = [
+    ('aws_instructors', 'aws_instructors'),
+    ('Borad_members', 'Borad_members'),
+    ('others', 'others'),  
+]
+
+
 class Contact(models.Model):
     full_names = models.CharField(max_length=200)
     email = models.EmailField()
@@ -167,7 +173,7 @@ class Application(models.Model):
         return f"{self.programme} | {self.first_name} | {self.email} |  {self.aproved}"
 
 class Gallery(models.Model):
-    photo_type = models.CharField(max_length=100,choices=PHOTO_TYPE)
+    photo_type = models.CharField(max_length=20,choices=PHOTO_TYPE)
     title = models.CharField(max_length=200)
     description = models.TextField()    
     photo = models.ImageField(upload_to='Photo_Gallery')
@@ -189,6 +195,7 @@ class Gallery(models.Model):
         return reverse('gallery-detail', kwargs={'slug': self.slug})
 
 class Team(models.Model):
+    office = models.CharField(max_length=20 ,choices=TEAM_CATEGORY)
     full_names = models.CharField(max_length=150)
     position = models.CharField(max_length=50)
     email = models.EmailField()    

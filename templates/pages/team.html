@@ -1,0 +1,35 @@
+{%load static%}
+<section id="team" class="team">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2></h2>
+            <p>OUR TEAM</p>
+        </div>
+
+        <div class="row">
+            {% for member in team%}
+            <div class="col-xl-2 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="{{forloop.counter}}00">
+                <div class="member">
+                    <img id="team_img"
+                        src="{%if member.picture%} {{member.picture.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                        class="img-fluid rounded-circle" alt="" id="team_img">
+                    <div class="member-info">
+                        <div class="member-info-content">
+                            <h4>{{member.full_names}}</h4>
+                            <span>{{member.position}}</span>
+                        </div>
+                        <div class="social">
+                            <a href="https://wa.me/{{member.whatsapp_number}}" target="blank"><i
+                                    class="icofont-whatsapp"></i></a>
+                            <a href="{{member.link_to_your_twitter_account}}"><i class="icofont-twitter"></i></a>
+                            <a href="{{member.link_to_your_linkedin_account}}"><i class="icofont-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+</section>

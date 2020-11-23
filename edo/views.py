@@ -115,7 +115,7 @@ def AwsRestartBenin(request):
         'gallery': Gallery.objects.all().order_by('created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
-        'team': Team.objects.all().order_by('created_at'),
+        'team': Team.objects.filter(publish=True, office='aws_instructors').order_by('-created_at'),
     }
     return render(request, 'pages/aws.html', context)
 

@@ -60,11 +60,11 @@
                         style="animation-delay: 1s;">
                         {{slide.caption_buttom_title_small|linebreaksbr}}
                     </p>
-                    <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 2s">
+                    <!-- <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 2s">
                         <a href="#stage_sec_start" class="btn btn-outline-warning">{{slide.button_caption}} <i
                                 class="la la-arrow-right"></i>
                         </a>
-                    </p>
+                    </p> -->
                 </div>
             </div>
             {%endif%}
@@ -75,21 +75,16 @@
                 <div class="carousel-caption">
                     <div class="slide-text slide_style_left">
                         <div class="animated fadeInUp" style="animation-delay: 1s">
-                            <small class="section-title h6">
-                                AWS Restart
-                            </small>
-
                             <h1>
-                                Benin
+                                AWS Restart
                             </h1>
+                            <small class="section-title h6">
+                                Benin
+                            </small>
                         </div>
-
                         <div class="animated fadeInDown" style="animation-delay: 1s">
                             <p data-animation="animated fadeInLeft"></p>
-                            <p class="animated zoomIn" style="animation-delay: 2s">
-                                <a href="#what_we_do" class="btn btn-secondary text-white">Get In Touch
-                                    <i class="la la-arrow-right"></i></a>
-                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -134,7 +129,7 @@
     </div>
 
     <div class="row  py-2" data-aos="zoom-in" data-aos-delay="100">
-        <div class="col-12 section-title mx-auto text-center">
+        <div class="col-12 section-title">
             <h2>AWS Benin</h2>
             <p>ABOUT THE PROGRAM</p>
         </div>
@@ -142,16 +137,13 @@
             <ul class="p-3" style="list-style: none;">
                 <li class="text-justify p-2" data-aos="fade-up" data-aos-delay="100">
                     <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="">Free
-                        Trainings and
-                        Qualification</b>
+
                     You will learn AWS Cloud fundamentals to enable you succeed in entry-level cloud positions. Through
                     real-world, scenario-based exercises, labs, and coursework, you will build Linux, Python,
                     networking, security, and relational database skills.
                 </li>
                 <li class="text-justify p-2" data-aos="fade-up" data-aos-delay="100">
                     <i class="ri-check-double-line text-success h4 pr-2 font-weight-bold"></i>
-                    <b class="">Professional Skills Development</b>
                     AWS re/Start also provids learners with professional skills including effective communication,
                     collaboration, resume writing, and interview coaching to prepare them for employer meetings and
                     interviews.
@@ -229,12 +221,20 @@
 
         <div class="col-md-4 shadow" data-aos="fade-left" data-aos-delay="100">
             <div class="py-1 text-center">
-                <h3> Testimonies</h3>
+                <h3> Upcoming Course Dates</h3>
             </div>
-            {% include "../pages/testimony.html" with testimonies=testimonies %}
+            <div class="border-bottom py-2">
+                <p class="font-weight-bold">February 9th 2021 <i class="la la-desktop float-right"></i></p>
+                <small>Apllication Due February 2nd 2021</small>
+            </div>
+            <div class="border-bottom py-2">
+                <p class="font-weight-bold">May 2021 <i class="la la-desktop float-right"></i></p>
+            </div>
+
         </div>
     </div>
 </section>
+{% include "../pages/team.html"  with team=team %}
 
 <div id="aws_reg_sec" class="d-none">
     <div class="pt-5 text-right">
