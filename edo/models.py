@@ -228,9 +228,8 @@ class Newsletter(models.Model):
 
 class Testimony(models.Model):
     full_names = models.CharField(max_length=200)
-    phone_number = models.IntegerField()
-    programme_benefited_from =  models.ForeignKey(
-        'Programme', null=True, on_delete=models.CASCADE)
+    phone_number = models.IntegerField(blank=True, null=True)
+    programme_benefited_from = models.CharField(max_length=200)
     email = models.EmailField(blank=True, null=True)
     testimony = models.TextField()
     add_a_photo = models.ImageField(
