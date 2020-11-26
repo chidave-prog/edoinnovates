@@ -177,6 +177,7 @@ class Gallery(models.Model):
     photo = models.ImageField(upload_to='Photo_Gallery')
     photo_2 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
     photo_3 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
+    start_up_phone_number = models.IntegerField(blank=True, null=True)
     start_up_email = models.EmailField(blank=True, null=True) 
     start_up_website_link = models.URLField(blank=True, null=True)
     start_up_facebook_link = models.URLField(blank=True, null=True)
