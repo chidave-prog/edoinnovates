@@ -112,7 +112,7 @@ class Blog(models.Model):
     content = HTMLField()
     caption_picture = models.ImageField(
         upload_to='news', blank=True, null=True)
-    views = models.IntegerField(default=0, blank=True, null=True)
+    views = models.CharField(max_length=20, default=0, blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
     publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -163,7 +163,7 @@ class Application(models.Model):
     last_name = models.CharField(max_length=200)
     gender = models.CharField(max_length=6,choices=GENDER)
     email = models.EmailField()  
-    phone_number = models.IntegerField(help_text='phone number')
+    phone_number = models.CharField(max_length=20, help_text='phone number')
     address = models.TextField()
     aproved = models.BooleanField(default=False)
 
@@ -177,7 +177,7 @@ class Gallery(models.Model):
     photo = models.ImageField(upload_to='Photo_Gallery')
     photo_2 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
     photo_3 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
-    start_up_phone_number = models.IntegerField(blank=True, null=True)
+    start_up_phone_number = models.CharField(max_length=20, blank=True, null=True)
     start_up_email = models.EmailField(blank=True, null=True) 
     start_up_website_link = models.URLField(blank=True, null=True)
     start_up_facebook_link = models.URLField(blank=True, null=True)
@@ -204,7 +204,7 @@ class Team(models.Model):
     position = models.CharField(max_length=50)
     email = models.EmailField()    
     picture = models.ImageField(upload_to='team_picture')
-    whatsapp_number = models.IntegerField(default='+123', help_text='phone number in International formart without the plus e.g (2348012345...)')   
+    whatsapp_number = models.CharField(max_length=20, default='+123', help_text='phone number in International formart without the plus e.g (2348012345...)')   
     link_to_your_linkedin_account = models.URLField(blank=True, null=True)    
     link_to_your_twitter_account = models.URLField(blank=True, null=True)
     # facebook = models.URLField(blank=True, null=True)
@@ -232,7 +232,7 @@ class Newsletter(models.Model):
 
 class Testimony(models.Model):
     full_names = models.CharField(max_length=200)
-    phone_number = models.IntegerField(blank=True, null=True)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
     programme_benefited_from = models.CharField(max_length=200)
     email = models.EmailField(blank=True, null=True)
     testimony = models.TextField(max_length=800, help_text="word limit of 800")
