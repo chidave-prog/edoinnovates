@@ -65,6 +65,12 @@
                 </span>
                 <div class="row">
                     <p class="col-12 font-weight-bold"></p>
+                    {%if gallery.start_up_email  %}
+                    <div class="col-2">
+                        <a href="mailto:{{gallery.start_up_email}}" target="blank"><i
+                                class="la la-suitcase border text-secondary rounded-pill h5"></i></a>
+                    </div>
+                    {%endif%}
                     {%if gallery.start_up_facebook_link  %}
                     <div class="col-2">
                         <a href="{{gallery.start_up_facebook_link}}" target="blank"><i
