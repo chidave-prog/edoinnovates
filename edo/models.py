@@ -204,7 +204,7 @@ class Team(models.Model):
     position = models.CharField(max_length=50)
     email = models.EmailField()    
     picture = models.ImageField(upload_to='team_picture')
-    whatsapp_number = models.CharField(max_length=20, default='+123', help_text='phone number in International formart without the plus e.g (2348012345...)')   
+    whatsapp_number = models.CharField(max_length=20, blank=True, null=True, default='+123', help_text='phone number in International formart without the plus e.g (2348012345...)')   
     link_to_your_linkedin_account = models.URLField(blank=True, null=True)    
     link_to_your_twitter_account = models.URLField(blank=True, null=True)
     # facebook = models.URLField(blank=True, null=True)
