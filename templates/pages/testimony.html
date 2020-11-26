@@ -8,7 +8,7 @@
                 <img src="{%if test.add_a_photo%} {{test.add_a_photo.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
                     class="testimonial-img" alt="">
                 <h3>{{test.full_names}}</h3>
-                <h4>Benefitiary of &amp; {{test.programme_benefited_from}}</h4>
+                <h4> {{test.programme_benefited_from}}</h4>
                 <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                     {{test.testimony|truncatechars:800}}

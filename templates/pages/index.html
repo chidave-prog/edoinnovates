@@ -85,21 +85,19 @@
                     <div class="slide-text slide_style_left">
                         <div class="animated fadeInUp" style="animation-delay: 1s">
                             <small class="section-title h6">
-                                EDOBITS - A
-                                WEB/GRAPHIC ORGANIZATION
+                                SOUTH SOUTH
                             </small>
 
                             <h1>
-                                Become a professional
+                                INNOVATION HUB
                             </h1>
+
                         </div>
 
                         <div class="animated fadeInDown" style="animation-delay: 1s">
-                            <p data-animation="animated fadeInLeft">We are creative and interactive business agency, we
-                                make creative projects. We have passion, ideas,<br />
-                                and ambition for interesting projects.</p>
+                            <p data-animation="animated fadeInLeft"> BEST SKILL INCUBATION CENTER </p>
                             <p class="animated zoomIn" style="animation-delay: 2s">
-                                <a href="#what_we_do" class="btn btn-secondary text-white">Get In Touch
+                                <a href="#what_we_do" class="btn btn-outline-secondary text-white">Get Started
                                     <i class="la la-arrow-down"></i></a>
                             </p>
                         </div>
@@ -322,399 +320,359 @@
             </ul>
 
             <div class="tab-content border-bottom">
-
                 <div class="tab-pane active show" id="tab-1">
-                    {% for prog in programme%}
-                    {%if prog.programme_type == 'TRAINING' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row {{prog.programme_type}}">
-                            <p class="text-info col-12 h4">{{prog.title}} <span>|{{prog.date_from|date}} -
-                                    {{prog.date_to|date}}|</span></p>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="single-post-content-wrapper text-justify">
-                                        <p class="text-justify">
-                                            {{prog.description|truncatechars:700}} &ensp;
-                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
-                                                More..</a>
-                                            <div class="row mx-auto text-center">
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                        data-action="share/whatsapp/share" target="_blank"> <i
-                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                    </a>
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
-                                                </td>
+                        <div class="carousel slide" id="carouselExampleControls" data-ride="carousel"
+                            data-interval="false">
+                            <div class="carousel-inner mx-auto">
+                                {% for prog in training%}
+                                <div class="carousel-item {% if forloop.counter == 1 %} active {%endif%} ">
+                                    <div class="row">
+                                        <article class="col-md-6 single-post no-gutters border-top order-2 order-lg-1">
+                                            <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
+                                            <div class="single-post-content-wrapper text-justify">
+                                                <div class="text-justify h6 animated fadeInLeft"
+                                                    style="animation-delay: 1s">
+                                                    {{prog.description|truncatechars:700}}
+                                                    {%if prog.link_to_program%}
+                                                    <div>
+                                                        <a href="{{prog.link_to_program}}" target="blank"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">
+                                                            Enroll <i class="la la-angle-right"></i></a>
+                                                    </div>
+                                                    {%else%}
+                                                    <div>
+                                                        <a href="/#contact/"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">Enroll</a>
+                                                    </div>
+                                                    {%endif%}
+                                                    <div class="row mx-auto text-center">
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                                data-action="share/whatsapp/share" target="_blank"> <i
+                                                                    class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                            </a>
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                        </td>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </p>
+                                        </article>
+                                        <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                alt="" class="img-fluid animated fadeInRight"
+                                                style="animation-delay: 1s" id="tab_img_2">
+                                        </div>
                                     </div>
-
-                                </article>
+                                </div>
+                                {%empty%}
+                                <div class="text-center">
+                                    <marquee behavior="" direction="right">
+                                        There are Currently no Openings for This
+                                        Category <br>
+                                        Please Check Back Soon!
+                                        <br>
+                                        Thank You
+                                    </marquee>
+                                </div>
+                                {%endfor%}
                             </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                    alt="" class="img-fluid" id="tab_img_2">
-                            </div>
+                            {% for prog in training|slice:":2" %}
+                            {%if forloop.counter > 1%}
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class=" h1 text-info la la-angle-left border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class=" h1 text-info la la-angle-right border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            {%endif%}
+                            {%endfor%}
                         </div>
                     </div>
-                    {%endif%}
-                    {%endfor%}
-
-                    {% for prog in programme|slice:":1" %}
-                    {%if prog.programme_type == 'TRAINING' %}
-                    {% if forloop.counter == 0 %}
-                    <marquee behavior="" direction="">
-                        There Are Currently No Avalible Programme in This Category <b>Please Check Back soon</b>
-                    </marquee>
-                    {%endif%}
-                    {%endif%}
-                    {%endfor%}
-
-                    {% for prog in programme|slice:":1" %}
-                    {%if prog.programme_type == 'TRAINING' %}
-                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                        onclick="plusDivs(-1)">
-                        <i class="la la-arrow-left"></i>
-                    </button>
-                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
-                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                        <i class="la la-arrow-right"></i>
-                    </button>
-                    <script>
-                        var slideIndex = 1;
-                        showDivs(slideIndex);
-
-                        function plusDivs(n) {
-                            showDivs(slideIndex += n);
-                        }
-
-                        function showDivs(n) {
-                            var i;
-                            var x = document.getElementsByClassName("{{prog.programme_type}}");
-                            if (n > x.length) { slideIndex = 1 }
-                            if (n < 1) { slideIndex = x.length }
-                            for (i = 0; i < x.length; i++) {
-                                x[i].style.display = "none";
-                            }
-                            x[slideIndex - 1].style.display = "";
-                        }
-                    </script>
-                    {%endif%}
-                    {%endfor%}
-                    {% for prog in programme|slice:":2" %}
-                    {%if prog.programme_type == 'TRAINING' %}
-                    {%if not forloop.last %}
-                    <script>
-                        document.getElementById('next_but').style = "display: '';";                   
-                    </script>
-                    {% endif %}
-                    {%endif%}
-                    {%endfor%}
                 </div>
 
                 <div class="tab-pane" id="tab-2">
-                    {% for prog in programme%}
-                    {%if prog.programme_type == 'COMPETITION' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row {{prog.programme_type}}">
-                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
-                                    {{prog.date_to|date}}|</span></h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="single-post-content-wrapper text-justify">
-                                        <p class="text-justify">
-                                            {{prog.description|truncatechars:1000}} &ensp;
-                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
-                                                More..</a>
-                                            <div class="row">
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_linkedin '{{prog.link_to_program}}' %}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                        data-action="share/whatsapp/share" target="_blank"> <i
-                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                    </a>
-                                                </td>
+                        <div class="carousel slide" id="carouselExampleControls" data-ride="carousel"
+                            data-interval="false">
+                            <div class="carousel-inner mx-auto">
+                                {% for prog in competition%}
+                                <div class="carousel-item {% if forloop.counter == 1 %} active {%endif%}">
+                                    <div class="row">
+                                        <article class="col-md-6 single-post no-gutters border-top order-2 order-lg-1">
+                                            <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
+                                            <div class="single-post-content-wrapper text-justify">
+                                                <div class="text-justify h6 animated fadeInLeft"
+                                                    style="animation-delay: 1s">
+                                                    {{prog.description|truncatechars:700}}
+                                                    {%if prog.link_to_program%}
+                                                    <div>
+                                                        <a href="{{prog.link_to_program}}" target="blank"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">
+                                                            Enroll <i class="la la-angle-right"></i></a>
+                                                    </div>
+                                                    {%else%}
+                                                    <div>
+                                                        <a href="/#contact/"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">Enroll</a>
+                                                    </div>
+                                                    {%endif%}
+                                                    <div class="row mx-auto text-center">
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                                data-action="share/whatsapp/share" target="_blank">
+                                                                <i class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                            </a>
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                        </td>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </p>
+                                        </article>
+                                        <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                alt="" class="img-fluid animated fadeInRight"
+                                                style="animation-delay: 1s" id="tab_img_2">
+                                        </div>
                                     </div>
-
-                                </article>
+                                </div>
+                                {%empty%}
+                                <div class="text-center">
+                                    <marquee behavior="" direction="right">
+                                        There are Currently no Openings for This
+                                        Category <br>
+                                        Please Check Back Soon!
+                                        <br>
+                                        Thank You
+                                    </marquee>
+                                </div>
+                                {%endfor%}
                             </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                    alt="" class="img-fluid" id="tab_img_2">
-                            </div>
+                            {% for prog in competition|slice:":2" %}
+                            {%if forloop.counter > 1 %}
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class=" h1 text-info la la-angle-left border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class=" h1 text-info la la-angle-right border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            {%endif%}
+                            {%endfor%}
                         </div>
                     </div>
-                    {%endif%}
-                    {%endfor%}
-
-                    {% for prog in programme|slice:":1" %}
-                    {%if prog.programme_type == 'TRAINING' %}
-                    {% if forloop.counter == 0 %}
-                    <marquee behavior="" direction="">
-                        There Are Currently No Avalible Programme in This Category <b>Please Check Back soon</b>
-                    </marquee>
-                    {%endif%}
-                    {%endif%}
-                    {%endfor%}
-
-                    {% for prog in programme|slice:":1" %}
-                    {%if prog.programme_type == 'COMPETITION' %}
-                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                        onclick="plusDivs(-1)">
-                        <i class="la la-arrow-left"></i>
-                    </button>
-                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
-                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                        <i class="la la-arrow-right"></i>
-                    </button>
-                    <script>
-                        var slideIndex = 1;
-                        showDivs(slideIndex);
-
-                        function plusDivs(n) {
-                            showDivs(slideIndex += n);
-                        }
-
-                        function showDivs(n) {
-                            var i;
-                            var x = document.getElementsByClassName("{{prog.programme_type}}");
-                            if (n > x.length) { slideIndex = 1 }
-                            if (n < 1) { slideIndex = x.length }
-                            for (i = 0; i < x.length; i++) {
-                                x[i].style.display = "none";
-                            }
-                            x[slideIndex - 1].style.display = "";
-                        }
-                    </script>
-                    {%endif%}
-                    {%endfor%}
-                    {% for prog in programme|slice:":2" %}
-                    {%if prog.programme_type == 'COMPETITION' %}
-                    {%if not forloop.last %}
-                    <script>
-                        document.getElementById('next_but').style = "display: '';";                   
-                    </script>
-                    {% endif %}
-                    {%endif%}
-                    {%endfor%}
                 </div>
 
                 <div class="tab-pane" id="tab-3">
-
-                    {% for prog in programme%}
-                    {%if prog.programme_type == 'SCHOLARSHIP' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row {{prog.programme_type}}">
-                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
-                                    {{prog.date_to|date}}|</span></h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="single-post-content-wrapper text-justify">
-                                        <p class="text-justify">
-                                            {{prog.description|truncatechars:1000}} &ensp;
-                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
-                                                More..</a>
-                                            <div class="row">
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_linkedin '{{prog.link_to_program}}' %}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                        data-action="share/whatsapp/share" target="_blank"> <i
-                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                    </a>
-                                                </td>
+                        <div class="carousel slide" id="carouselExampleControls" data-ride="carousel"
+                            data-interval="false">
+                            <div class="carousel-inner mx-auto">
+                                {% for prog in scholarship%}
+                                <div class="carousel-item {%if forloop.counter == 1 %}active {%endif%}">
+                                    <div class="row">
+                                        <article class="col-md-6 single-post no-gutters border-top order-2 order-lg-1">
+                                            <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
+                                            <div class="single-post-content-wrapper text-justify">
+                                                <div class="text-justify h6 animated fadeInLeft"
+                                                    style="animation-delay: 1s">
+                                                    {{prog.description|truncatechars:700}}
+                                                    {%if prog.link_to_program%}
+                                                    <div>
+                                                        <a href="{{prog.link_to_program}}" target="blank"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">
+                                                            Enroll <i class="la la-angle-right"></i></a>
+                                                    </div>
+                                                    {%else%}
+                                                    <div>
+                                                        <a href="/#contact/"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">Enroll</a>
+                                                    </div>
+                                                    {%endif%}
+                                                    <div class="row mx-auto text-center">
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                                data-action="share/whatsapp/share" target="_blank">
+                                                                <i class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                            </a>
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                        </td>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </p>
+                                        </article>
+                                        <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                alt="" class="img-fluid animated fadeInRight"
+                                                style="animation-delay: 1s" id="tab_img_2">
+                                        </div>
                                     </div>
-
-                                </article>
+                                </div>
+                                {%empty%}
+                                <div class="text-center">
+                                    <marquee behavior="" direction="right">
+                                        There are Currently no Openings for This
+                                        Category <br>
+                                        Please Check Back Soon!
+                                        <br>
+                                        Thank You
+                                    </marquee>
+                                </div>
+                                {%endfor%}
                             </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                    alt="" class="img-fluid" id="tab_img_2">
-                            </div>
+                            {% for prog in scholarship|slice:":2" %}
+                            {%if forloop.counter > 1%}
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class=" h1 text-info la la-angle-left border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class=" h1 text-info la la-angle-right border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            {%endif%}
+                            {%endfor%}
                         </div>
                     </div>
-                    {%endif%}
-                    {%endfor%}
-
-                    {% for prog in programme|slice:":1" %}
-                    {%if prog.programme_type == 'SCHOLARSHIP' %}
-                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                        onclick="plusDivs(-1)">
-                        <i class="la la-arrow-left"></i>
-                    </button>
-                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
-                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                        <i class="la la-arrow-right"></i>
-                    </button>
-                    <script>
-                        var slideIndex = 1;
-                        showDivs(slideIndex);
-
-                        function plusDivs(n) {
-                            showDivs(slideIndex += n);
-                        }
-
-                        function showDivs(n) {
-                            var i;
-                            var x = document.getElementsByClassName("{{prog.programme_type}}");
-                            if (n > x.length) { slideIndex = 1 }
-                            if (n < 1) { slideIndex = x.length }
-                            for (i = 0; i < x.length; i++) {
-                                x[i].style.display = "none";
-                            }
-                            x[slideIndex - 1].style.display = "";
-                        }
-                    </script>
-                    {%endif%}
-                    {%endfor%}
-                    {% for prog in programme|slice:":2" %}
-                    {%if prog.programme_type == 'SCHOLARSHIP' %}
-                    {%if not forloop.last %}
-                    <script>
-                        document.getElementById('next_but').style = "display: '';";                   
-                    </script>
-                    {% endif %}
-                    {%endif%}
-                    {%endfor%}
                 </div>
                 <div class="tab-pane" id="tab-4">
-                    {% for prog in programme%}
-                    {%if prog.programme_type == 'OPPORTUNITY' %}
                     <div class="w3-content w3-display-container">
-                        <div class="row {{prog.programme_type}}">
-                            <h3 class="text-info col-12">{{prog.title}} <span>|{{prog.date_from|date}} -
-                                    {{prog.date_to|date}}|</span></h3>
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 my-auto">
-                                <article class="col-md-12 single-post no-gutters border-top">
-                                    <div class="single-post-content-wrapper text-justify">
-                                        <p class="text-justify">
-                                            {{prog.description|truncatechars:1000}} &ensp;
-                                            <a href="{{prog.link_to_program}}" class="font-weight-bold text-success">See
-                                                More..</a>
-                                            <div class="row">
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_linkedin '{{prog.link_to_program}}' %}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
-                                                </td>
-                                                <td>&nbsp; &nbsp;</td>
-                                                <td class="h4">
-                                                    <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                        data-action="share/whatsapp/share" target="_blank"> <i
-                                                            class="btn btn-success btn-xs la la-whatsapp"></i>
-                                                    </a>
-                                                </td>
+                        <div class="carousel slide" id="carouselExampleControls" data-ride="carousel"
+                            data-interval="false">
+                            <div class="carousel-inner mx-auto">
+                                {% for prog in opportunity%}
+                                <div class="carousel-item {%if forloop.counter == 1 %}active {%endif%}">
+                                    <div class="row">
+                                        <article class="col-md-6 single-post no-gutters border-top order-2 order-lg-1">
+                                            <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
+                                            <div class="single-post-content-wrapper text-justify">
+                                                <div class="text-justify h6 animated fadeInLeft"
+                                                    style="animation-delay: 1s">
+                                                    {{prog.description|truncatechars:700}}
+                                                    {%if prog.link_to_program%}
+                                                    <div>
+                                                        <a href="{{prog.link_to_program}}" target="blank"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">
+                                                            Enroll <i class="la la-angle-right"></i></a>
+                                                    </div>
+                                                    {%else%}
+                                                    <div>
+                                                        <a href="/#contact/"
+                                                            class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">Enroll</a>
+                                                    </div>
+                                                    {%endif%}
+                                                    <div class="row mx-auto text-center">
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                                                                data-action="share/whatsapp/share" target="_blank">
+                                                                <i class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                            </a>
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                        </td>
+                                                        <td>&nbsp; &nbsp;</td>
+                                                        <td class="h4">
+                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                        </td>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </p>
+                                        </article>
+                                        <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                alt="" class="img-fluid animated fadeInRight"
+                                                style="animation-delay: 1s" id="tab_img_2">
+                                        </div>
                                     </div>
-
-                                </article>
+                                </div>
+                                {%empty%}
+                                <div class="text-center">
+                                    <marquee behavior="" direction="right">
+                                        There are Currently no Openings for This
+                                        Category <br>
+                                        Please Check Back Soon!
+                                        <br>
+                                        Thank You
+                                    </marquee>
+                                </div>
+                                {%endfor%}
                             </div>
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                    alt="" class="img-fluid" id="tab_img_2">
-                            </div>
+                            {% for prog in opportunity|slice:":2" %}
+                            {%if forloop.counter > 1%}
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class=" h1 text-info la la-angle-left border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class=" h1 text-info la la-angle-right border border-info rounded-circle"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            {%endif%}
+                            {%endfor%}
                         </div>
                     </div>
-                    {%endif%}
-                    {%endfor%}
-
-                    {% for prog in programme|slice:":1" %}
-                    {%if prog.programme_type == 'TRAINING' %}
-                    {% if forloop.counter == 0 %}
-                    <marquee behavior="" direction="">
-                        There Are Currently No Avalible Programme in This Category <b>Please Check Back soon</b>
-                    </marquee>
-                    {%endif%}
-                    {%endif%}
-                    {%endfor%}
-
-                    {% for prog in programme|slice:":1" %}
-                    {%if prog.programme_type == 'OPPORTUNITY' %}
-                    <button style="display:none" id="prev_but" class="text-white btn btn-warning float-left"
-                        onclick="plusDivs(-1)">
-                        <i class="la la-arrow-left"></i>
-                    </button>
-                    <button class="text-white btn btn-warning float-right" id="next_but" style="display:none"
-                        onclick="plusDivs(1); document.getElementById('prev_but').style.display='';">
-                        <i class="la la-arrow-right"></i>
-                    </button>
-                    <script>
-                        var slideIndex = 1;
-                        showDivs(slideIndex);
-
-                        function plusDivs(n) {
-                            showDivs(slideIndex += n);
-                        }
-
-                        function showDivs(n) {
-                            var i;
-                            var x = document.getElementsByClassName("{{prog.programme_type}}");
-                            if (n > x.length) { slideIndex = 1 }
-                            if (n < 1) { slideIndex = x.length }
-                            for (i = 0; i < x.length; i++) {
-                                x[i].style.display = "none";
-                            }
-                            x[slideIndex - 1].style.display = "";
-                        }
-                    </script>
-                    {%endif%}
-                    {%endfor%}
-                    {% for prog in programme|slice:":2" %}
-                    {%if prog.programme_type == 'OPPORTUNITY' %}
-                    {%if not forloop.last %}
-                    <script>
-                        document.getElementById('next_but').style = "display: '';";                   
-                    </script>
-                    {% endif %}
-                    {%endif%}
-                    {%endfor%}
                 </div>
             </div>
         </div>
@@ -762,7 +720,7 @@
                             title="{{photo.title}}">
                             <span class="text-right h6"><i class="la la-eye"></i> view | </a>
                         <a href="{{photo.get_absolute_url}}" class="details-link" title="More Details">
-                            <span class="h6"> |<i class="la la-arrow-right"></i><i class="la la-link"></i></i></span>
+                            <span class="h6"> |<i class="la la-angle-right"></i><i class="la la-link"></i></i></span>
                         </a>
                     </div>
                 </div>
@@ -785,7 +743,7 @@
                             title="{{photo.title}}">
                             <span class="text-right h6"><i class="la la-eye"></i> view | </a>
                         <a href="{{photo.get_absolute_url}}" class="details-link" title="More Details">
-                            <span class="h6"> |<i class="la la-arrow-right"></i><i class="la la-link"></i></i></span>
+                            <span class="h6"> |<i class="la la-angle-right"></i><i class="la la-link"></i></i></span>
                         </a>
                     </div>
                 </div>
@@ -808,19 +766,20 @@
                             title="{{photo.title}}">
                             <span class="text-right h6"><i class="la la-eye"></i> view | </a>
                         <a href="{{photo.get_absolute_url}}" class="details-link" title="More Details">
-                            <span class="h6"> |<i class="la la-arrow-right"></i><i class="la la-link"></i></i></span>
+                            <span class="h6"> |<i class="la la-angle-right"></i><i class="la la-link"></i></i></span>
                         </a>
                     </div>
                 </div>
                 {%endif%}
-                {%empty%}
-                <div class="col-lg-12 col-md-12 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <div class="mx-auto text-center h4 text-primary p-3">
-                            Photos will be Published Soon!
-                        </div>
-                    </div>
-                </div>
+                <!-- <div class="text-center">
+                    <marquee behavior="" direction="right">
+                        There are Currently no Openings for This
+                        Category <br>
+                        Please Check Back Soon!
+                        <br>
+                        Thank You
+                    </marquee>
+                </div> -->
                 {%endfor%}
                 {%endif%}
             </div>
@@ -883,7 +842,7 @@
                     <img src="../static/assets/img/edo/clients/Siemiens.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/xignma.png class=" img-fluid" alt="">
+                    <img src="../static/assets/img/edo/clients/xignma.png" class=" img-fluid" alt="">
                 </div>
             </div>
 

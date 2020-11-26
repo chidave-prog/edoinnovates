@@ -10,8 +10,8 @@
 <main id="main" style="padding-top: 3em;">
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>Portfolio Details</h2>
+            <div class="d-flex justify-content-between align-items-center float-right">
+
                 <ol>
                     <li><a href="/">Home</a></li>
                     <li>Gallery / {{gallery.title}}</li>
@@ -38,41 +38,59 @@
                     <img src="{{gallery.photo_3.url}}" class="img-fluid" alt="">
                     {%endif%}
                 </div>
-
-                <div class="portfolio-info">
-                    <h3>Photo Information</h3>
-                    <ul>
-                        <li><strong>Category</strong>:{{gallery.photo_type}}</li>
-                        <!-- <li><strong>Client</strong>: {{gallery.title}}</li> -->
-                        <li><strong>Date</strong> {{gallery.created_at|date}}</li>
-
-                        <li>
-                            {%if gallery.photo_type == 'Sartups' %}
-                            <strong>Project URL</strong>: <a href="{{gallery.link_address_4_start_ups}}">
-                                Visit website
-                            </a>
-                            {%elif gallery.photo_type == 'HUB' %}
-                            <strong>For Bookings</strong>: <a href="javascript:void(0);"
-                                onclick="document.getElementById('contact_sek').className='';">
-                                <b class="text-info">Contact Us</b>
-                            </a>
-                            {%elif gallery.photo_type == 'Gallery' %}
-                            <strong>For Inquiries</strong>: <a href="javascript:void(0);"
-                                onclick="document.getElementById('contact_sek').className='';">
-                                <b class="text-info">Contact Us</b>
-                            </a>
-                            {%endif%}
-                        </li>
-                    </ul>
-                </div>
-
             </div>
 
-            <div class="portfolio-description">
+            <div class="portfolio-description border-top">
                 <h2>{{gallery.title}}</h2>
                 <p>
                     {{gallery.description}}
                 </p>
+            </div>
+            <div class="col-md-4 py-5">
+                <span>
+                    {%if gallery.photo_type == 'Sartups' and gallery.photo_type.start_up_website_link  %}
+                    <strong>Website</strong>: <a href="{{gallery.link_address_4_start_ups}}">
+                    </a>
+                    {%elif gallery.photo_type == 'HUB' %}
+                    <strong>For Bookings</strong>: <a href="javascript:void(0);"
+                        onclick="document.getElementById('contact_sek').className='';">
+                        <b class="text-info">Contact Us</b>
+                    </a>
+                    {%elif gallery.photo_type == 'Gallery' %}
+                    <strong>For Inquiries</strong>: <a href="javascript:void(0);"
+                        onclick="document.getElementById('contact_sek').className='';">
+                        <b class="text-info">Contact Us</b>
+                    </a>
+                    {%endif%}
+                </span>
+                <div class="row">
+                    <p class="col-12 font-weight-bold"></p>
+                    {%if gallery.start_up_facebook_link  %}
+                    <div class="col-2">
+                        <a href="{{gallery.start_up_facebook_link}}" target="blank"><i
+                                class="la la-facebook border text-primary rounded-pill h5"></i></a>
+                    </div>
+                    {%endif%}
+                    {%if gallery.start_up_twitter_link  %}
+                    <div class="col-2">
+                        <a href="{{gallery.start_up_twitter_link}}" target="blank"><i
+                                class="la la-twitter border text-info rounded-pill h5"></i></a>
+                    </div>
+                    {%endif%}
+                    {%if gallery.start_up_Instagram_link  %}
+                    <div class="col-2">
+                        <a href="{{gallery.start_up_Instagram_link}}" target="blank"><i
+                                class="la la-instagram border text-warning rounded-pill h5"></i></a>
+                    </div>
+                    {%endif%}
+                    {%if gallery.start_up_linkedin_link  %}
+                    <div class="col-2">
+                        <a href="{{gallery.start_up_linkedin_link}}" target="blank"><i
+                                class="la la-linkedin border text-white bg-primary rounded-pill h5"></i></a>
+                    </div>
+                    {%endif%}
+                </div>
+
             </div>
         </div>
     </section>

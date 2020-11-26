@@ -97,7 +97,10 @@ def ContactPage(request):
 def Home(request):     
     context={
         'title_tag'  : "EDO INNOVATE| Touching Lives",
-        'programme': Programme.objects.filter(publish=True).order_by('-created_at'),
+        'training': Programme.objects.filter(publish=True,programme_type="TRAINING").order_by('-created_at'),
+        'competition': Programme.objects.filter(publish=True,programme_type="COMPETITION").order_by('-created_at'),
+        'scholarship': Programme.objects.filter(publish=True,programme_type="SCHOLARSHIP").order_by('-created_at'),
+        'opportunity': Programme.objects.filter(publish=True,programme_type="OPPORTUNITY").order_by('-created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
         'gallery': Gallery.objects.filter(publish=True).order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],

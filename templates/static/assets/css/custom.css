@@ -122,6 +122,9 @@ header .carousel-inner .item img {
   }
 #tab_img_2{ 
     border-radius: 1em;
+    border-radius: 1em;
+    height: 18em;
+    overflow: hidden;
 }
 #padis{
     list-style: none;  
@@ -130,6 +133,12 @@ header .carousel-inner .item img {
     padding-top: 3em;
 }
 @media (max-width: 768px) {
+    #tab_img_2{ 
+        border-radius: 1em;
+        border-radius: 1em;
+        height: auto;
+        overflow: visible;
+    }
     #tab_img{
         height: 3em;
         width: 8em;
@@ -353,5 +362,27 @@ background: #ffffff00  !important;
     #stage_sec {
     padding: 0em !important;
     
+    }
+}
+.carousel-control-prev {
+    left: -97px;
+}
+.carousel-control-next {
+    right: -97px;
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel-control-prev {
+        top: -34em;
+        left: -30px;
+
+    }
+    .carousel-control-next {
+        top: -34em;
+        right: -30px;
+    
+
     }
 }

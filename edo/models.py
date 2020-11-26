@@ -150,14 +150,12 @@ class Programme(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(help_text='NOTE: word limit of 700', max_length=700)    
     programme_banner = models.ImageField(upload_to='programme_banner')
-    link_to_program = models.URLField(blank=True, null=True)
-    date_from = models.DateField()
-    date_to = models.DateField()
+    link_to_program = models.URLField(blank=True, null=True) 
     publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)    
 
     def __str__(self):
-        return f"{self.title} | {self.programme_type} | {self.date_from}  -  {self.date_to}"
+        return f"{self.title}"
 
 class Application(models.Model):
     programme = models.ForeignKey('Programme', null=True, on_delete=models.SET_NULL)
@@ -179,7 +177,11 @@ class Gallery(models.Model):
     photo = models.ImageField(upload_to='Photo_Gallery')
     photo_2 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
     photo_3 = models.ImageField(upload_to='Photo_Gallery',blank=True, null=True)
-    link_address_4_start_ups = models.URLField(blank=True, null=True)
+    start_up_website_link = models.URLField(blank=True, null=True)
+    start_up_facebook_link = models.URLField(blank=True, null=True)
+    start_up_twitter_link = models.URLField(blank=True, null=True)
+    start_up_Instagram_link = models.URLField(blank=True, null=True)
+    start_up_linkedin_link = models.URLField(blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
     publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)  
@@ -231,7 +233,7 @@ class Testimony(models.Model):
     phone_number = models.IntegerField(blank=True, null=True)
     programme_benefited_from = models.CharField(max_length=200)
     email = models.EmailField(blank=True, null=True)
-    testimony = models.TextField()
+    testimony = models.TextField(max_length=800, help_text="word limit of 800")
     add_a_photo = models.ImageField(
         upload_to='Testimony_image', blank=True, null=True)
     publish = models.BooleanField(default=False)
