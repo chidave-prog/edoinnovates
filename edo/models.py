@@ -89,6 +89,7 @@ class PostView(models.Model):
     def save(self, *args, **kwargs):
         if self.quote:
             self.visited = self.quote
+        super(PostView, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):
