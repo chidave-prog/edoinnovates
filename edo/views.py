@@ -104,7 +104,7 @@ def Home(request):
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
         'gallery': Gallery.objects.filter(publish=True).order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
-        'team': Team.objects.filter(publish=True).order_by('-created_at'),
+        'team': Team.objects.filter(publish=True, office='Borad_members').order_by('-created_at'),
         'pageslider': Pageslider.objects.filter(publish=True),
     }
     return render(request, 'pages/index.html', context)

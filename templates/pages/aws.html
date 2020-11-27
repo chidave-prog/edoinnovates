@@ -236,7 +236,80 @@
         </div>
     </div>
 </section>
-{% include "../pages/team.html"  with team=team %}
+<section id="team" class="team">
+    <div class="container">
+        <div class="row">
+            <div class="section-title" data-aos="fade-up">
+                <p class="h5">Meet Your Instructors</p>
+                <small>Learn from certified teachers with years of real-world training experience. Our instructors
+                    don't just teach you what you need to know, but how to learn it.
+
+                </small>
+            </div>
+            <div class="col-md-12 mx-auto text-left">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for member in team%}
+                        {% if member.office == 'aws_instructors' and request.path == "/aws-restart-edo/" %}
+                        <div class="carousel-item {% if forloop.counter == 1%} active {%endif%}">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                            <img src="{%if member.picture%} {{member.picture.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="rounded" alt="" id="aws_team_img">
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                            <h4>{{member.full_names}}</h4>
+                                            <span>{{member.position}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pt-5">
+                                    <div class="row mt-5">
+                                        <p class="col-12 text-left mx-auto"><b>Connect</b></p>
+                                        <div class="col-2">
+                                            <a href="mailto:{{member.email}}" target="blank">
+                                                <span
+                                                    class="h3 border rounded-circle text-danger la la-envelope "></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-2">
+                                            <a href="tel:{{member.email}}" target="blank">
+                                                <span class="h3 border rounded-circle text-success la la-phone"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-2">
+                                            <a href="{{member.link_to_your_twitter_account}}" target="blank"> <span
+                                                    class="h3 border rounded-circle text-info la la-twitter"></span></a>
+                                        </div>
+                                        <div class="col-2">
+                                            <a href="{{member.link_to_your_linkedin_account}}" target="blank"><span
+                                                    class="h3 border rounded-circle text-primary la la-linkedin"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {%endif%}
+                        {%endfor%}
+                    </div>
+                    <div class="pt-5 px-5" id="aws_tesm_slide_ctrl">
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                            data-slide="prev">
+                            <span class="la la-angle-left border rounded-circle text-info h1"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                            data-slide="next">
+                            <span class="la la-angle-right border rounded-circle text-info h1"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <div id="aws_reg_sec" class="d-none">
     <div class="pt-5 text-right">

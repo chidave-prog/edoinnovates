@@ -386,3 +386,18 @@ background: #ffffff00  !important;
 
     }
 }
+
+#aws_team_img{
+    height: 14em;
+    width: 18em;
+}
+@media (max-width: 768px) {
+    #aws_tesm_slide_ctrl{
+        position: relative;
+        top: 7em;
+    }
+    #aws_team_img{
+        height: 14em;
+        width: 100%;
+    } 
+}
