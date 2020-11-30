@@ -29,12 +29,12 @@
 }
 
 
-/* #slide_img{
-    height: 100%; width: 100%;
-} */
+#slide_img{
+    height: auto; width: auto;
+}
 @media (max-width: 768px) {
     #hero, #slide_img{
-        height: 75% !important;
+        height: auto !important;
     }
 }
 .slide1 {
