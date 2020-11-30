@@ -29,9 +29,9 @@
 }
 
 
-#slide_img{
+/* #slide_img{
     height: 100%; width: 100%;
-}
+} */
 @media (max-width: 768px) {
     #hero, #slide_img{
         height: 75% !important;

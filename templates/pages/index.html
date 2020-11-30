@@ -62,18 +62,11 @@
                         style="animation-delay: 1s;">
                         {{slide.caption_buttom_title_small|linebreaksbr}}
                     </p>
-                    {%if forloop.counter == 1%}
-                    <p class="animated zoomIn" style="animation-delay: 2s">
-                        <a class="venobox btn-watch-video btn btn-danger shadow" href="https://youtu.be/xU4Tmb_jUkc"
-                            data-vbtype="video" data-autoplay="true"> <i>&ensp;</i> Watch
-                            Video <i class="icofont-play-alt-2"></i></a>
-                    </p>
-                    {%else%}
                     <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 2s">
                         <a href="#what_we_do" class="btn btn-outline-default">{{slide.button_caption}} <i
                                 class="la la-arrow-down"></i></a>
                     </p>
-                    {%endif%}
+
                 </div>
             </div>
             {%endif%}
