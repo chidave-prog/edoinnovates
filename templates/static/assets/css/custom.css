@@ -34,7 +34,7 @@
 }
 @media (max-width: 768px) {
     #hero, #slide_img{
-        height: auto !important;
+        /* height: auto !important; */
     }
 }
 .slide1 {
