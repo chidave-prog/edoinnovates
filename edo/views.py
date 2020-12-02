@@ -110,6 +110,20 @@ def Home(request):
     return render(request, 'pages/index.html', context)
 
 
+def Halls(request):     
+    context={
+        'title_tag'  : "EDO INNOVATE| Halls",
+        'training': Programme.objects.filter(publish=True,programme_type="TRAINING").order_by('-created_at'),
+        'competition': Programme.objects.filter(publish=True,programme_type="COMPETITION").order_by('-created_at'),
+        'scholarship': Programme.objects.filter(publish=True,programme_type="SCHOLARSHIP").order_by('-created_at'),
+        'opportunity': Programme.objects.filter(publish=True,programme_type="OPPORTUNITY").order_by('-created_at'),
+        'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
+        'gallery': Gallery.objects.filter(publish=True, photo_type='halls').order_by('-created_at'),
+        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
+        'team': Team.objects.filter(publish=True, office='Borad_members').order_by('-created_at'),
+        'pageslider': Pageslider.objects.filter(publish=True),
+    }
+    return render(request, 'pages/halls.html', context)
 
 def AwsRestartBenin(request):     
     context={

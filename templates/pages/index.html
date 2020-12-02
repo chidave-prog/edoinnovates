@@ -49,21 +49,21 @@
             {%if slide.select_page == 'home'%}
             <div class="carousel-item  {%if forloop.counter == 1%}active{%endif%} item">
                 <img src="{{slide.slide_image.url}}" class="img-fluid" alt="" id="slide_img">
-                <div class="carousel-caption text-center mx-auto d-sm-none d-md-block d-lg-block" data-aos="fade-up"
+                <div class="carousel-caption text-center mx-auto d-none d-md-block d-lg-block" data-aos="fade-up"
                     data-aos-delay="150" id="caption_text">
                     <small class="section-title h6">
                         {{slide.caption_top_title_small|linebreaksbr}}
                     </small>
 
-                    <h1 class="animated {{slide.top_slider_animation_gesture}}" style="animation-delay: 1s">
+                    <h1 class="animated {{slide.top_slider_animation_gesture}}" style="animation-delay: .1s">
                         {{slide.caption_mid_title_large|linebreaksbr}}
                     </h1>
                     <p class="text-center animated {{slide.bottom_slider_animation_gesture}} pb-2"
-                        style="animation-delay: 1s;">
+                        style="animation-delay: .1s;">
                         {{slide.caption_buttom_title_small|linebreaksbr}}
                     </p>
-                    <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 2s">
-                        <a href="#what_we_do" class="btn btn-outline-default">{{slide.button_caption}} <i
+                    <p class="animated {{slide.slider_button_animation_gesture}}" style="animation-delay: 1 s">
+                        <a href="#what_we_do" class="btn btn-default text-white">{{slide.button_caption}} <i
                                 class="la la-arrow-down"></i></a>
                     </p>
 
@@ -90,7 +90,7 @@
                         <div class="animated fadeInDown" style="animation-delay: 1s">
                             <p data-animation="animated fadeInLeft"> BEST SKILL INCUBATION CENTER </p>
                             <p class="animated zoomIn" style="animation-delay: 2s">
-                                <a href="#what_we_do" class="btn btn-outline-secondary text-white">Get Started
+                                <a href="#what_we_do" class="btn btn-secondary text-white">Get Started
                                     <i class="la la-arrow-down"></i></a>
                             </p>
                         </div>
@@ -116,11 +116,11 @@
     <section id="about" class="about">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="row justify-content-end">
-                <div class="col-lg-11">
-                    <div class="row justify-content-end">
+            <div class="row justify-content-end border-bottom">
+                <div class="col-lg-12 mx-auto">
+                    <div class="row justify-content-end mx-auto">
 
-                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch mx-auto">
                             <div class="count-box">
                                 <i class="icofont-workers-group"></i>
                                 <span data-toggle="counter-up">65</span>
@@ -128,7 +128,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch mx-auto">
                             <div class="count-box">
                                 <i class="icofont-award"></i>
                                 <span data-toggle="counter-up">85</span>
@@ -136,15 +136,15 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                        <!-- <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch mx-auto">
                             <div class="count-box">
                                 <i class="icofont-read-book-alt"></i>
                                 <span data-toggle="counter-up">12</span>
                                 <p>Scholarships</p>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch mx-auto">
                             <div class="count-box">
                                 <i class="icofont-ui-office"></i>
                                 <span data-toggle="counter-up">15</span>
@@ -157,7 +157,24 @@
             </div>
 
             <div class="row">
+                <div class="col-12 mx-auto p-2">
+                    <h5 class="font-weight-bold text-center">WHO WE ARE</h5>
+                    <div class="row py-3">
+                        <div class="col-md-6 card-front">
+                            We are an innovation centre creating the supply of highly skilled ICT talent in Edo State
+                            and
+                            improving greater access to jobs in the ICT sector. We are located in the heart of Edo
+                            state,
+                            Benin City.
+                        </div>
+                        <div class="col-md-6 card-front">
+                            Edoinnovates was launched on 14th June, 2020 by his Excellency, Vice President Yemi Osinbajo
+                            and
+                            has since inception, seen over 5000 beneficiaries.
+                        </div>
 
+                    </div>
+                </div>
                 <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
                     <img src="../static/assets/img/edo/home-bg.jpg" class="img-fluid" alt="">
                     <!-- <a href="https://youtu.be/xU4Tmb_jUkc" class="venobox play-btn mb-4" data-vbtype="video"
@@ -165,17 +182,23 @@
                 </div>
 
                 <div class="col-lg-6 pt-3 pt-lg-0 content">
-                    <h5 class="font-weight-bold">WHO WE ARE</h5>
+                    <!-- <h5 class="font-weight-bold">WHO WE ARE</h5>
                     <p class="font-italic">
-                        Edo Innovates, is a cluster for technology, inventors, entrepreneurs situated in the hearts of
-                        Benin-City, Edo State. Launched on the 14th of June 2018 by his Excellency, Vice President Yemi
-                        Osinbanjo, the hub has seen over 5000 beneficiaries since its inception.
-                    </p>
+                        We are an innovation centre creating the supply of highly skilled ICT talent in Edo State and
+                        improving greater access to jobs in the ICT sector. We are located in the heart of Edo state,
+                        Benin City.
+                        <br>
+                        Edoinnovates was launched on 14th June, 2020 by his Excellency, Vice President Yemi Osinbajo and
+                        has since inception, seen over 5000 beneficiaries.
+                    </p> -->
 
-                    <h5 class="font-weight-bold">WHAT WE DO</h5>
-                    <ul>
-                        <li><i class="bx bx-check-double"></i>
-                            Up skill youths with ICT Skills with connect them to jobs in the tech sector
+
+                    <ul style="list-style: none;">
+                        <h5 class="font-weight-bold">WHAT WE DO</h5>
+                        <li class=""><i class="bx bx-check-double"></i>
+
+                            Up skill youth with ICT Skills with connect them to jobs in the tech sector
+
                         </li>
                         <li><i class="bx bx-check-double"></i>
                             Provide training and business expansion opportunities for startups and small businesses
@@ -216,12 +239,24 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Jobs</a></h5>
-                            <p class="card-text">
-                                The <b>Edo Innovates</b> is a sublet of the Skill Development Center (Edojobs) set up by
-                                his
-                                Excellency Governor Godwin Obaseki, the hub sits at the heart of Benin City with an aim
-                                to seeks/address the problem of providing jobs for the teeming residents of Edo by
-                                seeking innovation in ICT and Technology.
+                            <p class="card-text text-justify" id="half-text1">
+                                ‘Edo Innovates’ is a sublet of the Edo State Skills Development Agency (ESSDA) set up by
+                                his Excellency Governor Godwin Obaseki with the aim to connect Youths to Jobs in the 4th
+                                industrial revolution; leveraging Technology for Job Creation and Enterprise
+                                Development.
+                                <a href="javascript:void(0);"
+                                    onclick="document.getElementById('full-text1').style.display=''; document.getElementById('half-text1').style.display='none';"
+                                    class="text-success">more
+                                    <i class="la la-arrow-right"></i></a>
+                            </p>
+                            <p class="card-text text-justify" id="full-text1" style="display: none;">
+                                The Edo Innovation Hub serves as the home for technology in the south-south, equipping
+                                youths in Edo with high demand ICT and Entrepreneurship skill trainings with state of
+                                the art facilities, in a serene and conducive environment that sparks innovative ideas.
+                                <a href="javascript:void(0);"
+                                    onclick="document.getElementById('full-text1').style.display='none'; document.getElementById('half-text1').style.display='';"
+                                    class="text-danger">
+                                    <i class="la la-arrow-left"></i> less</a>
                             </p>
                         </div>
                     </div>
@@ -235,27 +270,24 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Start-Ups</a></h5>
-                            <p class="card-text">
-                                <span id="half-text">
-                                    The Hub was designed to help the very best founders and startups by facilitating
-                                    access
-                                    to high quality work spaces and infrastructure, Teaching and Learning, Early stage
-                                    investment capital, Investor and Peer networks. <a href="javascript:void(0);"
-                                        onclick="document.getElementById('full-text').style.display=''; document.getElementById('half-text').style.display='none';">more
-                                        <i class="la la-angle-down"></i></a>
-                                </span>
+                            <p class="card-text text-justify" id="half-text2">
+                                The Edo Innovation Hub was designed to help the very best founders and start-ups by
+                                facilitating access to high quality work spaces and infrastructure, Teaching and
+                                Learning, Early stage investment capital, Investor and Peer networks.
+                                <a href="javascript:void(0);"
+                                    onclick="document.getElementById('full-text2').style.display=''; document.getElementById('half-text2').style.display='none';"
+                                    class="text-success">more
+                                    <i class="la la-arrow-right"></i></a>
+                            </p>
+                            <p class="card-text text-justify" id="full-text2" style="display: none;">
+                                Edo Innovation hub is positioned at improving the livelihood of Edo residents through
+                                different innovation programs and trainings that leads to employment and
+                                entrepreneurship opportunities in the State.
 
-                                <span id="full-text" style="display: none;">
-                                    The Hub was designed to help the very best founders and startups by facilitating
-                                    access
-                                    to high quality work spaces and infrastructure, Teaching and Learning, Early stage
-                                    investment capital, Investor and Peer networks. Edo Innovation hub is positioned at
-                                    improving the livelihood of Edo residents through different innovation programs and
-                                    trainings that leads to employment and entrepreneurship opportunities in the State.
-                                    <a href="javascript:void(0);"
-                                        onclick="document.getElementById('full-text').style.display='none'; document.getElementById('half-text').style.display='';">less
-                                        <i class="la la-angle-up"></i></a>
-                                </span>
+                                <a href="javascript:void(0);"
+                                    onclick="document.getElementById('full-text2').style.display='none'; document.getElementById('half-text2').style.display='';"
+                                    class="text-danger">
+                                    <i class="la la-arrow-left"></i> less</a>
                             </p>
                         </div>
                     </div>
@@ -269,10 +301,25 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Partnerships</a></h5>
-                            <p class="card-text">
-                                The Edo Innovates hub as so far partnered with many notable local, national and
-                                international organizations and can boost of the state of the art facility for
-                                trainings, meetings, events and work spaces for ICT related activities.
+                            <p class="card-text text-justify" id="half-text3">
+                                The hub has collaborated with National and International partners like Amazon, Google
+                                Africa, Curators University, LinkedIn, CADD center, GIZ, Oxfam International, HPLife,
+                                Center for women development, Facebook, Gidimobile and many
+
+                                <a href="javascript:void(0);"
+                                    onclick="document.getElementById('full-text3').style.display=''; document.getElementById('half-text3').style.display='none';"
+                                    class="text-success">more
+                                    <i class="la la-arrow-right"></i></a>
+                            </p>
+                            <p class="card-text text-justify" id="full-text3" style="display: none;">
+                                more to deliver cutting edge ICT skill trainings, solutions and connecting
+                                beneficiaries to opportunities and jobs in
+                                the IT sector.
+
+                                <a href="javascript:void(0);"
+                                    onclick="document.getElementById('full-text3').style.display='none'; document.getElementById('half-text3').style.display='';"
+                                    class="text-danger">
+                                    <i class="la la-arrow-left"></i> less</a>
                             </p>
                         </div>
                     </div>
@@ -286,25 +333,25 @@
         <div class="container" data-aos="fade-up">
 
             <ul class="nav nav-tabs row d-flex">
-                <li class="nav-item col-3">
+                <li class="nav-item col-3 mx-auto">
                     <a class="nav-link active show" data-toggle="tab" href="#tab-1">
                         <i class="la la-user-check"></i>
                         <h4 class="d-none d-lg-block">Tranings</h4>
                     </a>
                 </li>
-                <li class="nav-item col-3">
+                <li class="nav-item col-3 mx-auto">
                     <a class="nav-link" data-toggle="tab" href="#tab-2">
                         <i class="la la-award"></i>
                         <h4 class="d-none d-lg-block">Competition</h4>
                     </a>
                 </li>
-                <li class="nav-item col-3">
+                <!-- <li class="nav-item col-3 mx-auto">
                     <a class="nav-link" data-toggle="tab" href="#tab-3">
                         <i class="la la-book"></i>
                         <h4 class="d-none d-lg-block">Scholarships</h4>
                     </a>
-                </li>
-                <li class="nav-item col-3">
+                </li> -->
+                <li class="nav-item col-3 mx-auto">
                     <a class="nav-link" data-toggle="tab" href="#tab-4">
                         <i class="la la-door-open"></i>
                         <h4 class="d-none d-lg-block">opportunities</h4>
@@ -325,7 +372,7 @@
                                             <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
                                             <div class="single-post-content-wrapper text-justify">
                                                 <div class="text-justify h6 animated fadeInLeft"
-                                                    style="animation-delay: 1s">
+                                                    style="animation-delay: .1s">
                                                     {{prog.description|truncatechars:700}}
                                                     {%if prog.link_to_program%}
                                                     <div>
@@ -340,11 +387,12 @@
                                                     </div>
                                                     {%endif%}
                                                     <div class="row mx-auto text-center">
+                                                        <i class="la la-share text-muted"> Share</i>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
                                                             <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
-                                                                data-action="share/whatsapp/share" target="_blank"> <i
-                                                                    class="btn btn-success btn-xs la la-whatsapp"></i>
+                                                                data-action="share/whatsapp/share" target="_blank">
+                                                                <i class="btn btn-success btn-xs la la-whatsapp"></i>
                                                             </a>
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
@@ -366,7 +414,7 @@
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
                                             <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
                                                 alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: 1s" id="tab_img_2">
+                                                style="animation-delay: .1s" id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -414,7 +462,7 @@
                                             <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
                                             <div class="single-post-content-wrapper text-justify">
                                                 <div class="text-justify h6 animated fadeInLeft"
-                                                    style="animation-delay: 1s">
+                                                    style="animation-delay: .1s">
                                                     {{prog.description|truncatechars:700}}
                                                     {%if prog.link_to_program%}
                                                     <div>
@@ -429,6 +477,7 @@
                                                     </div>
                                                     {%endif%}
                                                     <div class="row mx-auto text-center">
+                                                        <i class="la la-share text-muted"> Share</i>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
                                                             <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
@@ -455,7 +504,7 @@
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
                                             <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
                                                 alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: 1s" id="tab_img_2">
+                                                style="animation-delay: .1s" id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -503,7 +552,7 @@
                                             <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
                                             <div class="single-post-content-wrapper text-justify">
                                                 <div class="text-justify h6 animated fadeInLeft"
-                                                    style="animation-delay: 1s">
+                                                    style="animation-delay: .1s">
                                                     {{prog.description|truncatechars:700}}
                                                     {%if prog.link_to_program%}
                                                     <div>
@@ -518,6 +567,7 @@
                                                     </div>
                                                     {%endif%}
                                                     <div class="row mx-auto text-center">
+                                                        <i class="la la-share text-muted"> Share</i>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
                                                             <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
@@ -544,7 +594,7 @@
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
                                             <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
                                                 alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: 1s" id="tab_img_2">
+                                                style="animation-delay: .1s" id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -591,7 +641,7 @@
                                             <p class="text-info col-12 h5 text-center">{{prog.title}}</p>
                                             <div class="single-post-content-wrapper text-justify">
                                                 <div class="text-justify h6 animated fadeInLeft"
-                                                    style="animation-delay: 1s">
+                                                    style="animation-delay: .1s">
                                                     {{prog.description|truncatechars:700}}
                                                     {%if prog.link_to_program%}
                                                     <div>
@@ -606,6 +656,7 @@
                                                     </div>
                                                     {%endif%}
                                                     <div class="row mx-auto text-center">
+                                                        <i class="la la-share text-muted"> Share</i>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
                                                             <a href="whatsapp://send?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
@@ -632,7 +683,7 @@
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
                                             <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
                                                 alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: 1s" id="tab_img_2">
+                                                style="animation-delay: .1s" id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -684,10 +735,10 @@
             <div class="row" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
+                        <!-- <li data-filter="*" class="filter-active">All</li> -->
                         <li data-filter=".filter-gallery">Gallery</li>
                         <li data-filter=".filter-hub">HUB</li>
-                        <li data-filter=".filter-sartups">StartUps</li>
+                        <li data-filter=".filter-startups">StartUps</li>
                     </ul>
                 </div>
             </div>
@@ -741,8 +792,8 @@
                     </div>
                 </div>
                 {%endif%}
-                {%if photo.photo_type == 'Sartups' %}
-                <div class="col-lg-4 col-md-6 portfolio-item filter-sartups">
+                {%if photo.photo_type == 'StartUps' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-startups">
                     <img src="{%if photo.photo%}
                                 {{photo.photo.url}}
                                 {%else%}
@@ -781,7 +832,7 @@
 
     {% include "../pages/news.html"  with blog=blog %}
 
-    {% include "../pages/team.html"  with team=team %}
+    <!-- {% include "../pages/team.html"  with team=team %} -->
 
 
     <section id="clients" class="clients">
@@ -801,9 +852,9 @@
                         alt="">
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                <!-- <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
                     <img src="../static/assets/img/edo/clients/08-Zenolight.jpg" class="img-fluid" alt="">
-                </div>
+                </div> -->
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
                     <img src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="img-fluid" alt="">

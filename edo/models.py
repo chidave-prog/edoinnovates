@@ -57,7 +57,8 @@ GENDER = [
 PHOTO_TYPE = [
     ('Gallery', 'Gallery'),
     ('HUB', 'HUB'),
-    ('Sartups', 'Sartups'),
+    ('StartUps', 'StartUps'),
+     ('halls', 'halls'),
 ]
 TEAM_CATEGORY = [
     ('aws_instructors', 'aws_instructors'),
