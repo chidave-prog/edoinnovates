@@ -44,7 +44,23 @@
                             <div class="single-post-content-wrapper text-justify">
                                 {{news.content|safe}}
                             </div>
-
+                            <div class="row">                                
+                                <div class="col-md-6 text-center">     
+                                    <div class="col-md-6 image-wrapper float-left pr-3 border-bottom">
+                                        <p class="h6"><b>Author</b></p>
+                                        <img src="{%if news.author_photo%}
+                                        {{news.author_photo.url}}
+                                        {%else%}
+                                        {%static 'assets/img/edo/logo&badges/badge.png' %}
+                                        {%endif%}" class="img-fluid rounded-circle" alt="gist" height="150" width="100"/>
+                                        <figcaption class="h6">
+                                            {{news.author}}
+                                            <br>
+                                           <sup class="text-muted"> {{news.connect}}</sup>
+                                        </figcaption>
+                                    </div>
+                                </div>      
+                            </div>
 
                             <div class="row pb-2">
                                 <div class="col-8 mx-auto text-center">

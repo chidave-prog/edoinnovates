@@ -114,8 +114,10 @@ class Blog(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     content = HTMLField()
-    caption_picture = models.ImageField(
-        upload_to='news', blank=True, null=True)
+    caption_picture = models.ImageField(upload_to='blog', blank=True, null=True)    
+    author = models.CharField(max_length=200,blank=True, null=True)
+    connect = models.CharField(max_length=200,blank=True, null=True)
+    author_photo = models.ImageField(upload_to='news author photo', blank=True, null=True)
     views = models.CharField(max_length=20, default=0, blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
     publish = models.BooleanField(default=False)
