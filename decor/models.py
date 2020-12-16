@@ -72,7 +72,7 @@ class Pageslider(models.Model):
     top_slider_animation_gesture = models.CharField(max_length=100,choices=GESTURE)
     caption_buttom_title_small = models.CharField(max_length=100, blank=True, null=True)
     bottom_slider_animation_gesture = models.CharField(max_length=100,choices=GESTURE)
-    button_caption=models.CharField(max_length=10)
+    button_caption=models.CharField(max_length=20)
     slider_button_animation_gesture = models.CharField(max_length=100,choices=GESTURE)
     
     publish = models.BooleanField(default=False)
