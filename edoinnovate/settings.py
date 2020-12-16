@@ -180,7 +180,18 @@ else:
     AWS_S3_SIGNATURE_VERSION = "s3v4"
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'     
     # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'    
-    EMAIL_HOST = 'smtp.mailgun.org'  
+    EMAIL_HOST = 'smtp.gmail.com' 
+
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = None
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_FRAME_DENY = True
+    CORS_REPLACE_HTTPS_REFERER = False
+    HOST_SCHEME = "https://"
+
 
 
    
