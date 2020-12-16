@@ -50,9 +50,7 @@ def Search(request):
         if opt == 'programmes':
             search_result = Programme.objects.all().filter(
                 Q(title__icontains=search)
-                    | Q(description__icontains=search)
-                    | Q(date_from__icontains=search)
-                    | Q(date_to__icontains=search)
+                    | Q(description__icontains=search)                    
                     ,publish=True
             ).distinct()
             context.update({
