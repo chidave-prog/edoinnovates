@@ -16,7 +16,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    "www.edoinnovate.com",
+    "www.edoinnovates.com",
      "127.0.0.1", 
      "edoinnovate.herokuapp.com", 
      "localhost", 
