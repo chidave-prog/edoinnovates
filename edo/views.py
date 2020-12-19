@@ -81,8 +81,8 @@ def ContactPage(request):
         contact.save()
 
         subject = f"Contact Message From Edo Innovate Site:  {request.POST.get('subject')}"
-        message = '%s %s %s' % (request.POST.get(
-            "message"), "\n from: \n", request.POST.get('full_names'))
+        message = '%s %s %s %s' % (request.POST.get(
+            "message"), "\n from: \n", request.POST.get('full_names'), "\n email: " + str(request.POST.get("email")))
         emailFrom = request.POST.get("email")
         emailTo = ['asemotaizoduwa@edojobs.org',
                    'believe.ohiozua@gmail.com', 'awsrestartedo@gmail.com']
