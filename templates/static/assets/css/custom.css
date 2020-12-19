@@ -30,7 +30,7 @@
 
 
 #slide_img{
-    height: auto; width: auto;
+    height: auto; width: 100%;
 }
 @media (max-width: 768px) {
     #hero, #slide_img{

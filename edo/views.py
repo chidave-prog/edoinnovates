@@ -1,47 +1,47 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, reverse
-from django.http import HttpResponse,HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.db.models import Q
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.views import generic
 from .models import (
-                    Contact,
-                    Programme,
-                    PostView,
-                    Comment,
-                    Blog,
-                    Application,
-                    Gallery,
-                    Team,
-                    Testimony,
-                    Newsletter
-                    )
+    Contact,
+    Programme,
+    PostView,
+    Comment,
+    Blog,
+    Application,
+    Gallery,
+    Team,
+    Testimony,
+    Newsletter
+)
 from decor.models import Pageslider
 
 from .forms import (CommentForm, CommentReplyForm)
-description=""
-keywords=""
+description = ""
+keywords = ""
+
 
 def Subscription(request):
     sub = request.POST.get("sub_email")
     exists = Newsletter.objects.filter(sub_email=sub).exists()
-    print('\n',exists) 
+    print('\n', exists)
     if sub and not exists:
         newsletter, created = Newsletter.objects.get_or_create(
             sub_email=sub,
             subscribe=True
         )
         newsletter.save()
-        if request.is_ajax():          
-            return JsonResponse({'form': "<i class='la la-thumbs-up'></i>  sucessfully subscribed!"})  
+        if request.is_ajax():
+            return JsonResponse({'form': "<i class='la la-thumbs-up'></i>  sucessfully subscribed!"})
     else:
-        if request.is_ajax(): 
-            return JsonResponse({'form': "This Email is Already subscribed!"})       
+        if request.is_ajax():
+            return JsonResponse({'form': "This Email is Already subscribed!"})
 
-   
-    
+
 def Search(request):
     context = {'title_tag': 'EDO INNOVATE: SEARCH PAGE'}
     opt = request.POST.get("opt")
@@ -50,27 +50,26 @@ def Search(request):
         if opt == 'programmes':
             search_result = Programme.objects.all().filter(
                 Q(title__icontains=search)
-                    | Q(description__icontains=search)                    
-                    ,publish=True
+                | Q(description__icontains=search), publish=True
             ).distinct()
             context.update({
-                'search_result': search_result, 
-                'keyword': search,               
-            })           
+                'search_result': search_result,
+                'keyword': search,
+            })
             return render(request, 'pages/search.html', context)
         elif opt == 'news':
             search_result = Blog.objects.all().filter(
-             Q(title__icontains=search)
-            | Q(content__icontains=search)
-            ,publish=True
+                Q(title__icontains=search)
+                | Q(content__icontains=search), publish=True
             ).distinct()
             context.update({
-                'search_result': search_result, 
-                'keyword': search,              
-            })           
+                'search_result': search_result,
+                'keyword': search,
+            })
             return render(request, 'pages/search.html', context)
     return render(request, 'pages/search.html', context)
-        
+
+
 def ContactPage(request):
     if request.POST.get("full_names") and request.POST.get("email") and request.POST.get("subject") and request.POST.get("message"):
         contact, created = Contact.objects.get_or_create(
@@ -81,24 +80,25 @@ def ContactPage(request):
         )
         contact.save()
 
-        subject = f"Contact Message From Edo Innovate Site:  {request.POST.get('subject')}" 
-        message = '%s %s %s' % (request.POST.get("message"), "\n from: \n", request.POST.get('full_names'))
+        subject = f"Contact Message From Edo Innovate Site:  {request.POST.get('subject')}"
+        message = '%s %s %s' % (request.POST.get(
+            "message"), "\n from: \n", request.POST.get('full_names'))
         emailFrom = request.POST.get("email")
-        emailTo = ['asemotaizoduwa@edojobs.org', 'believe.ohiozua@gmail.com']
+        emailTo = ['asemotaizoduwa@edojobs.org',
+                   'believe.ohiozua@gmail.com', 'awsrestartedo@gmail.com']
         send_mail(subject, message, emailFrom, emailTo,
-                    fail_silently=True),      
-        if request.is_ajax():    
+                  fail_silently=True),
+        if request.is_ajax():
             return JsonResponse({'form': "Message Sent!"})
 
 
-
-def Home(request):     
-    context={
-        'title_tag'  : "EDO INNOVATE| Touching Lives",
-        'training': Programme.objects.filter(publish=True,programme_type="TRAINING").order_by('-created_at'),
-        'competition': Programme.objects.filter(publish=True,programme_type="COMPETITION").order_by('-created_at'),
-        'scholarship': Programme.objects.filter(publish=True,programme_type="SCHOLARSHIP").order_by('-created_at'),
-        'opportunity': Programme.objects.filter(publish=True,programme_type="OPPORTUNITY").order_by('-created_at'),
+def Home(request):
+    context = {
+        'title_tag': "EDO INNOVATE| Touching Lives",
+        'training': Programme.objects.filter(publish=True, programme_type="TRAINING").order_by('-created_at'),
+        'competition': Programme.objects.filter(publish=True, programme_type="COMPETITION").order_by('-created_at'),
+        'scholarship': Programme.objects.filter(publish=True, programme_type="SCHOLARSHIP").order_by('-created_at'),
+        'opportunity': Programme.objects.filter(publish=True, programme_type="OPPORTUNITY").order_by('-created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
         'gallery': Gallery.objects.filter(publish=True).order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
@@ -108,13 +108,13 @@ def Home(request):
     return render(request, 'pages/index.html', context)
 
 
-def Halls(request):     
-    context={
-        'title_tag'  : "EDO INNOVATE| Halls",
-        'training': Programme.objects.filter(publish=True,programme_type="TRAINING").order_by('-created_at'),
-        'competition': Programme.objects.filter(publish=True,programme_type="COMPETITION").order_by('-created_at'),
-        'scholarship': Programme.objects.filter(publish=True,programme_type="SCHOLARSHIP").order_by('-created_at'),
-        'opportunity': Programme.objects.filter(publish=True,programme_type="OPPORTUNITY").order_by('-created_at'),
+def Halls(request):
+    context = {
+        'title_tag': "EDO INNOVATE| Halls",
+        'training': Programme.objects.filter(publish=True, programme_type="TRAINING").order_by('-created_at'),
+        'competition': Programme.objects.filter(publish=True, programme_type="COMPETITION").order_by('-created_at'),
+        'scholarship': Programme.objects.filter(publish=True, programme_type="SCHOLARSHIP").order_by('-created_at'),
+        'opportunity': Programme.objects.filter(publish=True, programme_type="OPPORTUNITY").order_by('-created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
         'gallery': Gallery.objects.filter(publish=True, photo_type='halls').order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
@@ -123,9 +123,10 @@ def Halls(request):
     }
     return render(request, 'pages/halls.html', context)
 
-def AwsRestartBenin(request):     
-    context={
-        'title_tag'  : "EDO INNOVATE| AWS Re/Start Benin",
+
+def AwsRestartBenin(request):
+    context = {
+        'title_tag': "EDO INNOVATE| AWS Re/Start Benin",
         'programme': Programme.objects.all().order_by('created_at'),
         'gallery': Gallery.objects.all().order_by('created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
@@ -142,8 +143,9 @@ class GalleryDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = "EDO INNOVATE| Gallery"     
+        context['title_tag'] = "EDO INNOVATE| Gallery"
         return context
+
 
 class BlogListView(generic.ListView):
     model = Blog
@@ -153,26 +155,26 @@ class BlogListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = "EDO INNOVATE| NEWS"    
+        context['title_tag'] = "EDO INNOVATE| NEWS"
         return context
-    
+
 
 class BlogDetailView(generic.DetailView):
     model = Blog
     context_object_name = 'news'
     template_name = 'pages/news-details.html'
-    
-    def get_context_data(self, **kwargs):        
+
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        view=Blog.objects.get(pk=self.get_object().pk)
+        view = Blog.objects.get(pk=self.get_object().pk)
         if view:
-            view.views= int(view.views) + 1
-            view.save() 
-        context['title_tag'] = "EDO INNOVATE| NEWS" 
+            view.views = int(view.views) + 1
+            view.save()
+        context['title_tag'] = "EDO INNOVATE| NEWS"
         context['form'] = CommentForm
-        context['replyForm'] = CommentReplyForm    
+        context['replyForm'] = CommentReplyForm
         return context
-    
+
     def post(self, request, *args, **kwargs):
         blog_id = self.get_object()
         form = CommentForm(request.POST)
@@ -181,7 +183,7 @@ class BlogDetailView(generic.DetailView):
             form.instance.blog = blog_id
             form.save()
             messages.info(request,
-                          "Thanks For Your Comment.")            
+                          "Thanks For Your Comment.")
             return redirect(reverse("blog-detail", kwargs={'slug': blog_id.slug}))
 
         if reply.is_valid():
@@ -192,5 +194,5 @@ class BlogDetailView(generic.DetailView):
             add_reply.replyed = True
             add_reply.save()
             messages.info(request,
-                          "You Have Replied")           
+                          "You Have Replied")
             return redirect(reverse("blog-detail", kwargs={'slug': blog_id.slug}))

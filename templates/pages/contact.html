@@ -23,7 +23,11 @@
                         <div class="info-box mt-4">
                             <i class="bx bx-envelope"></i>
                             <h3>Email Us</h3>
+                            {%if request.path == "/aws-restart-edo/"%}
+                            <p>awsrestartedo@gmail.com</p>
+                            {%else%}
                             <p>info@edoinnovates.com</p>
+                            {%endif%}
                         </div>
                     </div>
                     <div class="col-md-6">
