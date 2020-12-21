@@ -44,22 +44,23 @@
                             <div class="single-post-content-wrapper text-justify">
                                 {{news.content|safe}}
                             </div>
-                            <div class="row">                                
-                                <div class="col-md-6 text-center">     
+                            <div class="row">
+                                <div class="col-md-6 text-center">
                                     <div class="col-md-6 image-wrapper float-left pr-3 border-bottom">
                                         <p class="h6"><b>Author</b></p>
                                         <img src="{%if news.author_photo%}
                                         {{news.author_photo.url}}
                                         {%else%}
                                         {%static 'assets/img/edo/logo&badges/badge.png' %}
-                                        {%endif%}" class="img-fluid rounded-circle" alt="gist" height="150" width="100"/>
+                                        {%endif%}" class="img-fluid rounded-circle" alt="gist" height="150"
+                                            width="100" />
                                         <figcaption class="h6">
                                             {{news.author}}
                                             <br>
-                                           <sup class="text-muted"> {{news.connect}}</sup>
+                                            <!-- <sup class="text-muted"> {{news.connect}}</sup> -->
                                         </figcaption>
                                     </div>
-                                </div>      
+                                </div>
                             </div>
 
                             <div class="row pb-2">
@@ -76,15 +77,19 @@
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small">
-                                                {% post_to_facebook news.get_absolute_url '<i class="text-small btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                {% post_to_facebook news.get_absolute_url '<i
+                                                    class="text-small btn btn-primary btn-xs la la-facebook"></i>'%}
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small">
-                                                {% post_to_twitter 'Latest: {{news.title}} @' news.get_absolute_url '<i class="btn btn-info btn-xs la la-twitter"></i>'%}
+                                                {% post_to_twitter 'Latest: {{news.title}} @' news.get_absolute_url '<i
+                                                    class="btn btn-info btn-xs la la-twitter"></i>'%}
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small">
-                                                {% post_to_linkedin news.content|striptags|truncatechars:450  news.get_absolute_url '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                {% post_to_linkedin news.content|striptags|truncatechars:450
+                                                news.get_absolute_url '<i
+                                                    class="btn btn-primary btn-xs la la-linkedin"></i>' %}
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small"> <a
