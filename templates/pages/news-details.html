@@ -1,7 +1,5 @@
 {% extends '../base/base.html' %}
 {% load crispy_forms_tags %}
-{% load widget_tweaks %}
-{% load i18n %}
 {% load static %}
 {% load social_share %}
 {% block content %}
@@ -68,17 +66,17 @@
                                     &ensp;{{news.views}}&thinsp;<i class="la la-eye h6"></i>
                                     |&ensp;{{news.total_comments}}&thinsp;<i class="la la-comment h6"></i>
                                 </div>
-                                <footer class="mx-auto text-center pb-3">
+                                <!-- <footer class="mx-auto text-center pb-3">
                                     <hr>
-                                    <table class="">
+                                   <table class="">
                                         <tr class="row mx-auto">
                                             &ensp;&ensp;<td class="text-secondary pl-5">Share <i
                                                     class="la la-share"></i>
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small">
-                                                {% post_to_facebook news.get_absolute_url '<i
-                                                    class="text-small btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                {% post_to_facebook '{{news.get_absolute_url}}' '<i
+                                                    class="btn btn-primary btn-xs la la-facebook"></i>'%}
                                             </td>
                                             <td>&ensp;</td>
                                             <td class="text-small">
@@ -100,18 +98,79 @@
                                             </td>
                                             <td>&ensp;</td>
                                         </tr>
-                                    </table>
-                                </footer>
+                                    </table> 
+                                    
+                                </footer> -->
                             </div>
                         </article>
                     </div>
+
+
+                    <footer class="col-md-10 mx-auto text-center pb-3">
+                        <hr>
+                        <!-- <table class="">
+                            <tr class="row mx-auto">
+                                &ensp;&ensp;<td class="text-secondary pl-5">Share <i class="la la-share"></i>
+                                </td>
+                                <td>&ensp;</td>
+                                <td class="text-small">
+                                    {% post_to_facebook '{{news.get_absolute_url}}' '<i class="la la-facebook"></i>'%}
+                                </td>
+                                <td>&ensp;</td>
+                                <td class="text-small">
+                                    {% post_to_twitter 'Latest: {{news.title}} @' '{{news.get_absolute_url}}' 'tweet'%}
+                                </td>
+                                <td>&ensp;</td>
+                                <td class="text-small">
+                                    {% post_to_linkedin '{{news.get_absolute_url}}' %}
+                                    {% post_to_linkedin 'prog.description|truncatechars:200 prog.link_to_program <i
+                                        class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                    {% post_to_linkedin 'news.content|striptags|truncatechars:450
+                                    {{news.get_absolute_url}}' '' %}
+                                </td>
+                                <td>&ensp;</td>
+                                <td class="text-small"> <a
+                                        href="whatsapp://send?text=*Latest From Edo Innovate:  {{news.title}}:* {{news.content|striptags|truncatechars:450}} See More@ http://www.edoinnovate.com{{news.get_absolute_url}}"
+                                        data-action="share/whatsapp/share" target="_blank"> <i
+                                            class="la la-whatsapp"></i>
+                                    </a>
+                                </td>
+                                <td>&ensp;</td>
+                            </tr>
+                        </table> -->
+                        <!-- <i class="la la-linkedin"></i> -->
+                    </footer>
+
                 </div>
             </div>
         </div>
     </section>
 
 
-
+    <!-- <div class="row mx-auto text-center">
+        <i class="la la-share text-muted"> Share</i>
+        <td>&nbsp; &nbsp;</td>
+        <td class="h4">
+            <a href="https://wa.me/?text=*{{prog.title}}:* {{prog.description|safe|truncatechars:600}}See More@ http://www.edoinnovate.com/"
+                data-action="share/whatsapp/share" target="_blank">
+                <i class="btn btn-success btn-xs la la-whatsapp"></i>
+            </a>
+        </td>
+        <td>&nbsp; &nbsp;</td>
+        <td class="h4">
+            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+        </td>
+        <td>&nbsp; &nbsp;</td>
+        <td class="h4">
+            {% post_to_twitter 'NEW!: #{{prog.title}}' '{{prog.link_to_program}}' '<i
+                class="btn btn-info btn-xs la la-twitter"></i>' %}
+        </td>
+        <td>&nbsp; &nbsp;</td>
+        <td class="h4">
+            {% post_to_linkedin prog.description|truncatechars:200 prog.link_to_program '<i
+                class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+        </td>
+    </div> -->
 </main>
 
 
