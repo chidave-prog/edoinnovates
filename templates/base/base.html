@@ -114,7 +114,33 @@
       document.getElementById("myForm").style.display = "none";
     }
   </script>
+  <script>
+    function updateTimer() {
+      future = Date.parse("jan 18, 2021 23:59:00");
+      now = new Date();
+      diff = future - now;
 
+      days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      hours = Math.floor(diff / (1000 * 60 * 60));
+      mins = Math.floor(diff / (1000 * 60));
+      secs = Math.floor(diff / 1000);
+
+      d = days;
+      h = hours - days * 24;
+      m = mins - hours * 60;
+      s = secs - mins * 60;
+
+      document.getElementById("timer")
+        .innerHTML =
+        '<div class="row mx-auto text-center">' +
+        '<div class="col-3 mx-auto text-center">' + d + '<span>Days</span></div>' +
+        '<div class="col-3 mx-auto text-center">' + h + '<span>Hours</span></div>' +
+        '<div class="col-3 mx-auto text-center">' + m + '<span>Minutes</span></div>' +
+        '<div class="col-3 mx-auto text-center">' + s + '<span>Seconds</span></div>' +
+        '</div>';
+    }
+    setInterval('updateTimer()', 1000);
+  </script>
 
   {% block extra_scripts %} {% endblock extra_scripts %}
 </body>

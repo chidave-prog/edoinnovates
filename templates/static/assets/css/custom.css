@@ -355,7 +355,7 @@ background: #ffffff00  !important;
     }
     
     #note_sec {
-    padding-top: 4em;
+    padding-top: 1em;
     
     }
     
@@ -405,4 +405,39 @@ background: #ffffff00  !important;
         height: 14em;
         width: 100%;
     } 
+}
+
+
+
+/* 
+body {
+    text-align: center;
+    padding: 70px 50px;
+    background: #0D1A29;
+    font-family: sans-serif;
+    font-weight: lighter;
+} */
+/* COUNT DOWN TIMER */
+#timercontainer{
+    border-radius: 1em;
+    /* background-color: black; */
+}
+#timer {   
+    font-size: 1.5em;
+    /* font-weight: 100; */
+    color: rgb(4, 79, 44);
+    text-shadow: 0 0 20px #1c84cc;
+}
+
+#timer div {
+    display: inline-block;
+    /* min-width: 90px; */
+}
+
+#timer div span {
+    text-align: center;
+    color:#263d4d;
+    display: block;
+    font-size: 12px;
+    /* font-weight: 400;  */
 }
