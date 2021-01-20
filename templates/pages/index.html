@@ -178,7 +178,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 video-box align-self-baseline">
-                    <img data-src="../static/assets/img/edo/home-bg.jpg" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/home-bg.jpg" class="img-fluid">
 
                     <!-- <a href="https://youtu.be/xU4Tmb_jUkc" class="venobox play-btn mb-4" data-vbtype="video"
                         data-autoplay="true"></a> -->
@@ -234,8 +234,8 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
                     data-scroll-reveal="enter from the bottom after 0.3s">
                     <div class="card">
-                        <img data-src="../static/assets/img/edo/about/edo-jobs-logo.jpg" style="height: 12em;"
-                            class="lazy img-fluid card-img-top border">
+                        <img src="../static/assets/img/edo/about/edo-jobs-logo.jpg" style="height: 12em;"
+                            class="img-fluid card-img-top border">
                         <div class="card-icon">
                             <i class="ri-brush-4-line"></i>
                         </div>
@@ -266,8 +266,8 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
                     data-scroll-reveal="enter from the bottom after 0.3s">
                     <div class="card">
-                        <img data-src="../static/assets/img/edo/edo-power-hack.jpg" style="height: 12em;"
-                            class="lazy img-fluid card-img-top">
+                        <img src="../static/assets/img/edo/edo-power-hack.jpg" style="height: 12em;"
+                            class="img-fluid card-img-top">
                         <div class="card-icon">
                             <i class="ri-calendar-check-line"></i>
                         </div>
@@ -298,8 +298,8 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
                     data-scroll-reveal="enter from the bottom after 0.3s" data-aos-delay="300">
                     <div class="card">
-                        <img data-src="../static/assets/img/edo/about/partners.jpg" style="height: 12em;"
-                            class="lazy img-fluid card-img-top">
+                        <img src="../static/assets/img/edo/about/partners.jpg" style="height: 12em;"
+                            class="img-fluid card-img-top">
                         <div class="card-icon">
                             <i class="las la-handshake"></i>
                         </div>
@@ -422,8 +422,8 @@
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="img-fluid animated fadeInRight" style="animation-delay: .1s"
                                                 id="tab_img_2">
                                         </div>
                                     </div>
@@ -517,8 +517,8 @@
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="img-fluid animated fadeInRight" style="animation-delay: .1s"
                                                 id="tab_img_2">
                                         </div>
                                     </div>
@@ -612,8 +612,8 @@
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="img-fluid animated fadeInRight" style="animation-delay: .1s"
                                                 id="tab_img_2">
                                         </div>
                                     </div>
@@ -706,8 +706,8 @@
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="img-fluid animated fadeInRight" style="animation-delay: .1s"
                                                 id="tab_img_2">
                                         </div>
                                     </div>
@@ -773,11 +773,11 @@
                 {% for photo in gallery%}
                 {%if photo.photo_type == 'Gallery' %}
                 <div class="col-lg-4 col-md-6 portfolio-item filter-gallery">
-                    <img data-src="{%if photo.photo%}
+                    <img src="{%if photo.photo%}
                                 {{photo.photo.url}}
                                 {%else%}
                                 ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="lazy img-fluid">
+                                {%endif%}" class="img-fluid">
                     <div class="portfolio-info">
                         <h4>{{photo.title}}</h4>
                         <p>{{photo.photo_type}}</p>
@@ -796,11 +796,11 @@
                 {%endif%}
                 {%if photo.photo_type == 'HUB' %}
                 <div class="col-lg-4 col-md-6 portfolio-item filter-hub">
-                    <img data-src="{%if photo.photo%}
+                    <img src="{%if photo.photo%}
                                 {{photo.photo.url}}
                                 {%else%}
                                 ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="lazy img-fluid">
+                                {%endif%}" class="img-fluid">
                     <div class="portfolio-info">
                         <h4>{{photo.title}}</h4>
                         <p>{{photo.photo_type}}</p>
@@ -819,11 +819,11 @@
                 {%endif%}
                 {%if photo.photo_type == 'StartUps' %}
                 <div class="col-lg-4 col-md-6 portfolio-item filter-startups">
-                    <img data-src="{%if photo.photo%}
+                    <img src="{%if photo.photo%}
                                 {{photo.photo.url}}
                                 {%else%}
                                 ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="lazy img-fluid">
+                                {%endif%}" class="img-fluid">
                     <div class="portfolio-info">
                         <h4>{{photo.title}}</h4>
                         <p>{{photo.photo_type}}</p>
@@ -869,49 +869,48 @@
             </div>
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/aws.png" class="card-front lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/aws.png" class="card-front img-fluid">
 
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg"
-                        class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg" class="img-fluid">
                 </div>
 
                 <!-- <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/08-Zenolight.jpg" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/08-Zenolight.jpg" class="img-fluid">
                 </div> -->
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="img-fluid">
                 </div>
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/Drake.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/Drake.png" class="img-fluid">
                 </div>
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/Facebook.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/Facebook.png" class="img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/Firstbank.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/Firstbank.png" class="img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/google.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/google.png" class="img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/HPLife.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/HPLife.png" class="img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/Linkedin.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/Linkedin.png" class="img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/Microsoft.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/Microsoft.png" class="img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/Siemiens.png" class="lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/Siemiens.png" class="img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img data-src="../static/assets/img/edo/clients/xignma.png" class=" lazy img-fluid">
+                    <img src="../static/assets/img/edo/clients/xignma.png" class=" img-fluid">
                 </div>
             </div>
 
