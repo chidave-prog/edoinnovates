@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i");
+@import url("../css/compiled-4.19.1.min.css");
+@import url("../vendor/bootstrap/css/bootstrap.min.css");
+@import url("../vendor/icofont/icofont.min.css");
+@import url("../vendor/boxicons/css/boxicons.min.css");
+@import url("../vendor/venobox/venobox.css");
+@import url("../vendor/line-awesome/css/line-awesome.css");
+@import url("../vendor/remixicon/remixicon.css");
+@import url("../vendor/owl.carousel/assets/owl.carousel.min.css");
+/* @import url("../vendor/aos/aos.css"); */
+
+
 .carousel-fade .carousel-item {
     opacity: 0;
     transition: opacity ease-out .7s;
@@ -440,4 +452,9 @@ body {
     display: block;
     font-size: 12px;
     /* font-weight: 400;  */
+}
+
+#pluralbtn{
+background: rgb(131,58,180);
+background: linear-gradient(319deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.9332107843137255) 50%, rgba(252,176,69,1) 100%);
 }

@@ -1,0 +1,95 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+
+<section style="padding-top:5em; padding-bottom: 0;">
+    <div class="jumbotron p-lg-5" style="background: black; color: white;">
+        <h1 class="display-4">
+            <img src="{%static 'assets/img/edo/opportunities/pluralsight-edo.png' %}" height="70" width="80">
+            <span class="h1">Pluralsight Edo</span>
+        </h1>
+        <p class="lead" data-scroll-reveal="enter from the left after 0.3s">This is a simple hero unit, a simple
+            jumbotron-style component for calling extra attention to
+            featured content or information.</p>
+        <hr class="my-4">
+        <div class="container">
+            <div class="row" data-scroll-reveal="enter from the right after 0.3s">
+                <div class="col-md-6">
+                    <img data-src="{%static 'assets/img/edo/opportunities/pluralsight-edo.png' %}" class="lazy">
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                        <p class="p-2 card text-dark">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum
+                            in
+                            ipsam
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="p-2 card text-dark">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum
+                            in
+                            ipsam
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="p-2 card text-dark">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum
+                            in
+                            ipsam
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <h1>
+                <p class="h4 my-3">Avalible Tracks</p>
+            </h1>
+
+            <ul class="list-group list-group-flush" data-scroll-reveal="enter from the bottom after 0.3s">
+                <div class="row">
+                    <ul class="col-md-4 text-dark">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                    </ul>
+                    <ul class="col-md-4 text-dark">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                    </ul>
+                    <ul class="col-md-4 text-dark">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                    </ul>
+
+                </div>
+            </ul>
+
+        </div>
+        <hr class="my-2">
+        <div class="text-center mx-auto" data-scroll-reveal="enter from the bottom after 0.5s">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-lg rounded-pill text-white font-weight-bold" href="#" role="button"
+                style="background: rgb(131,58,180); background: linear-gradient(319deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.9332107843137255) 50%, rgba(252,176,69,1) 100%)">Apply</a>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+</script>
+{% include "../pages/contact.html" %}
+{% endblock content %}

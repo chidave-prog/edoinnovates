@@ -15,6 +15,11 @@
                         <li class="drop-down"><a href="#">TRAININGS</a>
                             <ul>
                                 <li><a href="/aws-restart-edo/">AWS Re/Start</a></li>
+								{%if request.user.is_authenticated%}
+                                <li><a href="/computer-appreciation/">Computer Appreciation</a></li>
+                                <li><a href="/plural-site/">Pluralsite</a></li>
+								{%endif%}
+
                             </ul>
                         </li>
                         <li class="drop-down"><a href="#">COMPETITIONS</a>

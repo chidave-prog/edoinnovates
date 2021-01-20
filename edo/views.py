@@ -136,6 +136,27 @@ def AwsRestartBenin(request):
     return render(request, 'pages/aws.html', context)
 
 
+def ComputerAppreciation(request):
+    context = {
+        'title_tag': "EDO INNOVATE| Computer Appreciation",
+        'programme': Programme.objects.all().order_by('created_at'),
+        'gallery': Gallery.objects.all().order_by('created_at'),
+        'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
+        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],       
+    }
+    return render(request, 'pages/computerappreciation.html', context)
+
+
+def PluralSite(request):
+    context = {
+        'title_tag': "EDO INNOVATE| Plural Site",
+        'programme': Programme.objects.all().order_by('created_at'),
+        'gallery': Gallery.objects.all().order_by('created_at'),
+        'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
+        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],       
+    }
+    return render(request, 'pages/pluralsite.html', context)
+
 class GalleryDetailView(generic.DetailView):
     model = Gallery
     context_object_name = 'gallery'

@@ -17,17 +17,17 @@ def edit_photo(photo, width, height):
         imageTemproaryResized = imageTemproary.resize((width, height))
         try:
             imageTemproaryResized.save(
-                outputIoStream, format="JPEG", quality=100)
+                outputIoStream, format="JPEG", quality=80)
         except:
             imageTemproaryResized.save(
-                outputIoStream, format="PNG", quality=100)
+                outputIoStream, format="PNG", quality=80)
             try:
                 imageTemproaryResized.save(
-                    outputIoStream, format="GIF", quality=100
+                    outputIoStream, format="GIF", quality=80
                 )
             except:
                 imageTemproaryResized.save(
-                    outputIoStream, format="BMP", quality=100
+                    outputIoStream, format="BMP", quality=80
                 )
         outputIoStream.seek(0)
         photo = InMemoryUploadedFile(
@@ -162,11 +162,20 @@ class Programme(models.Model):
         help_text='NOTE: word limit of 700', max_length=700)
     programme_banner = models.ImageField(upload_to='programme_banner')
     link_to_program = models.URLField(blank=True, null=True)
+    slug = models.SlugField(blank=True, null=True)
     publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.title}"
+        return str(self.title)
+    
+    def get_absolute_url(self):
+        return reverse('programme-detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs): 
+        edit_photo(self.programme_banner, 300, 300)       
+        self.slug = slugify(str(self.title))
+        super(Programme, self).save(*args, **kwargs)
 
 
 class Application(models.Model):

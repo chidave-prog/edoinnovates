@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+
+<section style="padding-top:5em; padding-bottom: 0;">
+    <div class="jumbotron p-lg-5">
+        <h1 class="display-4">Computer Appreciation</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+            featured content or information.</p>
+        <hr class="my-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="p-2 card">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum in
+                        ipsam
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p class="p-2 card">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum in
+                        ipsam
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p class="p-2 card">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum in
+                        ipsam
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr class="my-2">
+        <div class="text-center mx-auto">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-sm rounded-pill" href="#" role="button">Apply</a>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+</script>
+{% include "../pages/contact.html" %}
+{% endblock content %}

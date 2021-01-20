@@ -48,9 +48,9 @@
             {%for slide in pageslider%}
             {%if slide.select_page == 'home'%}
             <div class="carousel-item  {%if forloop.counter == 1%}active{%endif%} item">
-                <img src="{{slide.slide_image.url}}" class="img-fluid" alt="" id="slide_img">
-                <div class="carousel-caption text-center mx-auto d-none d-md-block d-lg-block" data-aos="fade-up"
-                    data-aos-delay="150" id="caption_text">
+                <img src="{{slide.slide_image.url}}" class="img-fluid" id="slide_img">
+                <div class="carousel-caption text-center mx-auto d-none d-md-block d-lg-block"
+                    data-scroll-reveal="enter from the bottom after 0.3s" id="caption_text">
                     <small class="section-title h6">
                         {{slide.caption_top_title_small|linebreaksbr}}
                     </small>
@@ -74,7 +74,7 @@
             {%endfor%}
             {%else%}
             <div class="carousel-item active item">
-                <img src="../static/assets/img/edo/slides/slide-1.jpg" class="img-fluid" alt="" id="slide_img">
+                <img src="../static/assets/img/edo/slides/slide-1.jpg" class="img-fluid" id="slide_img">
                 <div class="carousel-caption">
                     <div class="slide-text slide_style_left">
                         <div class="animated fadeInUp" style="animation-delay: 1s">
@@ -116,7 +116,7 @@
 
 <main id="main">
     <section id="about" class="about">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-scroll-reveal="enter from the bottom after 0.3s" data-aos-delay="100">
 
             <div class="row justify-content-end border-bottom">
                 <div class="col-lg-12 mx-auto">
@@ -177,8 +177,8 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="../static/assets/img/edo/home-bg.jpg" class="img-fluid" alt="">
+                <div class="col-lg-6 video-box align-self-baseline">
+                    <img data-src="../static/assets/img/edo/home-bg.jpg" class="lazy img-fluid">
 
                     <!-- <a href="https://youtu.be/xU4Tmb_jUkc" class="venobox play-btn mb-4" data-vbtype="video"
                         data-autoplay="true"></a> -->
@@ -227,14 +227,15 @@
         </div>
     </section>
 
-    <section id="about-boxes" class="about-boxes" data-aos="fade-up" data-aos-delay="150">
-        <div class="container" data-aos="fade-up">
+    <section id="about-boxes" class="about-boxes" data-scroll-reveal="enter from the bottom after 0.3s">
+        <div class="container" data-scroll-reveal="enter from the bottom after 0.3s">
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                    data-scroll-reveal="enter from the bottom after 0.3s">
                     <div class="card">
-                        <img src="../static/assets/img/edo/about/edo-jobs-logo.jpg" style="height: 12em;"
-                            class="img-fluid card-img-top border" alt="...">
+                        <img data-src="../static/assets/img/edo/about/edo-jobs-logo.jpg" style="height: 12em;"
+                            class="lazy img-fluid card-img-top border">
                         <div class="card-icon">
                             <i class="ri-brush-4-line"></i>
                         </div>
@@ -262,10 +263,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                    data-scroll-reveal="enter from the bottom after 0.3s">
                     <div class="card">
-                        <img src="../static/assets/img/edo/edo-power-hack.jpg" style="height: 12em;"
-                            class="img-fluid card-img-top" alt="...">
+                        <img data-src="../static/assets/img/edo/edo-power-hack.jpg" style="height: 12em;"
+                            class="lazy img-fluid card-img-top">
                         <div class="card-icon">
                             <i class="ri-calendar-check-line"></i>
                         </div>
@@ -293,10 +295,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                    data-scroll-reveal="enter from the bottom after 0.3s" data-aos-delay="300">
                     <div class="card">
-                        <img src="../static/assets/img/edo/about/partners.jpg" style="height: 12em;"
-                            class="img-fluid card-img-top" alt="...">
+                        <img data-src="../static/assets/img/edo/about/partners.jpg" style="height: 12em;"
+                            class="lazy img-fluid card-img-top">
                         <div class="card-icon">
                             <i class="las la-handshake"></i>
                         </div>
@@ -331,7 +334,7 @@
     </section>
 
     <section id="what_we_do" class="features">
-        <div class="container" data-aos="fade-up">
+        <div class="container" data-scroll-reveal="enter from the bottom after 0.3s">
 
             <ul class="nav nav-tabs row d-flex">
                 <li class="nav-item col-3 mx-auto">
@@ -398,24 +401,29 @@
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-primary btn-xs la la-facebook"></i>'%}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'
+                                                            '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-info btn-xs la la-twitter"></i>' %}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                            {% post_to_linkedin prog.description|truncatechars:200
+                                                            prog.link_to_program '<i
+                                                                class="btn btn-primary btn-xs la la-linkedin"></i>' %}
                                                         </td>
                                                     </div>
                                                 </div>
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: .1s" id="tab_img_2">
+                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                                id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -466,7 +474,7 @@
                                                     style="animation-delay: .1s">
                                                     {{prog.description|truncatechars:700}}
                                                     {%if prog.link_to_program%}
-                                                    <div> 
+                                                    <div>
                                                         <a href="{{prog.link_to_program}}" target="blank"
                                                             class="font-weight-bold btn btn-outline-info btn-sm rounded-pill">
                                                             Enroll <i class="la la-angle-right"></i></a>
@@ -488,24 +496,29 @@
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-primary btn-xs la la-facebook"></i>'%}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'
+                                                            '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-info btn-xs la la-twitter"></i>' %}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                            {% post_to_linkedin prog.description|truncatechars:200
+                                                            prog.link_to_program '<i
+                                                                class="btn btn-primary btn-xs la la-linkedin"></i>' %}
                                                         </td>
                                                     </div>
                                                 </div>
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: .1s" id="tab_img_2">
+                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                                id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -578,24 +591,29 @@
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-primary btn-xs la la-facebook"></i>'%}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'
+                                                            '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-info btn-xs la la-twitter"></i>' %}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                            {% post_to_linkedin prog.description|truncatechars:200
+                                                            prog.link_to_program '<i
+                                                                class="btn btn-primary btn-xs la la-linkedin"></i>' %}
                                                         </td>
                                                     </div>
                                                 </div>
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: .1s" id="tab_img_2">
+                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                                id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -667,24 +685,29 @@
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i class="btn btn-primary btn-xs la la-facebook"></i>'%}
+                                                            {% post_to_facebook '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-primary btn-xs la la-facebook"></i>'%}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'   '{{prog.link_to_program}}'   '<i class="btn btn-info btn-xs la la-twitter"></i>' %}
+                                                            {% post_to_twitter 'NEW!: #{{prog.title}}'
+                                                            '{{prog.link_to_program}}' '<i
+                                                                class="btn btn-info btn-xs la la-twitter"></i>' %}
                                                         </td>
                                                         <td>&nbsp; &nbsp;</td>
                                                         <td class="h4">
-                                                            {% post_to_linkedin prog.description|truncatechars:200  prog.link_to_program '<i class="btn btn-primary btn-xs la la-linkedin"></i>' %}
+                                                            {% post_to_linkedin prog.description|truncatechars:200
+                                                            prog.link_to_program '<i
+                                                                class="btn btn-primary btn-xs la la-linkedin"></i>' %}
                                                         </td>
                                                     </div>
                                                 </div>
                                             </div>
                                         </article>
                                         <div class="col-md-6 order-1 order-lg-2 mx-auto text-center">
-                                            <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
-                                                alt="" class="img-fluid animated fadeInRight"
-                                                style="animation-delay: .1s" id="tab_img_2">
+                                            <img data-src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/assets/img/edo/logo&badges/badge.png {%endif%}"
+                                                class="lazy img-fluid animated fadeInRight" style="animation-delay: .1s"
+                                                id="tab_img_2">
                                         </div>
                                     </div>
                                 </div>
@@ -726,14 +749,14 @@
     {% include "../pages/testimony.html" %}
 
     <section id="hub-gallery" class="portfolio">
-        <div class="container" data-aos="fade-up">
+        <div class="container" data-scroll-reveal="enter from the bottom after 0.3s">
 
             <div class="section-title">
                 <h2>Edo Innovate</h2>
                 <p>HUB & GALLERY</p>
             </div>
 
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="row" data-scroll-reveal="enter from the bottom after 0.3s" data-aos-delay="100">
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <!-- <li data-filter="*" class="filter-active">All</li> -->
@@ -744,16 +767,16 @@
                 </div>
             </div>
 
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="row portfolio-container">
                 {%if gallery%}
                 {% for photo in gallery%}
                 {%if photo.photo_type == 'Gallery' %}
                 <div class="col-lg-4 col-md-6 portfolio-item filter-gallery">
-                    <img src="{%if photo.photo%}
+                    <img data-src="{%if photo.photo%}
                                 {{photo.photo.url}}
                                 {%else%}
                                 ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="img-fluid" alt="">
+                                {%endif%}" class="lazy img-fluid">
                     <div class="portfolio-info">
                         <h4>{{photo.title}}</h4>
                         <p>{{photo.photo_type}}</p>
@@ -772,11 +795,11 @@
                 {%endif%}
                 {%if photo.photo_type == 'HUB' %}
                 <div class="col-lg-4 col-md-6 portfolio-item filter-hub">
-                    <img src="{%if photo.photo%}
+                    <img data-src="{%if photo.photo%}
                                 {{photo.photo.url}}
                                 {%else%}
                                 ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="img-fluid" alt="">
+                                {%endif%}" class="lazy img-fluid">
                     <div class="portfolio-info">
                         <h4>{{photo.title}}</h4>
                         <p>{{photo.photo_type}}</p>
@@ -795,11 +818,11 @@
                 {%endif%}
                 {%if photo.photo_type == 'StartUps' %}
                 <div class="col-lg-4 col-md-6 portfolio-item filter-startups">
-                    <img src="{%if photo.photo%}
+                    <img data-src="{%if photo.photo%}
                                 {{photo.photo.url}}
                                 {%else%}
                                 ../static/assets/img/edo/logo&badges/badge.png
-                                {%endif%}" class="img-fluid" alt="">
+                                {%endif%}" class="lazy img-fluid">
                     <div class="portfolio-info">
                         <h4>{{photo.title}}</h4>
                         <p>{{photo.photo_type}}</p>
@@ -831,7 +854,7 @@
         </div>
     </section>
 
-    {% include "../pages/news.html"  with blog=blog %}
+    {% include "../pages/news.html" with blog=blog %}
 
     <!-- {% include "../pages/team.html"  with team=team %} -->
 
@@ -839,55 +862,55 @@
     <section id="clients" class="clients">
 
         <div class="container" data-aos="zoom-in">
-            <div class="section-title text-left" data-aos="fade-up">
+            <div class="section-title text-left" data-scroll-reveal="enter from the bottom after 0.3s">
                 <h2>Powered By:</h2>
                 <p>OUR PARTNERS</p>
             </div>
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/aws.png" class="card-front img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/aws.png" class="card-front lazy img-fluid">
 
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg" class="img-fluid"
-                        alt="">
+                    <img data-src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg"
+                        class="lazy img-fluid">
                 </div>
 
                 <!-- <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/08-Zenolight.jpg" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/08-Zenolight.jpg" class="lazy img-fluid">
                 </div> -->
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="lazy img-fluid">
                 </div>
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Drake.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/Drake.png" class="lazy img-fluid">
                 </div>
 
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Facebook.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/Facebook.png" class="lazy img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Firstbank.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/Firstbank.png" class="lazy img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/google.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/google.png" class="lazy img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/HPLife.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/HPLife.png" class="lazy img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Linkedin.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/Linkedin.png" class="lazy img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Microsoft.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/Microsoft.png" class="lazy img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/Siemiens.png" class="img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/Siemiens.png" class="lazy img-fluid">
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="../static/assets/img/edo/clients/xignma.png" class=" img-fluid" alt="">
+                    <img data-src="../static/assets/img/edo/clients/xignma.png" class=" lazy img-fluid">
                 </div>
             </div>
 

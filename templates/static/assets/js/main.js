@@ -1,3 +1,13 @@
+// document.write('<script type="text/javascript" src="../static/assets/vendor/jquery/jquery.min.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/php-email-form/validate.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/counterup/counterup.min.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/venobox/venobox.min.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>');
+// document.write('<script type="text/javascript" src="../static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>');
+
 
 !(function ($) {
   "use strict";
