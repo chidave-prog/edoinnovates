@@ -1,0 +1,11 @@
+{% extends 'base/generic_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load social_share %}
+{% block content %}
+
+{%if request.path == "/programme/aws-restart-edo/"%}
+{% include "contents/aws.html" %}
+{%endif%}
+
+{% endblock content %}

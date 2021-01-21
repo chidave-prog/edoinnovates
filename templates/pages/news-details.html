@@ -1,23 +1,11 @@
-{% extends '../base/base.html' %}
+{% extends 'base/generic_base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% load social_share %}
 {% block content %}
 
-<main id="main" style="padding-top: 1em;">
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>News Details</h2>
-                <ol>
-                    <li><a href="/">Home</a></li>
-                    <li>News / {{news.title}}</li>
-                </ol>
-            </div>
-
-        </div>
-    </section>
-
+<main id="main" style="padding-top: 7em;">
+    
 
     <section id="news" class="services section-bg">
         <div class="container" data-aos="fade-up">
@@ -25,19 +13,20 @@
             <div class="row" data-aos="fade-up" data-aos-delay="200">
 
                 <div class="col-md-12 mt-4 mt-md-0 card-header">
-                    <div class="shadow rounded card"
-                        style="border-top-right-radius: 2em !important; border-bottom-left-radius: 2em !important;">
+                    <div class="">
                         <article class="col-md-12 single-post no-gutters border-top py-3">
 
+                           <h1 class="h5 text-center py-3">
                             <strong class="h4 pt-2 font-weight-bold py-1">
                                 <a href="{{news.get_absolute_url}}" class="text-dark"> {{news.title}}</a>
                             </strong>
+                           </h1>
                             <div class="image-wrapper float-left pr-3">
                                 <img src="{%if news.caption_picture%}
                             {{news.caption_picture.url}}
                             {%else%}
                             {%static 'assets/img/edo/logo&badges/badge.png' %}
-                            {%endif%}" class="img-fluid" alt="gist" id="tab_img" />
+                            {%endif%}" height="300" width="300" alt="gist" id="tab_img" />
                             </div>
                             <div class="single-post-content-wrapper text-justify">
                                 {{news.content|safe}}
@@ -182,7 +171,7 @@
     </div>
     {% for comment in news.get_comments %}
     <div class="col-10 mx-auto">
-        <ul class="border-top border-bottom border-info" style="list-style: none; border-radius: 10px;">
+        <ul class=" border-bottom border-info" style="list-style: none; border-radius: 10px;">
 
             <li class="text-left mx-auto">
                 <b class="h6 font-weight-bold">{{comment.full_names|title}}</b>

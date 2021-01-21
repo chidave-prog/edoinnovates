@@ -1,0 +1,479 @@
+{% extends 'base/generic_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load social_share %}
+{% block content %}
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/slider/slider-1.jpg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption text-center mx-auto" id="slide_caption">
+                <div class="slide-text">
+                    <div class="animated fadeInUp">
+                        <small class="section-title h6">
+                            Great Machine Learning Models
+                        </small>
+                        <p>
+                            AiStrides
+                        </p>
+                    </div>
+                    <div class="animated fadeInDown text-center">
+                        <p data-animation="animated fadeInLeft"> Get the best of this and that </p>
+                        <button class="btn btn-info btn-sm rounded-pill">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/slider/slider-2.jpg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption text-center mx-auto" id="slide_caption">
+                <div class="slide-text">
+                    <div class="animated fadeInUp">
+                        <small class="section-title h6">
+                            Great Machine Learning Models
+                        </small>
+                        <p>
+                            AiStrides
+                        </p>
+                    </div>
+                    <div class="animated fadeInDown text-center">
+                        <p data-animation="animated fadeInLeft"> Get the best of this and that </p>
+                        <button class="btn btn-info btn-sm rounded-pill">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/slider/slider-3.jpg'%}" class="d-block w-100" alt="...">
+            <div class="carousel-caption text-center mx-auto" id="slide_caption">
+                <div class="slide-text">
+                    <div class="animated fadeInUp">
+                        <small class="section-title h6">
+                            Great Machine Learning Models
+                        </small>
+                        <p>
+                            AiStrides
+                        </p>
+                    </div>
+                    <div class="animated fadeInDown text-center">
+                        <p data-animation="animated fadeInLeft"> Get the best of this and that </p>
+                        <button class="btn btn-info btn-sm rounded-pill">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-none d-md-block">
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div id="home_main_sec" class="col-12 mx-auto px-2" data-scroll-reveal="enter from the bottom after 0.3s">
+                <h1 class="font-weight-bold text-center">WHO WE ARE</h1>
+                <div class="row py-3">
+                    <div class="col-md-10 mx-auto card-front text-center">
+                        We are an innovation centre creating the supply of highly skilled ICT talent in Edo State
+                        and
+                        improving greater access to jobs in the ICT sector. We are located in the heart of Edo
+                        state,
+                        Benin City.
+                        Edoinnovates was launched on 14th June, 2020 by his Excellency, Vice President Yemi Osinbajo
+                        and
+                        has since inception, seen over 5000 beneficiaries.
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6 video-box align-self-baseline" data-scroll-reveal="enter from the left after 0.3s">
+                <img src="../static/assets/img/edo/home-bg.jpg" class="img-fluid rounded-lg">
+            </div>
+
+            <div class="col-lg-6 pt-3 pt-lg-0 content" data-scroll-reveal="enter from the right after 0.3s">
+
+
+                <ul style="list-style: none;">
+                    <h5 class="font-weight-bold">WHAT WE DO</h5>
+                    <li class="pb-2"><i class="la la-check-double text-info"></i>
+                        Equip Youth with high demand ICT skill trainings and connect them to jobs in the ICT sector
+                    </li>
+                    <li class="pb-2"><i class="la la-check-double text-info"></i>
+                        Provide trainings and business expansion opportunities for startups through incubation and
+                        acceleration programs
+                    </li>
+                    <li class="pb-2"><i class="la la-check-double text-info"></i>
+                        Provide Co-working spaces, training halls, fully equipped ICT labs with fast internet access
+                        for trainings, seminars and boot camps
+                    </li>
+
+                    <li class="pb-2"><i class="la la-check-double text-info"></i>
+                        Provide new and existing businesses with Admin support, Accommodation, mentoring and Tech
+                        support services
+                    </li>
+                    <li class="pb-2"><i class="la la-check-double text-info"></i>
+                        Growing the Tech community in Edo State
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <hr class="py-3">
+        <div class="row">
+
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="../static/assets/img/edo/about/edo-jobs-logo.jpg" style="height: 12em;"
+                        class="img-fluid card-img-top border">
+
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a class="text-secondary" href="">Jobs</a></h5>
+                        <p class="card-text text-justify" id="half-text1">
+                            ‘Edo Innovates’ is a sublet of the Edo State Skills Development Agency (ESSDA) set up by
+                            his Excellency Governor Godwin Obaseki with the aim to connect Youths to Jobs in the 4th
+                            industrial revolution; leveraging Technology for Job Creation and Enterprise
+                            Development.
+                            <a href="javascript:void(0);"
+                                onclick="document.getElementById('full-text1').style.display=''; document.getElementById('half-text1').style.display='none';"
+                                class="text-success">more
+                                <i class="la la-arrow-right"></i></a>
+                        </p>
+                        <p class="card-text text-justify" id="full-text1" style="display: none;">
+                            The Edo Innovation Hub serves as the home for technology in the south-south, equipping
+                            youths in Edo with high demand ICT and Entrepreneurship skill trainings with state of
+                            the art facilities, in a serene and conducive environment that sparks innovative ideas.
+                            <a href="javascript:void(0);"
+                                onclick="document.getElementById('full-text1').style.display='none'; document.getElementById('half-text1').style.display='';"
+                                class="text-danger">
+                                <i class="la la-arrow-left"></i> less</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-stretch" data-scroll-reveal="enter from the bottom after 0.3s">
+                <div class="card">
+                    <img src="../static/assets/img/edo/edo-power-hack.jpg" style="height: 12em;"
+                        class="img-fluid card-img-top">
+
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a class="text-secondary" href="">Start-Ups</a></h5>
+                        <p class="card-text text-justify" id="half-text2">
+                            The Edo Innovation Hub was designed to help the very best founders and start-ups by
+                            facilitating access to high quality work spaces and infrastructure, Teaching and
+                            Learning, Early stage investment capital, Investor and Peer networks.
+                            <a href="javascript:void(0);"
+                                onclick="document.getElementById('full-text2').style.display=''; document.getElementById('half-text2').style.display='none';"
+                                class="text-success">more
+                                <i class="la la-arrow-right"></i></a>
+                        </p>
+                        <p class="card-text text-justify" id="full-text2" style="display: none;">
+                            Edo Innovation hub is positioned at improving the livelihood of Edo residents through
+                            different innovation programs and trainings that leads to employment and
+                            entrepreneurship opportunities in the State.
+
+                            <a href="javascript:void(0);"
+                                onclick="document.getElementById('full-text2').style.display='none'; document.getElementById('half-text2').style.display='';"
+                                class="text-danger">
+                                <i class="la la-arrow-left"></i> less</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-stretch" data-scroll-reveal="enter from the bottom after 0.4s"
+                data-aos-delay="300">
+                <div class="card">
+                    <img src="../static/assets/img/edo/about/partners.jpg" style="height: 12em;"
+                        class="img-fluid card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><a class="text-secondary" href="">Partnerships</a></h5>
+                        <p class="card-text text-justify" id="half-text3">
+                            The hub has collaborated with National and International partners like Amazon, Google
+                            Africa, Curators University, LinkedIn, CADD center, GIZ, Oxfam International, HPLife,
+                            Center for women development, Facebook, Gidimobile and many
+
+                            <a href="javascript:void(0);"
+                                onclick="document.getElementById('full-text3').style.display=''; document.getElementById('half-text3').style.display='none';"
+                                class="text-success">more
+                                <i class="la la-arrow-right"></i></a>
+                        </p>
+                        <p class="card-text text-justify" id="full-text3" style="display: none;">
+                            more to deliver cutting edge ICT skill trainings, solutions and connecting
+                            beneficiaries to opportunities and jobs in
+                            the IT sector.
+
+                            <a href="javascript:void(0);"
+                                onclick="document.getElementById('full-text3').style.display='none'; document.getElementById('half-text3').style.display='';"
+                                class="text-danger">
+                                <i class="la la-arrow-left"></i> less</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="py-2">
+        <div class="row">
+            <div class="col-md-12" data-scroll-reveal="enter from the bottom after 0.5s">
+                <h1 class="py-2">Innoavtions
+                    <p class="h6">What we are best Known for</p>
+                </h1>
+                <div class="tab row">
+                    <div class="col-3">
+                        <button class="tablinks text-white text-center active"
+                            onclick="openCity(event, 'programs')">Programs</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="tablinks text-white text-center" onclick="openCity(event, 'startups')">Start
+                            Ups</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="tablinks text-white text-center" onclick="openCity(event, 'hubs')">Hubs</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="tablinks text-white text-center"
+                            onclick="openCity(event, 'halls')">Halls</button>
+                    </div>
+                </div>
+                <div id="programs" class="tabcontent" style="display: block;">
+                    <h1 class="text-center h4">PROGRAMMES</h1>
+                    <div class="row">
+                        {%if programmes%}
+                        {% for prog in programmes%}
+                        <div class="ex-card col-md-4 mx-auto text-center py-4">
+                            <div class="card-2 p-2">
+                                <div class="card-front">
+                                    <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                        alt="" height="200" width="200" class="rounded-circle">
+                                    <figcaption class="text-center font-weight-bold py-2">
+                                        <a href="javascript:void(0);" class="text-muted"> {{prog.title}}</a>
+                                    </figcaption>
+                                </div>
+                                <div class="card-back">
+                                    <p class="font-weight-bold">
+                                        {{prog.title}}
+                                    </p>
+                                    <small>{{prog.description|truncatechars:200}}</small>
+                                    <br>
+                                    <p class="py-2">
+                                        <a href="{{prog.get_absolute_url}}"
+                                            class="btn btn-outline-info btn-sm rounded-pill"> Get Started <i
+                                                class="la la-angle-right"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                        {%endif%}
+                    </div>
+                </div>
+
+                <div id="startups" class="tabcontent">
+                    <h1 class="text-center h4">Start-Ups</h1>
+                    <div class="row">
+                        {%if startup%}
+                        {% for items in startup%}
+                        <div class="ex-card col-md-4 mx-auto text-center py-4">
+                            <div class="card-2 p-2">
+                                <div class="card-front">
+                                    <img src="{%if items.logo%} {{items.logo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                        alt="" height="200" width="200" class="img-thumbnail">
+                                    <figcaption class="text-center font-weight-bold py-2">
+                                        <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
+                                    </figcaption>
+                                </div>
+                                <div class="card-back">
+                                    <p class="font-weight-bold">
+                                        {{items.name}}
+                                    </p>
+                                    <small>{{items.about|truncatechars:200}}</small>
+                                    <br>
+                                    <p class="py-2">
+                                        <a href="{{items.get_absolute_url}}"
+                                            class="btn btn-outline-dark btn-sm rounded-pill"> Connect <i
+                                                class="la la-angle-right"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                        {%endif%}
+                    </div>
+                </div>
+
+                <div id="hubs" class="tabcontent">
+                    <h1 class="text-center h4">Hubs</h1>
+                    <div class="row">
+                        {%if hubs%}
+                        {% for items in hubs%}
+                        <div class="ex-card col-md-4 mx-auto text-center py-4">
+                            <div class="card-2 p-2">
+                                <div class="card-front">
+                                    <img src="{%if items.logo%} {{items.logo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                        alt="" height="200" width="200" class="img-thumbnail">
+                                    <figcaption class="text-center font-weight-bold py-2">
+                                        <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
+                                    </figcaption>
+                                </div>
+                                <div class="card-back">
+                                    <p class="font-weight-bold">
+                                        {{items.name}}
+                                    </p>
+                                    <small>{{items.about|truncatechars:200}}</small>
+                                    <br>
+                                    <p class="py-2">
+                                        <a href="{{items.get_absolute_url}}"
+                                            class="btn btn-outline-primary btn-sm rounded-pill"> Contact <i
+                                                class="la la-angle-right"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                        {%endif%}
+                    </div>
+                </div>
+
+                <div id="halls" class="tabcontent">
+                    <h1 class="text-center h4">Our Halls</h1>
+                    <div class="row">
+                        {%if halls%}
+                        {% for items in halls%}
+                        <div class="ex-card col-md-4 mx-auto text-center py-4">
+                            <div class="card-2 p-2">
+                                <div class="card-front">
+                                    <img src="{%if items.photo%} {{items.photo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                        alt="" height="200" width="200" class="">
+                                    <figcaption class="text-center font-weight-bold py-2">
+                                        <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
+                                    </figcaption>
+                                </div>
+                                <div class="card-back">
+                                    <p class="font-weight-bold">
+                                        {{items.name}}
+                                    </p>
+                                    <small>{{items.description|truncatechars:200}}</small>
+                                    <br>
+                                    <p class="py-2">
+                                        <a href="{{items.get_absolute_url}}"
+                                            class="btn btn-outline-success btn-sm rounded-pill"> Book Now <i
+                                                class="la la-angle-right"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                        {%endif%}
+                    </div>
+                </div>
+
+                <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+                </script>
+            </div>
+        </div>
+
+        <hr class="py-3">
+    </div>
+
+</main>
+
+{% include "../pages/news.html" with blog=blog %}
+
+<section id="clients" class="clients">
+
+    <div class="container">
+        <hr class="py-3">
+        <div class="section-title text-left">
+            <h1 class="py-2">Our
+                <p class="h6">PARTNERS</p>
+            </h1>
+
+
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.1s">
+                <img src="../static/assets/img/edo/clients/aws.png" style="width: 250px;"  class="zoomonhover">
+
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.2s">
+                <img src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg" style="width: 200px;" class="zoomonhover">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.3s">
+                <img src="../static/assets/img/edo/clients/09-galary13-200x200.png" class="zoomonhover">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.4s">
+                <img src="../static/assets/img/edo/clients/Drake.png" class="zoomonhover">
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.5s">
+                <img src="../static/assets/img/edo/clients/Facebook.png" class="zoomonhover">
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.6s">
+                <img src="../static/assets/img/edo/clients/Firstbank.png" class="zoomonhover">
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.7s">
+                <img src="../static/assets/img/edo/clients/google.png" class="zoomonhover">
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.8s">
+                <img src="../static/assets/img/edo/clients/HPLife.png" class="zoomonhover">
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.9s">
+                <img src="../static/assets/img/edo/clients/Linkedin.png" class="zoomonhover">
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.10s">
+                <img src="../static/assets/img/edo/clients/Microsoft.png" class="zoomonhover">
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.11s">
+                <img src="../static/assets/img/edo/clients/Siemiens.png" class="zoomonhover">
+            </div>
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
+                data-scroll-reveal="enter from the bottom after 0.12s">
+                <img src="../static/assets/img/edo/clients/xignma.png" class=" zoomonhover">
+            </div>
+        </div>
+
+    </div>
+</section>
+{% include "../pages/contact.html" %}
+
+{% endblock content %}

@@ -2,6 +2,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.views import generic
 from django.db.models import Q
 from django.contrib import messages
 from django.template.loader import render_to_string
@@ -16,19 +17,62 @@ from .models import (
     Gallery,
     Team,
     Testimony,
-    Newsletter
+    Newsletter,
+    StartupsdAndHubs,
+    Hall
 )
 from decor.models import Pageslider
-
 from .forms import (CommentForm, CommentReplyForm)
+
 description = ""
 keywords = ""
 
 
+class IndexView(generic.View):
+    def get(self, request, *args, **kwargs):
+        context = {
+        'title_tag': "EDO INNOVATE| Touching Lives",  
+        "programmes": Programme.objects.filter(publish=True).order_by('-created_at'),
+        "startup": StartupsdAndHubs.objects.filter(publish=True, category="start_up").order_by('-created_at'),
+        "hubs": StartupsdAndHubs.objects.filter(publish=True, category="hub").order_by('-created_at'),
+        "halls": Hall.objects.filter(publish=True).order_by('-created_at'),
+        }
+
+        return render(request, "contents/home.html", context)
+
+
+
+class ProgrammeDetailView(generic.DetailView):
+    model = Programme
+    context_object_name = 'programme'
+    template_name = 'contents/programmes.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title_tag'] = str(self.object.title)               
+        return context
+
+class StartupsdAndHubsDetailView(generic.DetailView):
+    model = StartupsdAndHubs
+    context_object_name = 'startupsdsndhub'
+    template_name = 'contents/startupsdsndhubs.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title_tag'] = str(self.object.name)               
+        return context
+    
+class HallsDetailView(generic.DetailView):
+    model = Hall
+    context_object_name = 'hall'
+    template_name = 'contents/hall.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title_tag'] = str(self.object.name)               
+        return context
+
+   
 def Subscription(request):
     sub = request.POST.get("sub_email")
-    exists = Newsletter.objects.filter(sub_email=sub).exists()
-    print('\n', exists)
+    exists = Newsletter.objects.filter(sub_email=sub).exists()    
     if sub and not exists:
         newsletter, created = Newsletter.objects.get_or_create(
             sub_email=sub,
@@ -90,6 +134,7 @@ def ContactPage(request):
                   fail_silently=True),
         if request.is_ajax():
             return JsonResponse({'form': "Message Sent!"})
+    return render(request, 'pages/contactpage.html', {})
 
 
 def Home(request):
@@ -125,6 +170,10 @@ def Halls(request):
 
 
 def AwsRestartBenin(request):
+    return redirect('/programme/aws-restart-edo/')
+
+def About(request):
+    # return render(request, 'pages/about.html', {})
     context = {
         'title_tag': "EDO INNOVATE| AWS Re/Start Benin",
         'programme': Programme.objects.all().order_by('created_at'),
@@ -133,7 +182,7 @@ def AwsRestartBenin(request):
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
         'team': Team.objects.filter(publish=True, office='aws_instructors').order_by('-created_at'),
     }
-    return render(request, 'pages/aws.html', context)
+    return render(request, 'pages/about.html', context)
 
 
 def ComputerAppreciation(request):

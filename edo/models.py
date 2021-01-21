@@ -65,7 +65,10 @@ TEAM_CATEGORY = [
     ('Borad_members', 'Borad_members'),
     ('others', 'others'),
 ]
-
+StartupsdAndHubs_Choices=[
+    ('start_up', 'start_up'),
+    ('hub', 'hub'),
+]
 
 class Contact(models.Model):
     full_names = models.CharField(max_length=200)
@@ -154,26 +157,23 @@ class Blog(models.Model):
 
 
 class Programme(models.Model):
-    programme_type = models.CharField(max_length=20,
-                                      choices=OPT_TYPE,
-                                      help_text='select programme type')
     title = models.CharField(max_length=200)
     description = models.TextField(
-        help_text='NOTE: word limit of 700', max_length=700)
+        help_text='NOTE: word limit of 200', max_length=200)
     programme_banner = models.ImageField(upload_to='programme_banner')
-    link_to_program = models.URLField(blank=True, null=True)
-    slug = models.SlugField(blank=True, null=True)
     publish = models.BooleanField(default=False)
+    slug = models.SlugField(blank=True, null=True,
+                            help_text="please leave this field blank")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.title)
-    
-    def get_absolute_url(self):
-        return reverse('programme-detail', kwargs={'slug': self.slug})
 
-    def save(self, *args, **kwargs): 
-        edit_photo(self.programme_banner, 300, 300)       
+    def get_absolute_url(self):
+        return reverse('programme', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        edit_photo(self.programme_banner, 300, 300)
         self.slug = slugify(str(self.title))
         super(Programme, self).save(*args, **kwargs)
 
@@ -191,6 +191,67 @@ class Application(models.Model):
 
     def __str__(self):
         return f"{self.programme} | {self.first_name} | {self.email} |  {self.aproved}"
+
+
+class StartupsdAndHubs(models.Model):
+    category = models.CharField(null=True, max_length=10, choices=StartupsdAndHubs_Choices)
+    name = models.CharField(max_length=200)
+    about = models.TextField(
+        help_text='NOTE: word limit of 200', max_length=200)
+    logo = models.ImageField(upload_to='programme_banner')    
+    phone_number = models.CharField(
+        max_length=20, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    website_link = models.URLField(blank=True, null=True)
+    facebook_link = models.URLField(blank=True, null=True)
+    twitter_link = models.URLField(blank=True, null=True)
+    Instagram_link = models.URLField(blank=True, null=True)
+    linkedin_link = models.URLField(blank=True, null=True)
+    slug = models.SlugField(blank=True, null=True,
+                            help_text="please leave this field blank")
+    publish = models.BooleanField(default=False)    
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.name)
+
+    def get_absolute_url(self):
+        return reverse('startupsdsndhub', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        edit_photo(self.logo, 300, 300)
+        self.slug = slugify(str(self.name))
+        super(StartupsdAndHubs, self).save(*args, **kwargs)
+
+
+class Hall(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(
+        help_text='NOTE: word limit of 200', max_length=200)
+    photo = models.ImageField(upload_to='Photo_Gallery')
+    photo_2 = models.ImageField(
+        upload_to='Photo_Gallery', blank=True, null=True)
+    photo_3 = models.ImageField(
+        upload_to='Photo_Gallery', blank=True, null=True)
+    publish = models.BooleanField(default=False)
+    slug = models.SlugField(blank=True, null=True,
+                            help_text="please leave this field blank")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.name)
+
+    def get_absolute_url(self):
+        return reverse('hall', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        edit_photo(self.photo, 300, 300)
+        if self.photo_2:
+            edit_photo(self.photo_2, 300, 300)
+        if self.photo_3:
+            edit_photo(self.photo_3, 300, 300)
+        self.slug = slugify(str(self.name))
+        super(Hall, self).save(*args, **kwargs)
 
 
 class Gallery(models.Model):

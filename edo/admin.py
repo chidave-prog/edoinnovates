@@ -8,11 +8,13 @@ from .models import (
     Gallery,
     Team,
     Testimony,
-    Newsletter
+    Newsletter,
+    StartupsdAndHubs,
+    Hall
 )
 
 
-admin.site.register(Programme)
+# admin.site.register(Programme)
 admin.site.register(Application)
 admin.site.register(Comment)
 admin.site.register(Blog)
@@ -26,3 +28,15 @@ admin.site.register(Team)
 @admin.register(Contact)
 class Contact(admin.ModelAdmin):
     list_display = ('full_names', 'email', 'subject', 'created_at',)
+
+@admin.register(Programme)
+class Programme(admin.ModelAdmin):
+    list_display = ('title', 'description', 'publish', 'created_at',)
+
+@admin.register(StartupsdAndHubs)
+class StartupsdAndHubs(admin.ModelAdmin):
+    list_display = ('category', 'name', 'publish', 'created_at',)
+
+@admin.register(Hall)
+class Hall(admin.ModelAdmin):
+    list_display = ('name', 'publish', 'slug', 'created_at',)

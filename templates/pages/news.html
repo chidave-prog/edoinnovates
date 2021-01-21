@@ -1,35 +1,42 @@
 {%load static%}
-<section id="news" class="services section-bg">
-    <div class="container" data-aos="fade-up">
+{% if blog%}
+<section id="news">
+    <div class="container">
 
         <div class="section-title">
-            <h2>Blog</h2>
-            <p>NEWS</p>
+            <h1 class="pb-2">Press Release
+                <p class="h6">Blog</p>
+            </h1>
+
         </div>
 
-        <div class="row" data-aos="fade-up" data-aos-delay="200">
+        <div class="row">
             {% for news in blog%}
-            <div class="col-md-6 mt-4 mt-md-0 card-header">
-                <div class="shadow rounded card px-2"
-                    style="border-top-right-radius: 2em !important; border-bottom-left-radius: 2em !important;">
-                    <article class="col-md-12 single-post no-gutters border-top py-3">
+            <div class="col-md-4" data-scroll-reveal="enter from the bottom after 0.{{forloop.counter}}s">
+                <div class="rounded px-2 border"
+                    style="border-top-right-radius: 1em !important; border-bottom-left-radius: 1em !important;">
+                    <article class="col-md-12 single-post no-gutters">
 
-                        <strong class="h4 pt-2 font-weight-bold py-1">
-                            <a href="{{news.get_absolute_url}}" class="text-dark">{{news.title}}</a>
-                        </strong>
+                        <h1 class="py-2 h4">
+                            <strong class="h4 pt-2 py-1">
+                                <a href="{{news.get_absolute_url}}" class="text-dark">{{news.title}}</a>
+                            </strong>
+                        </h1>
                         <div class="image-wrapper float-left pr-3">
                             <img src="{%if news.caption_picture%}
                             {{news.caption_picture.url}}
                             {%else%}
                             {%static 'assets/img/edo/logo&badges/badge.png' %}
-                            {%endif%}" class="img-fluid" alt="gist" id="tab_img" />
+                            {%endif%}" alt="gist" id="tab_img" height="100" width="100" />
                         </div>
                         <div class="single-post-content-wrapper text-justify">
-                            {{news.content|safe|striptags|truncatechars:340}}
-                            <a href="{{news.get_absolute_url}}" class="font-weight-bold text-success">See Details..</a>
+                            {{news.content|safe|striptags|truncatechars:200}}
+                            <a href="{{news.get_absolute_url}}" class="font-weight-bold text-success"><br>
+                                 See
+                                Details..</a>
                         </div>
                     </article>
-                    <div class="row pb-2">
+                    <div class="row pb-2 text-center mx-auto pt-2">
                         <div class="col-8 float-left">
                             &ensp;{{news.views}}&thinsp;<i class="la la-eye h6"></i>
                             |&ensp;{{news.total_comments}}&thinsp;<i class="la la-comment h6"></i>
@@ -43,3 +50,4 @@
         </div>
     </div>
 </section>
+{% endif%}

@@ -1,20 +1,20 @@
-{% extends '../base/base.html' %}
+{% extends 'base/generic_base.html' %}
 {% load static %}
 {% load i18n %}
 {% load social_share %}
 {% load pagination_tags %}
 {% block content %}
-<main id="main">
+<main id="main" style="padding-top: 7em; padding-bottom: 3em;">
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
 
-            <div class="d-flex justify-content-between align-items-center">
+            <!-- <div class="d-flex justify-content-between align-items-center">
                 <h2>News</h2>
                 <ol>
                     <li><a href="/">Home</a></li>
                     <li>News Read</li>
                 </ol>
-            </div>
+            </div> -->
 
         </div>
     </section>
@@ -34,4 +34,6 @@
         </div>
     </div>
 </main>
+
+{% include "../pages/contact.html" %}
 {% endblock content %}

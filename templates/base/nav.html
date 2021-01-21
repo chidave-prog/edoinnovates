@@ -1,0 +1,96 @@
+{%load static%}
+<nav class="navbar navbar-expand-md navbar-light fixed-top" id="my_nav">
+    <a class="navbar-brand" href="#">
+        <img src="{% static 'images/logo/badge.png'%}" width="90" height="35" alt="">
+    </a>
+    <!-- <a class="navbar-brand" href="#">Navbar scroll</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll" id="nav_push">
+            <li class="nav-item {% if request.path == '/' %} active  {%endif%}">
+                <a class="nav-link font-weight-bold" href="/" id="nav_link">Home</a>
+            </li>
+            <li class="nav-item {% if request.path == '/about/' %} active  {%endif%}">
+                <a class="nav-link font-weight-bold" href="/about/" id="nav_link">About us</a>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link font-weight-bold dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                    data-toggle="dropdown" aria-expanded="false" style="outline: none;">
+                    Programes
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><a class="dropdown-item" href="/programme/aws-restart-edo/">Aws Restart Edo</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Plural Site</a></li> -->
+                    <!-- <li><a class="dropdown-item" href="#">Udasity</a></li> -->                   
+                    <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold {% if request.path == '/news/' %} active  {%endif%}" href="/news/" id="nav_link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold {% if request.path == '/contact/' %} active  {%endif%}" href="/contact/" tabindex="-1" aria="true">Contact us</a>
+            </li>
+            <li class="nav-item" id="opensearch">
+                <a class="nav-link font-weight-bold" href="#" tabindex="-1" aria="true" id="nav_link"
+                    onclick="openSearch();">
+                    <i class="la la-search"></i></a>
+                </a>
+            </li>
+            <li class="nav-item" id="closesearch" style="display: none;">
+                <a class="nav-link font-weight-bold" href="#" tabindex="-1" aria="true" id="nav_link"
+                    onclick="closeSearch();">
+                    <i class="la la-close"></i></a>
+                </a>
+            </li>
+            <li class="nav-item" id="navsearch" style="display: none;">
+                <form class="d-flex">
+                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success btn-sm rounded-pill" type="submit"><i
+                            class="la la-search"></i></a></button>
+                </form>
+            </li>
+
+        </ul>
+        <!-- <form class="d-flex">
+            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success btn-sm rounded-pill" type="submit"><i
+                    class="la la-search"></i></a></button>
+        </form> -->
+    </div>
+</nav>
+<script>
+    function openSearch() {
+        document.getElementById("opensearch").style.display = "none";
+        document.getElementById("closesearch").style.display = "";
+        document.getElementById("navsearch").style.display = "";
+    };
+
+    function closeSearch() {
+        document.getElementById("opensearch").style.display = "";
+        document.getElementById("closesearch").style.display = "none";
+        document.getElementById("navsearch").style.display = "none";
+    };
+</script>
+<script>
+    window.onscroll = function () { myFunction() };
+
+    function myFunction() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("my_nav").style.background = "#37424ac2";         
+        } else {
+            document.getElementById("my_nav").style.background = "";            
+        }
+    }
+</script>
+<script src="../static/js/jquery.min.js"></script>
+<script>
+    $('.dropdown').hover(function () {
+  $('#navbarScrollingDropdown', this).trigger('click');
+});
+</script>
