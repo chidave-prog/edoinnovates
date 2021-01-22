@@ -47,8 +47,12 @@ html, body{
 }
 #slide_caption{
     position: relative !important;
+    background:#00000070;
+    padding: 10px;
     top: -60vh !important;
-    left: -1em;
+    left: 0em;
+    width: 38em;
+    border-radius: 2em;
 }
 @media (max-width: 768px) {
     #nav_push{
@@ -61,12 +65,16 @@ html, body{
         border-radius: 1em;
     }
     #slide_caption{
-        top: -13em !important;     
+        background:#00000070;
+        padding: 10px;
+        top: -13em !important;
+        position: relative !important;
+        left: 0px;
+        width: auto;
+        border-radius: unset;
+        height: 13em;   
     }
-    #raise_control{
-        /* position: relative; */
-        /* top: -2px; */
-    }
+   
 }
 /* .nav-link{
 
@@ -76,7 +84,7 @@ html, body{
 } */
 #home_main_sec{
   position: relative;
-  top: -3em;
+  top: 15px;
 }
 
 
@@ -93,7 +101,7 @@ html, body{
     background-color: #37424a9c;
     /* border-radius: 1em; */
     border-top-left-radius: 2em;
-    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
 }
 
 /* Style the buttons inside the tab */
@@ -102,17 +110,18 @@ html, body{
     float: left;
     border: none;
     outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
+    cursor: pointer; 
+    padding: 8px;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 18px;
+    /* font-size: 15px; */
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #344652eb;
     color: #ffff;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* Create an active/current tablink class */
@@ -278,37 +287,47 @@ header {
 height: 10em;
 }
 
+#navbarScrollingDropdown, #nav_link{
+    color: rgb(2 0 25);
+}
+#nav_link>.active{
+    color: red !important;
+}
 
 .team .member { 
 background: #ffffff00  !important;
 }
 
 
+#aws_reg_sec {
+    position: fixed; 
+    z-index: 99;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: #00000086;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
+#aws_reg_cancel {
+    position: relative;
+    top: 1em !important;
+    margin-right: 10em;
+    z-index: 99;
+}
 
 @media (max-width: 768px) {
- 
-    #aws_reg_sec {
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        left: 0; 
-        width: 100%;
-        height: 100%;
-        background-color: #00000086;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     #aws_reg_cancel {
-        position: relative;
-        top: 3em !important;
-        margin-right: 10em;
-        z-index: 99;
+        margin-right: 2em;
+        top: 2em !important;
     }
 }
+
+
+
     @media (max-width: 768px) {
         #aws_reg_cancel {
             margin-right: 2em;
@@ -414,6 +433,7 @@ background: #ffffff00  !important;
     }
 #carouselExampleFade{
     height: 37em;
+    
 }
 
 @media (max-width: 768px) {
@@ -421,4 +441,3 @@ background: #ffffff00  !important;
         height: 15em;
     }
 }
-    

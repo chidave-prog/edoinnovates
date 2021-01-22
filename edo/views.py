@@ -170,7 +170,8 @@ def Halls(request):
 
 
 def AwsRestartBenin(request):
-    return redirect('/programme/aws-restart-edo/')
+    return render(request, 'contents/aws-restart-edo.html', {})
+    # return redirect('/programme/aws-restart-edo/')
 
 def About(request):
     # return render(request, 'pages/about.html', {})

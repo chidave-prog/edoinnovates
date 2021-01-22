@@ -4,9 +4,9 @@
         <img src="{% static 'images/logo/badge.png'%}" width="90" height="35" alt="">
     </a>
     <!-- <a class="navbar-brand" href="#">Navbar scroll</a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+    <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarScroll"
         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" style="color: white !important;"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll" id="nav_push">
@@ -34,7 +34,7 @@
                 <a class="nav-link font-weight-bold {% if request.path == '/news/' %} active  {%endif%}" href="/news/" id="nav_link">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold {% if request.path == '/contact/' %} active  {%endif%}" href="/contact/" tabindex="-1" aria="true">Contact us</a>
+                <a class="nav-link font-weight-bold {% if request.path == '/contact/' %} active  {%endif%}" href="/contact/" tabindex="-1" aria="true" id="nav_link">Contact us</a>
             </li>
             <li class="nav-item" id="opensearch">
                 <a class="nav-link font-weight-bold" href="#" tabindex="-1" aria="true" id="nav_link"
@@ -45,7 +45,7 @@
             <li class="nav-item" id="closesearch" style="display: none;">
                 <a class="nav-link font-weight-bold" href="#" tabindex="-1" aria="true" id="nav_link"
                     onclick="closeSearch();">
-                    <i class="la la-close"></i></a>
+                    <i class="text-danger font-weight-bold la la-close"></i></a>
                 </a>
             </li>
             <li class="nav-item" id="navsearch" style="display: none;">
@@ -53,7 +53,7 @@
                 <form action="/search/" method="POST" class="d-flex" id="search_form">{% csrf_token %}
                     <input class="form-control mr-2" name="search" type="search" placeholder="Search" aria-label="Search">
                     <input type="hidden" name="opt"  value="programmes">
-                    <button class="btn btn-outline-success btn-sm rounded-pill" type="submit"><i
+                    <button class="btn btn-outline-dark btn-sm rounded-pill" type="submit"><i
                             class="la la-search"></i></a></button>
                 </form>
             </li>
@@ -84,7 +84,7 @@
 
     function myFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementById("my_nav").style.background = "#37424ac2";         
+            document.getElementById("my_nav").style.background = "rgb(55 66 74 / 88%)";         
         } else {
             document.getElementById("my_nav").style.background = "";            
         }
