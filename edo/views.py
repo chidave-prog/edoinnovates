@@ -57,7 +57,7 @@ class StartupsdAndHubsDetailView(generic.DetailView):
     template_name = 'contents/startupsdsndhubs.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = str(self.object.name)               
+        context['title_tag'] = "EDO INNOVATE | " +str(self.object.name)               
         return context
     
 class HallsDetailView(generic.DetailView):
@@ -66,7 +66,7 @@ class HallsDetailView(generic.DetailView):
     template_name = 'contents/hall.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = str(self.object.name)               
+        context['title_tag'] = "EDO INNOVATE | " +str(self.object.name)               
         return context
 
    

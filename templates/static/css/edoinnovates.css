@@ -441,3 +441,18 @@ background: #ffffff00  !important;
         height: 15em;
     }
 }
+
+
+
+/***********************************************************************
+* HALL PAGE
+***********************************************************************/
+#hall_page_sec{
+    padding-top: 20em;
+}
+
+@media (max-width: 768px) {
+    #hall_page_sec{
+        padding-top: 5em;
+    }
+}
