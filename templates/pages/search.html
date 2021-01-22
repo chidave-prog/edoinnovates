@@ -1,17 +1,17 @@
-{% extends '../base/base.html' %}
+{% extends 'base/generic_base.html' %}
 {% load static %}
 {% load i18n %}
-{% block content %}
+{% block content %} 
 
 <section id="search">
 <div class="row">   
-    <ul class="col-md-6 mx-auto" style="list-style:disc; margin-top: 5em;"> 
+    <ul class="col-md-6 mx-auto py-3" style="list-style:disc; margin-top: 5em;"> 
         {%if keyword%}
         <p class="h3 py-2 text-center"><u>Search Results for <b>{{keyword}}</b></u></p>
         {%endif%}
             {% for search in search_result%}
             <li class="text-justify border-bottom">                
-                <a href="{% if search.get_absolute_url %}{{search.get_absolute_url}}{% elif search.link_to_program %}{{search.link_to_program}}{%endif%}" class="h6">
+                <a href="{% if search.get_absolute_url %}{{search.get_absolute_url}}{% elif search.link_to_program %}{{search.link_to_program}}{%endif%}" class="h6 text-muted">
                     {{search.title|upper}}
                 </a>        
             </li>

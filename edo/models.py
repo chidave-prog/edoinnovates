@@ -213,7 +213,7 @@ class StartupsdAndHubs(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.name) + " - ( " + str(self.category) + ")"
+        return str(self.name)   
 
     def get_absolute_url(self):
         return reverse('startupsdsndhub', kwargs={'slug': self.slug})
