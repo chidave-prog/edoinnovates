@@ -159,7 +159,7 @@ class Blog(models.Model):
 class Programme(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(
-        help_text='NOTE: word limit of 200', max_length=200)
+        help_text='NOTE: word limit of 200 for the overview')
     programme_banner = models.ImageField(upload_to='programme_banner')
     publish = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, null=True,
@@ -197,7 +197,7 @@ class StartupsdAndHubs(models.Model):
     category = models.CharField(null=True, max_length=10, choices=StartupsdAndHubs_Choices)
     name = models.CharField(max_length=200)
     about = models.TextField(
-        help_text='NOTE: word limit of 200', max_length=200)
+        help_text='NOTE: word limit of 200 for the overview')
     logo = models.ImageField(upload_to='programme_banner')    
     phone_number = models.CharField(
         max_length=20, blank=True, null=True)
@@ -213,7 +213,7 @@ class StartupsdAndHubs(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.name) + " - ( " + str(self.category) + ")"
 
     def get_absolute_url(self):
         return reverse('startupsdsndhub', kwargs={'slug': self.slug})
@@ -227,7 +227,7 @@ class StartupsdAndHubs(models.Model):
 class Hall(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(
-        help_text='NOTE: word limit of 200', max_length=200)
+        help_text='NOTE: word limit of 200 for the overview')
     photo = models.ImageField(upload_to='Photo_Gallery')
     photo_2 = models.ImageField(
         upload_to='Photo_Gallery', blank=True, null=True)
