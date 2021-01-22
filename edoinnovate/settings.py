@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'crispy_forms',
     'storages',
-    # "django_pagination_bootstrap",
+    "django_pagination_bootstrap",
     'decor',
 ]
 

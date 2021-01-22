@@ -85,8 +85,13 @@ html, body{
 #home_main_sec{
   position: relative;
   top: 15px;
+  padding-top: 14em;
 }
-
+@media (max-width: 768px) {
+    #home_main_sec{
+      padding-top: unset;
+      }
+}
 
 /***********************************************************************
 *  Tab SECTION

@@ -10,7 +10,7 @@ HallsDetailView)
 
 
 urlpatterns = [
-    path('index/', Home, name='home'), 
+    # path('index/', Home, name='home'), 
     path('', IndexView.as_view(), name='index'),
     path('programme/<slug>/', ProgrammeDetailView.as_view(), name='programme'),
     path('smes/<slug>/', StartupsdAndHubsDetailView.as_view(), name='startupsdsndhub'),
