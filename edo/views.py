@@ -171,13 +171,13 @@ def Halls(request):
 
 
 def AwsRestartBenin(request):
-    return render(request, 'contents/aws-restart-edo.html', {})
+    return render(request, 'contents/aws-restart-edo.html', {'title_tag': "EDO INNOVATE| AWS Re/Start Benin"})
     # return redirect('/programme/aws-restart-edo/')
 
 def About(request):
     # return render(request, 'pages/about.html', {})
     context = {
-        'title_tag': "EDO INNOVATE| AWS Re/Start Benin",
+        'title_tag': "EDO INNOVATE| About US",
         'programme': Programme.objects.all().order_by('created_at'),
         'gallery': Gallery.objects.all().order_by('created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
