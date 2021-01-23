@@ -1,6 +1,6 @@
 {%load static%}
 <nav class="navbar navbar-expand-md navbar-light fixed-top" id="my_nav">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
         <img src="{% static 'images/logo/badge.png'%}" width="90" height="35" alt="">
     </a>
     <!-- <a class="navbar-brand" href="#">Navbar scroll</a> -->
@@ -26,15 +26,17 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                     <li><a class="dropdown-item" href="/programme/aws-restart-edo/">Aws Restart Edo</a></li>
                     <!-- <li><a class="dropdown-item" href="#">Plural Site</a></li> -->
-                    <!-- <li><a class="dropdown-item" href="#">Udasity</a></li> -->                   
+                    <!-- <li><a class="dropdown-item" href="#">Udasity</a></li> -->
                     <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold {% if request.path == '/news/' %} active  {%endif%}" href="/news/" id="nav_link">Blog</a>
+                <a class="nav-link font-weight-bold {% if request.path == '/news/' %} active  {%endif%}" href="/news/"
+                    id="nav_link">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold {% if request.path == '/contact/' %} active  {%endif%}" href="/contact/" tabindex="-1" aria="true" id="nav_link">Contact us</a>
+                <a class="nav-link font-weight-bold {% if request.path == '/contact/' %} active  {%endif%}"
+                    href="/contact/" tabindex="-1" aria="true" id="nav_link">Contact us</a>
             </li>
             <li class="nav-item" id="opensearch">
                 <a class="nav-link font-weight-bold" href="#" tabindex="-1" aria="true" id="nav_link"
@@ -51,8 +53,9 @@
             <li class="nav-item" id="navsearch" style="display: none;">
                 <!-- <form class="d-flex"> -->
                 <form action="/search/" method="POST" class="d-flex" id="search_form">{% csrf_token %}
-                    <input class="form-control mr-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                    <input type="hidden" name="opt"  value="programmes">
+                    <input class="form-control mr-2" name="search" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <input type="hidden" name="opt" value="programmes">
                     <button class="btn btn-outline-dark btn-sm rounded-pill" type="submit"><i
                             class="la la-search"></i></a></button>
                 </form>
@@ -84,15 +87,15 @@
 
     function myFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementById("my_nav").style.background = "rgb(55 66 74 / 88%)";         
+            document.getElementById("my_nav").style.background = "rgb(55 66 74 / 88%)";
         } else {
-            document.getElementById("my_nav").style.background = "";            
+            document.getElementById("my_nav").style.background = "";
         }
     }
 </script>
 <script src="../static/js/jquery.min.js"></script>
 <script>
     $('.dropdown').hover(function () {
-  $('#navbarScrollingDropdown', this).trigger('click');
-});
+        $('#navbarScrollingDropdown', this).trigger('click');
+    });
 </script>

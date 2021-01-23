@@ -36,6 +36,7 @@ class IndexView(generic.View):
         "startup": StartupsdAndHubs.objects.filter(publish=True, category="start_up").order_by('-created_at'),
         "hubs": StartupsdAndHubs.objects.filter(publish=True, category="hub").order_by('-created_at'),
         "halls": Hall.objects.filter(publish=True).order_by('-created_at'),
+        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
         }
 
         return render(request, "contents/home.html", context)
@@ -223,6 +224,9 @@ class BlogListView(generic.ListView):
     paginate_by = 8
     context_object_name = 'news'
     template_name = 'pages/news_list.html'
+
+    def get_queryset(self):
+        return Blog.objects.filter(publish=True).order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

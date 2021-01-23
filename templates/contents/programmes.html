@@ -6,6 +6,29 @@
 
 {%if request.path == "/programme/aws-restart-edo/"%}
 {% include "contents/aws.html" %}
+{%else%}
+<div class="container my-5" style="padding-top: 4em;">
+    <div class="row">
+        <h1 class="col-md-6 mx-auto text-center font-weight-bold py-3">
+            {{programme.title|upper}}
+        </h1>
+        <div class="col-md-12 border-bottom py-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{%if programme.programme_banner%} {{programme.programme_banner.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                        class="img-fluid rounded-lg img-thumbnail">
+                </div>
+                <figcaption class="d-block text-center col-md-6 py-lg-5">
+                    <p class="text-justify">
+                        {{programme.description|safe}}
+                    </p>
+                </figcaption>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 {%endif%}
 
 {% endblock content %}
