@@ -85,7 +85,7 @@ html, body{
 #home_main_sec{
   position: relative;
   top: 15px;
-  padding-top: 2em;
+  padding-top: 3em;
 }
 @media (max-width: 768px) {
     #home_main_sec{
