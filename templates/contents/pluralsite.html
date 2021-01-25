@@ -1,18 +1,14 @@
-{% extends 'base/base.html' %}
-{% load static %}
-{% load i18n %}
-{% block content %}
-
-
+{%load static%}
 <section style="padding-top:3.5em; padding-bottom: 0;">
     <div class="jumbotron p-lg-5" style="background: black; color: white;">
         <h1 class="display-4">
             <img src="{%static 'assets/img/edo/opportunities/pluralsight-edo.png' %}" height="70" width="80">
             <span class="h1">Pluralsight Edo</span>
         </h1>
-        <p class="lead" data-scroll-reveal="enter from the left after 0.3s">This is a simple hero unit, a simple
-            jumbotron-style component for calling extra attention to
-            featured content or information.</p>
+        <p class="lead" data-scroll-reveal="enter from the left after 0.3s">
+            In a continued effort to empower Edo residents and indigenes, Edo Innovates partners with Pluralsight to
+            empower individuals with scholarship opportunities.
+        </p>
         <hr class="my-4">
         <div class="container">
             <div class="row" data-scroll-reveal="enter from the right after 0.3s">
@@ -20,55 +16,51 @@
                     <img src="{%static 'assets/img/edo/opportunities/pluralsight-edo.png' %}" class="img-fluid">
                 </div>
                 <div class="col-md-6">
+                    <h1 class="h4 py-2"><u>Features</u></h1>
                     <div class="">
                         <p class="p-2 card text-dark">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum
-                            in
-                            ipsam
+                            The current top most in-demand tech skills in the world
                         </p>
                     </div>
                     <div class="">
                         <p class="p-2 card text-dark">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum
-                            in
-                            ipsam
+                            A 5 month intensive training to empower learners
+                            with these most in-demand skills.
+
                         </p>
                     </div>
                     <div class="">
                         <p class="p-2 card text-dark">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum
-                            in
-                            ipsam
+                            Periodical meetups for Professional mentorship and hands on guardiance
                         </p>
                     </div>
                 </div>
             </div>
             <h1>
-                <p class="h4 my-3">Avalible Tracks</p>
+                <p class="h5 my-3">Avalible Tracks</p>
             </h1>
-
             <ul class="list-group list-group-flush" data-scroll-reveal="enter from the bottom after 0.3s">
                 <div class="row">
                     <ul class="col-md-4 text-dark">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
+                        <li class="list-group-item"> Agile Project Management </li>
+                        <li class="list-group-item">Unity Game development</li>
+                        <li class="list-group-item">SalesForce Administrator</li>
+                        <!-- <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
                     </ul>
                     <ul class="col-md-4 text-dark">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
+                        <li class="list-group-item"> AI/ML</li>
+                        <li class="list-group-item">Ux Research</li>
+                        <li class="list-group-item">Cyber Security</li>
+                        <!-- <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
                     </ul>
                     <ul class="col-md-4 text-dark">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
+                        <li class="list-group-item">Cloud</li>
+                        <li class="list-group-item">IT Ops</li>
+                        <li class="list-group-item"> Web development</li>
+                        <!-- <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
                     </ul>
 
                 </div>
@@ -77,13 +69,41 @@
         </div>
         <hr class="my-2">
         <div class="text-center mx-auto" data-scroll-reveal="enter from the bottom after 0.5s">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-lg rounded-pill text-white font-weight-bold" href="#" role="button"
-                style="background: rgb(131,58,180); background: linear-gradient(319deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.9332107843137255) 50%, rgba(252,176,69,1) 100%)">Apply</a>
+            <p>
+                <small>
+                    <span>Application closes <span>20th February 2021</span></span>
+                    <br>
+                    <span class="text-success">
+                        Click the button below to Apply for this programme
+                    </span>
+                </small>
+            </p>
+            <a class="btn btn-lg rounded-pill text-white font-weight-bold" href="javascript:void(0);"
+                onclick="document.getElementById('programme_appplication_form').className='d-block mx-auto';"
+                role="button"
+                style="background: rgb(131,58,180); background: linear-gradient(319deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.9332107843137255) 50%, rgba(252,176,69,1) 100%)">
+                Apply
+            </a>
         </div>
 
     </div>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="programme_appplication_form" class="d-none">
+                    <div class="pt-5 text-right">
+                        <a href="javascript:void(0);" id="programme_appplication_form_cancel"
+                            onclick="document.getElementById('programme_appplication_form').className='d-none';">
+                            <b class="h1 text-white font-weight-bold">&times;</b></a>
+                    </div>
+                    <iframe src="{{programme.application_link}}" width="100%" height="100%" frameborder="0"
+                        marginheight="0" marginwidth="0" class="pt-4 col-md-12 animated zoomIn"
+                        data-scroll-reveal="enter from the bottom after 0.3s"
+                        style="animation-delay: 1s">Loading…</iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>
@@ -92,4 +112,3 @@
     });
 </script>
 {% include "../pages/contact.html" %}
-{% endblock content %}
