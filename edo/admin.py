@@ -31,7 +31,7 @@ class Contact(admin.ModelAdmin):
 
 @admin.register(Programme)
 class Programme(admin.ModelAdmin):
-    list_display = ('title', 'description', 'publish', 'created_at',)
+    list_display = ('title', 'publish', 'created_at',)
 
 @admin.register(StartupsdAndHubs)
 class StartupsdAndHubs(admin.ModelAdmin):
