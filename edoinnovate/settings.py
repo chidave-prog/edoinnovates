@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'storages',
     "django_pagination_bootstrap",
     'decor',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +148,15 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+CKEDITOR_FILENAME_GENERATOR = 'tech.utils.get_filename'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 300,
+        'width': 900,
+    },
+}
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

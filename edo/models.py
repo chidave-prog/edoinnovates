@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from tinymce import HTMLField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.template.defaultfilters import slugify
 import sys
 from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -116,7 +116,7 @@ class Comment(models.Model):
 class Blog(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    content = HTMLField()
+    content = RichTextUploadingField()
     caption_picture = models.ImageField(
         upload_to='blog', blank=True, null=True)
     author = models.CharField(max_length=200, blank=True, null=True)
@@ -158,8 +158,7 @@ class Blog(models.Model):
 
 class Programme(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField(
-        help_text='NOTE: word limit of 200 for the overview')
+    description = RichTextUploadingField(help_text='NOTE: word limit of 200 for the overview')
     programme_banner = models.ImageField(upload_to='programme_banner')
     publish = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, null=True,
@@ -196,8 +195,7 @@ class Application(models.Model):
 class StartupsdAndHubs(models.Model):
     category = models.CharField(null=True, max_length=10, choices=StartupsdAndHubs_Choices)
     name = models.CharField(max_length=200)
-    about = models.TextField(
-        help_text='NOTE: word limit of 200 for the overview')
+    about =RichTextUploadingField(help_text='NOTE: word limit of 200 for the overview')
     logo = models.ImageField(upload_to='programme_banner')    
     phone_number = models.CharField(
         max_length=20, blank=True, null=True)
@@ -226,8 +224,7 @@ class StartupsdAndHubs(models.Model):
 
 class Hall(models.Model):
     name = models.CharField(max_length=200)
-    description = models.TextField(
-        help_text='NOTE: word limit of 200 for the overview')
+    description = RichTextUploadingField(help_text='NOTE: word limit of 200 for the overview')
     photo = models.ImageField(upload_to='Photo_Gallery')
     photo_2 = models.ImageField(
         upload_to='Photo_Gallery', blank=True, null=True)
@@ -257,7 +254,7 @@ class Hall(models.Model):
 class Gallery(models.Model):
     photo_type = models.CharField(max_length=20, choices=PHOTO_TYPE)
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    description = RichTextUploadingField()
     photo = models.ImageField(upload_to='Photo_Gallery')
     photo_2 = models.ImageField(
         upload_to='Photo_Gallery', blank=True, null=True)

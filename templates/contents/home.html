@@ -12,10 +12,10 @@
                 <div class="slide-text px-2 text-center">
                     <div class="animated fadeInUp">
                         <h1 class="font-weight-bold">
-                            Innovation centre 
+                            Innovation centre
                         </h1>
                         <p>
-                            creating the supply of highly skilled ICT talent 
+                            creating the supply of highly skilled ICT talent
                         </p>
                     </div>
                     <div class="animated fadeInDown text-center">
@@ -33,14 +33,14 @@
                 <div class="slide-text px-2 text-center">
                     <div class="animated fadeInUp">
                         <h1 class="font-weight-bold">
-                            Equiping Youth 
+                            Equiping Youth
                         </h1>
                         <p>
                             with High demand ICT Skills
                         </p>
                     </div>
                     <div class="animated fadeInDown text-center">
-                        <p data-animation="animated fadeInLeft">  </p>                       
+                        <p data-animation="animated fadeInLeft"> </p>
                     </div>
                 </div>
             </div>
@@ -51,11 +51,11 @@
                 <div class="slide-text px-2 text-center">
                     <div class="animated fadeInUp">
                         <h1 class="font-weight-bold">
-                            Provide Expansion Opportunities 
+                            Provide Expansion Opportunities
                         </h1>
                         <p>
                             for startups through incubation and
-                            acceleration programs 
+                            acceleration programs
                         </p>
                     </div>
                     <div class="animated fadeInDown text-center">
@@ -236,10 +236,12 @@
                             onclick="openCity(event, 'programs')"><small>Programs</small> </button>
                     </div>
                     <div class="col-3">
-                        <button class="tablinks text-white text-center" onclick="openCity(event, 'startups')"><small>Startups</small> </button>
+                        <button class="tablinks text-white text-center"
+                            onclick="openCity(event, 'startups')"><small>Startups</small> </button>
                     </div>
                     <div class="col-3">
-                        <button class="tablinks text-white text-center" onclick="openCity(event, 'hubs')"><small>Hubs</small> </button>
+                        <button class="tablinks text-white text-center"
+                            onclick="openCity(event, 'hubs')"><small>Hubs</small> </button>
                     </div>
                     <div class="col-3">
                         <button class="tablinks text-white text-center"
@@ -264,7 +266,7 @@
                                     <p class="font-weight-bold">
                                         {{prog.title}}
                                     </p>
-                                    <small>{{prog.description|truncatechars:200}}</small>
+                                    <small>{{prog.description|striptags|truncatechars:200}}</small>
                                     <br>
                                     <p class="py-2">
                                         <a href="{{prog.get_absolute_url}}"
@@ -297,7 +299,7 @@
                                     <p class="font-weight-bold">
                                         {{items.name}}
                                     </p>
-                                    <small>{{items.about|truncatechars:200}}</small>
+                                    <small>{{items.about|striptags|truncatechars:200}}</small>
                                     <br>
                                     <p class="py-2">
                                         <a href="{{items.get_absolute_url}}"
@@ -330,7 +332,7 @@
                                     <p class="font-weight-bold">
                                         {{items.name}}
                                     </p>
-                                    <small>{{items.about|truncatechars:200}}</small>
+                                    <small>{{items.about|striptags|truncatechars:200}}</small>
                                     <br>
                                     <p class="py-2">
                                         <a href="{{items.get_absolute_url}}"
@@ -363,7 +365,7 @@
                                     <p class="font-weight-bold">
                                         {{items.name}}
                                     </p>
-                                    <small>{{items.description|truncatechars:200}}</small>
+                                    <small>{{items.description|striptags|truncatechars:200}}</small>
                                     <br>
                                     <p class="py-2">
                                         <a href="{{items.get_absolute_url}}"
@@ -417,12 +419,13 @@
         <div class="row">
             <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
                 data-scroll-reveal="enter from the bottom after 0.1s">
-                <img src="../static/assets/img/edo/clients/aws.png" style="width: 250px;"  class="zoomonhover">
+                <img src="../static/assets/img/edo/clients/aws.png" style="width: 250px;" class="zoomonhover">
 
             </div>
             <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"
                 data-scroll-reveal="enter from the bottom after 0.2s">
-                <img src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg" style="width: 200px;" class="zoomonhover">
+                <img src="../static/assets/img/edo/clients/08-marydel-innovation-hub-370x208.jpg" style="width: 200px;"
+                    class="zoomonhover">
             </div>
 
             <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-center"

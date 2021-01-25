@@ -4,7 +4,7 @@ from django.views.generic import RedirectView
 
 
 from .views import (Home,Subscription, Search, ContactPage, AwsRestartBenin,GalleryDetailView, BlogListView, 
-BlogDetailView, Halls, ComputerAppreciation, PluralSite, IndexView, ProgrammeDetailView,
+BlogDetailView, Halls, IndexView, ProgrammeDetailView,
 StartupsdAndHubsDetailView, About,
 HallsDetailView)
 
@@ -22,8 +22,6 @@ urlpatterns = [
     path('aws-restart-edo/', AwsRestartBenin, name='aws-restart-edo'),  
     path('gallery/<slug>/', GalleryDetailView.as_view(),name='gallery-detail'),
     path('halls/', Halls, name='halls'),
-    path('computer-appreciation/', ComputerAppreciation, name='computer-appreciation'),
-    path('plural-site/', PluralSite, name='plural-site'),
     path('news/', BlogListView.as_view(),name='news'),
     path('news/<slug>/', BlogDetailView.as_view(),name='blog-detail'),
 ]

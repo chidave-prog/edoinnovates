@@ -10,6 +10,7 @@ urlpatterns = [
     path('mrasemota/', admin.site.urls),
     path('', include('edo.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 admin.site.site_header = "EDO INNOVATE"
 admin.site.site_title = "EDO INNOVATE"
