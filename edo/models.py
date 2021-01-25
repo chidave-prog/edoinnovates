@@ -160,6 +160,7 @@ class Programme(models.Model):
     title = models.CharField(max_length=200)
     description = RichTextUploadingField(help_text='NOTE: word limit of 200 for the overview')
     programme_banner = models.ImageField(upload_to='programme_banner')
+    application_link = models.URLField(help_text="link to google form or any other application link", blank=True, null=True)
     publish = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, null=True,
                             help_text="please leave this field blank")
@@ -172,7 +173,7 @@ class Programme(models.Model):
         return reverse('programme', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        edit_photo(self.programme_banner, 300, 300)
+        edit_photo(self.programme_banner, 50, 50)
         self.slug = slugify(str(self.title))
         super(Programme, self).save(*args, **kwargs)
 

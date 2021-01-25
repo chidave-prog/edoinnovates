@@ -14,15 +14,39 @@
         </h1>
         <div class="col-md-12 border-bottom py-3">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12 mx-auto">
                     <img src="{%if programme.programme_banner%} {{programme.programme_banner.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
                         class="img-fluid rounded-lg img-thumbnail">
                 </div>
-                <figcaption class="d-block text-center col-md-6 py-lg-5">
+                <figcaption class="d-block text-center col-md-12 py-lg-5">
                     <p class="text-justify">
                         {{programme.description|safe}}
                     </p>
                 </figcaption>
+                <div class="col-md-6 mx-auto">
+                    <img src="{%static 'assets/img/edo/comment.gif'%}" alt="">
+                    <div class="pt-2">
+                        <a href="javascript:void(0);" class="btn btn-outline-success btn-sm rounded-pill"
+                            onclick="document.getElementById('aws_reg_sec').className='d-block mx-auto';">
+                            &ensp;Get started&ensp;</a>
+                    </div>
+                </div>
+
+
+
+
+                <div id="aws_reg_sec" class="d-none">
+                    <div class="pt-5 text-right">
+                        <a href="javascript:void(0);" id="aws_reg_cancel"
+                            onclick="document.getElementById('aws_reg_sec').className='d-none';">
+                            <b class="h1 text-white font-weight-bold">&times;</b></a>
+                    </div>
+                    <iframe src="{{programme.application_link}}" width="100%" height="100%" frameborder="0"
+                        marginheight="0" marginwidth="0" class="pt-4 col-md-12 animated zoomIn"
+                        data-scroll-reveal="enter from the bottom after 0.3s"
+                        style="animation-delay: 1s">Loading…</iframe>
+                </div>
+
             </div>
         </div>
     </div>
