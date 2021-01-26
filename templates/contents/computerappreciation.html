@@ -1,45 +1,88 @@
-{% extends 'base/base.html' %}
 {% load static %}
-{% load i18n %}
-{% block content %}
-
 
 <section style="padding-top:3.5em; padding-bottom: 0;">
     <div class="jumbotron p-lg-5">
-        <h1 class="display-4">Computer Appreciation</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
-        <hr class="my-4">
+
+
         <div class="container">
+            <h1 class="display-5 text-left display-4">Computer Appreciation</h1>
             <div class="row">
-                <div class="col-md-4">
-                    <p class="p-2 card">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum in
-                        ipsam
-                    </p>
+                <div class="col-md-12">
+                    <div class="row py-2">
+                        <div class="col-md-6 mx-auto text-center order-lg-12">
+                            <img src="{%if programme.programme_banner%} {{programme.programme_banner.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                class="img-fluid rounded-circle img-thumbnail" height="100" width="250"
+                                data-scroll-reveal="enter from the bottom after 0.3s">
+                        </div>
+                        <div class="col-md-6 order-lg-1">
+                            <p class="lead py-lg-5">
+                                The Computer Appreciation training organised by Edo Innovates introduces individuals to
+                                the comprehensive use of Microsoft products.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <p class="p-2 card">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum in
-                        ipsam
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <p class="p-2 card">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sit! Veniam molestias illum in
-                        ipsam
-                    </p>
+                <div class="col-md-12">
+                    <div class="row">
+                        <p class="col-md-10 mx-auto text-center">
+                            <em>
+                                <b>
+                                    Learners who go through the one week
+                                    intensive program would be able to:
+                                </b>
+                            </em>
+                        </p>
+                        <hr class="my-4">
+                        <div class="col-md-4">
+                            <p class="p-2 card">
+                                Demonstrate proficiency in the use of high Microsoft
+                                Excel, Power Point and Word.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="p-2 card">
+                                The program is open to anyone who is willing to gain deeper insights into Microsoft
+                                Office products.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="p-2 card">
+                                Click the button below to Register for this programme &ensp; &ensp; &ensp;
+                                &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;&ensp; &ensp; &ensp;&ensp; &ensp;
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
         <hr class="my-2">
         <div class="text-center mx-auto">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-sm rounded-pill" href="#" role="button">Apply</a>
+            <p></p>
+            <a class="btn btn-primary btn-sm rounded-pill" href="javascript:void(0);"
+                onclick="document.getElementById('programme_appplication_form').className='d-block mx-auto';"
+                role="button"> &ensp;Register Now &ensp;</a>
         </div>
 
     </div>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="programme_appplication_form" class="d-none">
+                    <div class="pt-5 text-right">
+                        <a href="javascript:void(0);" id="programme_appplication_form_cancel"
+                            onclick="document.getElementById('programme_appplication_form').className='d-none';">
+                            <b class="h1 text-danger font-weight-bold">&times;</b></a>
+                    </div>
+                    <iframe src="{{programme.application_link}}" width="100%" height="100%" frameborder="0"
+                        marginheight="0" marginwidth="0" class="pt-4 col-md-12 animated zoomIn"
+                        data-scroll-reveal="enter from the bottom after 0.3s"
+                        style="animation-delay: 1s">Loading…</iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>
@@ -48,4 +91,3 @@
     });
 </script>
 {% include "../pages/contact.html" %}
-{% endblock content %}

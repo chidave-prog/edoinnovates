@@ -30,49 +30,53 @@ keywords = ""
 class IndexView(generic.View):
     def get(self, request, *args, **kwargs):
         context = {
-        'title_tag': "EDO INNOVATE| Touching Lives",  
-        "programmes": Programme.objects.filter(publish=True).order_by('-created_at'),
-        "startup": StartupsdAndHubs.objects.filter(publish=True, category="start_up").order_by('-created_at'),
-        "hubs": StartupsdAndHubs.objects.filter(publish=True, category="hub").order_by('-created_at'),
-        "halls": Hall.objects.filter(publish=True).order_by('-created_at'),
-        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
+            'title_tag': "EDO INNOVATE| Touching Lives",
+            "programmes": Programme.objects.filter(publish=True).order_by('-created_at'),
+            "startup": StartupsdAndHubs.objects.filter(publish=True, category="start_up").order_by('-created_at'),
+            "hubs": StartupsdAndHubs.objects.filter(publish=True, category="hub").order_by('-created_at'),
+            "halls": Hall.objects.filter(publish=True).order_by('-created_at'),
+            'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
         }
 
         return render(request, "contents/home.html", context)
-
 
 
 class ProgrammeDetailView(generic.DetailView):
     model = Programme
     context_object_name = 'programme'
     template_name = 'contents/programmes.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = str(self.object.title)               
+        context['title_tag'] = "EDO INNOVATE| " + str(self.object.title)
         return context
+
 
 class StartupsdAndHubsDetailView(generic.DetailView):
     model = StartupsdAndHubs
     context_object_name = 'startupsdsndhub'
     template_name = 'contents/startupsdsndhubs.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = "EDO INNOVATE | " +str(self.object.name)               
+        context['title_tag'] = "EDO INNOVATE | " + str(self.object.name)
         return context
-    
+
+
 class HallsDetailView(generic.DetailView):
     model = Hall
     context_object_name = 'hall'
     template_name = 'contents/hall.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title_tag'] = "EDO INNOVATE | " +str(self.object.name)               
+        context['title_tag'] = "EDO INNOVATE | " + str(self.object.name)
         return context
 
-   
+
 def Subscription(request):
     sub = request.POST.get("sub_email")
-    exists = Newsletter.objects.filter(sub_email=sub).exists()    
+    exists = Newsletter.objects.filter(sub_email=sub).exists()
     if sub and not exists:
         newsletter, created = Newsletter.objects.get_or_create(
             sub_email=sub,
@@ -147,7 +151,7 @@ def Home(request):
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
         'gallery': Gallery.objects.filter(publish=True).order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
-        'team': Team.objects.filter(publish=True, office='Borad_members').order_by('-created_at'),       
+        'team': Team.objects.filter(publish=True, office='Borad_members').order_by('-created_at'),
     }
     return render(request, 'pages/index.html', context)
 
@@ -162,7 +166,7 @@ def Halls(request):
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
         'gallery': Gallery.objects.filter(publish=True, photo_type='halls').order_by('-created_at'),
         'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
-        'team': Team.objects.filter(publish=True, office='Borad_members').order_by('-created_at'),        
+        'team': Team.objects.filter(publish=True, office='Borad_members').order_by('-created_at'),
     }
     return render(request, 'pages/halls.html', context)
 
@@ -170,6 +174,7 @@ def Halls(request):
 def AwsRestartBenin(request):
     return render(request, 'contents/aws-restart-edo.html', {'title_tag': "EDO INNOVATE| AWS Re/Start Benin"})
     # return redirect('/programme/aws-restart-edo/')
+
 
 def About(request):
     # return render(request, 'pages/about.html', {})
@@ -190,7 +195,7 @@ def ComputerAppreciation(request):
         'programme': Programme.objects.all().order_by('created_at'),
         'gallery': Gallery.objects.all().order_by('created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
-        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],       
+        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
     }
     return render(request, 'pages/computerappreciation.html', context)
 
@@ -201,9 +206,10 @@ def PluralSite(request):
         'programme': Programme.objects.all().order_by('created_at'),
         'gallery': Gallery.objects.all().order_by('created_at'),
         'testimonies': Testimony.objects.filter(publish=True).order_by('-created_at'),
-        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],       
+        'blog': Blog.objects.filter(publish=True).order_by('-created_at')[:4],
     }
     return render(request, 'pages/pluralsite.html', context)
+
 
 class GalleryDetailView(generic.DetailView):
     model = Gallery
