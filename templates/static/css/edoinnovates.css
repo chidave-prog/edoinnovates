@@ -85,8 +85,14 @@ html, body{
 #home_main_sec{
   position: relative;
   top: 15px;
-  padding-top: 3em;
+  padding-top: 8em;
 }
+@media (max-width: 868px) {
+    #home_main_sec{       
+        padding-top: 0;
+      }
+}
+
 @media (max-width: 768px) {
     #home_main_sec{
       padding-top: unset;
@@ -103,10 +109,10 @@ html, body{
 .tab {
     
 
-    background-color: #37424a9c;
-    /* border-radius: 1em; */
-    border-top-left-radius: 2em;
-    border-top-right-radius: 2em;
+    /* background-color: #37424a44; */
+    border-radius: 1em;
+    /* border-top-left-radius: 2em; */
+    /* border-top-right-radius: 2em; */
 }
 
 /* Style the buttons inside the tab */
@@ -136,7 +142,12 @@ html, body{
     font-weight: bolder !important;
     border-radius: 5em;
 }
-
+.tablinks.active{
+    background-color: #ffff ;
+    color:#37424ac2 !important;
+    font-weight: bolder !important;
+    border-radius: 5em;
+}
 /* Style the tab content */
 .tabcontent {
     display: none;
@@ -181,7 +192,7 @@ header {
     animation: zoom 15s;
 }
 .carousel-item >img {
-height: 95vh;
+height: 100%;
 }
 @media (max-width: 768px) {
     .carousel-item >img {
@@ -321,14 +332,14 @@ background: #ffffff00  !important;
     position: relative;   
     margin-right: 10em;
     z-index: 99;    
-    top: 5em !important;  
+    /* top: 5em !important;   */
     
 }
 
 @media (max-width: 768px) {
     #programme_appplication_form_cancel,#aws_reg_cancel {
         margin-right: 2em;
-        top: 2em !important;
+        top: 4em !important;
     }
    
 }

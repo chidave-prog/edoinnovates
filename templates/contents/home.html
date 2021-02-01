@@ -225,176 +225,178 @@
             </div>
         </div>
         <hr class="py-2">
-        <div class="row">
-            <div class="col-md-12" data-scroll-reveal="enter from the bottom after 0.5s">
-                <h1 class="py-2">Innoavtions
-                    <p class="h6">What we are best Known for</p>
-                </h1>
-                <div class="tab row">
+
+        <div class="" data-scroll-reveal="enter from the bottom after 0.5s">
+            <h1 class="py-2">Innoavtions
+                <p class="h6">What we are best Known for</p>
+            </h1>
+            <div class="tab">
+                <div class="row">
                     <div class="col-3">
                         <button class="tablinks text-white text-center active"
-                            onclick="openCity(event, 'programs')"><small>Programs</small> </button>
+                            onclick="openCity(event, 'programs')"><small
+                                class="text-dark border px-3 py-1">Programs</small>
+                        </button>
                     </div>
                     <div class="col-3">
-                        <button class="tablinks text-white text-center"
-                            onclick="openCity(event, 'startups')"><small>Startups</small> </button>
+                        <button class="tablinks text-white text-center" onclick="openCity(event, 'startups')"><small
+                                class="text-dark border px-3 py-1">Startups</small> </button>
                     </div>
                     <div class="col-3">
-                        <button class="tablinks text-white text-center"
-                            onclick="openCity(event, 'hubs')"><small>Hubs</small> </button>
+                        <button class="tablinks text-white text-center" onclick="openCity(event, 'hubs')"><small
+                                class="text-dark border px-3 py-1">Hubs</small> </button>
                     </div>
                     <div class="col-3">
-                        <button class="tablinks text-white text-center"
-                            onclick="openCity(event, 'halls')"><small>Halls</small> </button>
+                        <button class="tablinks text-white text-center" onclick="openCity(event, 'halls')"><small
+                                class="text-dark border px-3 py-1">Halls</small> </button>
                     </div>
                 </div>
-                <div id="programs" class="tabcontent" style="display: block;">
-                    <h1 class="text-center h4">PROGRAMMES</h1>
-                    <div class="row">
-                        {%if programmes%}
-                        {% for prog in programmes%}
-                        <div class="ex-card col-md-4 mx-auto text-center py-4">
-                            <div class="card-2 p-2">
-                                <div class="card-front">
-                                    <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
-                                        alt="" height="200" width="200" class="rounded-circle">
-                                    <figcaption class="text-center font-weight-bold py-2">
-                                        <a href="javascript:void(0);" class="text-muted"> {{prog.title}}</a>
-                                    </figcaption>
-                                </div>
-                                <div class="card-back">
-                                    <p class="font-weight-bold">
-                                        {{prog.title}}
-                                    </p>
-                                    <small>{{prog.description|striptags|truncatechars:200}}</small>
-                                    <br>
-                                    <p class="py-2">
-                                        <a href="{{prog.get_absolute_url}}" class="btn btn-info btn-sm rounded-pill">
-                                            Get Started <i class="la la-angle-right"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {%endfor%}
-                        {%endif%}
-                    </div>
-                </div>
-
-                <div id="startups" class="tabcontent">
-                    <h1 class="text-center h4">Start-Ups</h1>
-                    <div class="row">
-                        {%if startup%}
-                        {% for items in startup%}
-                        <div class="ex-card col-md-4 mx-auto text-center py-4">
-                            <div class="card-2 p-2">
-                                <div class="card-front">
-                                    <img src="{%if items.logo%} {{items.logo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
-                                        alt="" height="200" width="200" class="img-thumbnail">
-                                    <figcaption class="text-center font-weight-bold py-2">
-                                        <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
-                                    </figcaption>
-                                </div>
-                                <div class="card-back">
-                                    <p class="font-weight-bold">
-                                        {{items.name}}
-                                    </p>
-                                    <small>{{items.about|striptags|truncatechars:200}}</small>
-                                    <br>
-                                    <p class="py-2">
-                                        <a href="{{items.get_absolute_url}}" class="btn btn-dark btn-sm rounded-pill">
-                                            Connect <i class="la la-angle-right"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {%endfor%}
-                        {%endif%}
-                    </div>
-                </div>
-
-                <div id="hubs" class="tabcontent">
-                    <h1 class="text-center h4">Hubs</h1>
-                    <div class="row">
-                        {%if hubs%}
-                        {% for items in hubs%}
-                        <div class="ex-card col-md-4 mx-auto text-center py-4">
-                            <div class="card-2 p-2">
-                                <div class="card-front">
-                                    <img src="{%if items.logo%} {{items.logo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
-                                        alt="" height="200" width="200" class="img-thumbnail">
-                                    <figcaption class="text-center font-weight-bold py-2">
-                                        <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
-                                    </figcaption>
-                                </div>
-                                <div class="card-back">
-                                    <p class="font-weight-bold">
-                                        {{items.name}}
-                                    </p>
-                                    <small>{{items.about|striptags|truncatechars:200}}</small>
-                                    <br>
-                                    <p class="py-2">
-                                        <a href="{{items.get_absolute_url}}"
-                                            class="btn btn-primary btn-sm rounded-pill"> Contact <i
-                                                class="la la-angle-right"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {%endfor%}
-                        {%endif%}
-                    </div>
-                </div>
-
-                <div id="halls" class="tabcontent">
-                    <h1 class="text-center h4">Our Halls</h1>
-                    <div class="row">
-                        {%if halls%}
-                        {% for items in halls%}
-                        <div class="ex-card col-md-4 mx-auto text-center py-4">
-                            <div class="card-2 p-2">
-                                <div class="card-front">
-                                    <img src="{%if items.photo%} {{items.photo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
-                                        alt="" height="200" width="200" class="">
-                                    <figcaption class="text-center font-weight-bold py-2">
-                                        <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
-                                    </figcaption>
-                                </div>
-                                <div class="card-back">
-                                    <p class="font-weight-bold">
-                                        {{items.name}}
-                                    </p>
-                                    <small>{{items.description|striptags|truncatechars:200}}</small>
-                                    <br>
-                                    <p class="py-2">
-                                        <a href="{{items.get_absolute_url}}"
-                                            class="btn btn-success btn-sm rounded-pill"> Book Now <i
-                                                class="la la-angle-right"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {%endfor%}
-                        {%endif%}
-                    </div>
-                </div>
-
-                <script>
-                    function openCity(evt, cityName) {
-                        var i, tabcontent, tablinks;
-                        tabcontent = document.getElementsByClassName("tabcontent");
-                        for (i = 0; i < tabcontent.length; i++) {
-                            tabcontent[i].style.display = "none";
-                        }
-                        tablinks = document.getElementsByClassName("tablinks");
-                        for (i = 0; i < tablinks.length; i++) {
-                            tablinks[i].className = tablinks[i].className.replace(" active", "");
-                        }
-                        document.getElementById(cityName).style.display = "block";
-                        evt.currentTarget.className += " active";
-                    }
-                </script>
             </div>
+            <div id="programs" class="tabcontent" style="display: block;">
+                <h1 class="text-center h4">PROGRAMMES</h1>
+                <div class="row">
+                    {%if programmes%}
+                    {% for prog in programmes%}
+                    <div class="ex-card col-md-4 mx-auto text-center py-4">
+                        <div class="card-2 p-2">
+                            <div class="card-front">
+                                <img src="{%if prog.programme_banner%} {{prog.programme_banner.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                    alt="" height="200" width="200" class="rounded-circle">
+                                <figcaption class="text-center font-weight-bold py-2">
+                                    <a href="javascript:void(0);" class="text-muted"> {{prog.title}}</a>
+                                </figcaption>
+                            </div>
+                            <div class="card-back">
+                                <p class="font-weight-bold">
+                                    {{prog.title}}
+                                </p>
+                                <small>{{prog.description|striptags|truncatechars:200}}</small>
+                                <br>
+                                <p class="py-2">
+                                    <a href="{{prog.get_absolute_url}}" class="btn btn-info btn-sm rounded-pill">
+                                        Get Started <i class="la la-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    {%endif%}
+                </div>
+            </div>
+
+            <div id="startups" class="tabcontent">
+                <h1 class="text-center h4">Start-Ups</h1>
+                <div class="row">
+                    {%if startup%}
+                    {% for items in startup%}
+                    <div class="ex-card col-md-4 mx-auto text-center py-4">
+                        <div class="card-2 p-2">
+                            <div class="card-front">
+                                <img src="{%if items.logo%} {{items.logo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                    alt="" height="200" width="200" class="img-thumbnail">
+                                <figcaption class="text-center font-weight-bold py-2">
+                                    <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
+                                </figcaption>
+                            </div>
+                            <div class="card-back">
+                                <p class="font-weight-bold">
+                                    {{items.name}}
+                                </p>
+                                <small>{{items.about|striptags|truncatechars:200}}</small>
+                                <br>
+                                <p class="py-2">
+                                    <a href="{{items.get_absolute_url}}" class="btn btn-dark btn-sm rounded-pill">
+                                        Connect <i class="la la-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    {%endif%}
+                </div>
+            </div>
+
+            <div id="hubs" class="tabcontent">
+                <h1 class="text-center h4">Hubs</h1>
+                <div class="row">
+                    {%if hubs%}
+                    {% for items in hubs%}
+                    <div class="ex-card col-md-4 mx-auto text-center py-4">
+                        <div class="card-2 p-2">
+                            <div class="card-front">
+                                <img src="{%if items.logo%} {{items.logo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                    alt="" height="200" width="200" class="img-thumbnail">
+                                <figcaption class="text-center font-weight-bold py-2">
+                                    <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
+                                </figcaption>
+                            </div>
+                            <div class="card-back">
+                                <p class="font-weight-bold">
+                                    {{items.name}}
+                                </p>
+                                <small>{{items.about|striptags|truncatechars:200}}</small>
+                                <br>
+                                <p class="py-2">
+                                    <a href="{{items.get_absolute_url}}" class="btn btn-primary btn-sm rounded-pill">
+                                        Contact <i class="la la-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    {%endif%}
+                </div>
+            </div>
+
+            <div id="halls" class="tabcontent">
+                <h1 class="text-center h4">Our Halls</h1>
+                <div class="row">
+                    {%if halls%}
+                    {% for items in halls%}
+                    <div class="ex-card col-md-4 mx-auto text-center py-4">
+                        <div class="card-2 p-2">
+                            <div class="card-front">
+                                <img src="{%if items.photo%} {{items.photo.url}} {%else%} ../static/images/logo/badge.png {%endif%}"
+                                    alt="" height="200" width="200" class="">
+                                <figcaption class="text-center font-weight-bold py-2">
+                                    <a href="javascript:void(0);" class="text-muted"> {{items.name}}</a>
+                                </figcaption>
+                            </div>
+                            <div class="card-back">
+                                <p class="font-weight-bold">
+                                    {{items.name}}
+                                </p>
+                                <small>{{items.description|striptags|truncatechars:200}}</small>
+                                <br>
+                                <p class="py-2">
+                                    <a href="{{items.get_absolute_url}}" class="btn btn-success btn-sm rounded-pill">
+                                        Book Now <i class="la la-angle-right"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    {%endif%}
+                </div>
+            </div>
+
+            <script>
+                function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
+            </script>
         </div>
+
 
         <hr class="py-3">
     </div>
