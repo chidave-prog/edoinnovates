@@ -65,10 +65,11 @@ TEAM_CATEGORY = [
     ('Borad_members', 'Borad_members'),
     ('others', 'others'),
 ]
-StartupsdAndHubs_Choices=[
+StartupsdAndHubs_Choices = [
     ('start_up', 'start_up'),
     ('hub', 'hub'),
 ]
+
 
 class Contact(models.Model):
     full_names = models.CharField(max_length=200)
@@ -110,7 +111,7 @@ class Comment(models.Model):
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.full_names} commented on {self.blog}"
+        return str(self.full_names) + ' commented on ' + str(self.blog)
 
 
 class Blog(models.Model):
@@ -158,9 +159,11 @@ class Blog(models.Model):
 
 class Programme(models.Model):
     title = models.CharField(max_length=200)
-    description = RichTextUploadingField(help_text='NOTE: word limit of 200 for the overview')
+    description = RichTextUploadingField(
+        help_text='NOTE: word limit of 200 for the overview')
     programme_banner = models.ImageField(upload_to='programme_banner')
-    application_link = models.URLField(help_text="link to google form or any other application link", blank=True, null=True)
+    application_link = models.URLField(
+        help_text="link to google form or any other application link", blank=True, null=True)
     publish = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, null=True,
                             help_text="please leave this field blank")
@@ -190,14 +193,16 @@ class Application(models.Model):
     aproved = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.programme} | {self.first_name} | {self.email} |  {self.aproved}"
+        return str(self.programme)
 
 
 class StartupsdAndHubs(models.Model):
-    category = models.CharField(null=True, max_length=10, choices=StartupsdAndHubs_Choices)
+    category = models.CharField(
+        null=True, max_length=10, choices=StartupsdAndHubs_Choices)
     name = models.CharField(max_length=200)
-    about =RichTextUploadingField(help_text='NOTE: word limit of 200 for the overview')
-    logo = models.ImageField(upload_to='programme_banner')    
+    about = RichTextUploadingField(
+        help_text='NOTE: word limit of 200 for the overview')
+    logo = models.ImageField(upload_to='programme_banner')
     phone_number = models.CharField(
         max_length=20, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
@@ -208,11 +213,11 @@ class StartupsdAndHubs(models.Model):
     linkedin_link = models.URLField(blank=True, null=True)
     slug = models.SlugField(blank=True, null=True,
                             help_text="please leave this field blank")
-    publish = models.BooleanField(default=False)    
+    publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.name)   
+        return str(self.name)
 
     def get_absolute_url(self):
         return reverse('startupsdsndhub', kwargs={'slug': self.slug})
@@ -225,7 +230,8 @@ class StartupsdAndHubs(models.Model):
 
 class Hall(models.Model):
     name = models.CharField(max_length=200)
-    description = RichTextUploadingField(help_text='NOTE: word limit of 200 for the overview')
+    description = RichTextUploadingField(
+        help_text='NOTE: word limit of 200 for the overview')
     photo = models.ImageField(upload_to='Photo_Gallery')
     photo_2 = models.ImageField(
         upload_to='Photo_Gallery', blank=True, null=True)
@@ -281,7 +287,7 @@ class Gallery(models.Model):
         super(Gallery, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.title} of  {self.photo_type}"
+        return str(self.title)
 
     def get_absolute_url(self):
         return reverse('gallery-detail', kwargs={'slug': self.slug})
@@ -303,7 +309,7 @@ class Team(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.full_names}"
+        return str(self.full_names)
 
     def save(self, *args, **kwargs):
         edit_photo(self.picture, 200, 200)
@@ -332,4 +338,4 @@ class Testimony(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.full_names}"
+        return str(self.full_names)
