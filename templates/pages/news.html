@@ -32,7 +32,7 @@
                         <div class="single-post-content-wrapper text-justify">
                             {{news.content|safe|striptags|truncatechars:200}}
                             <a href="{{news.get_absolute_url}}" class="font-weight-bold text-success"><br>
-                                 See
+                                See
                                 Details..</a>
                         </div>
                     </article>
@@ -45,7 +45,17 @@
                 </div>
             </div>
             {%empty%}
-            <!-- No Avaliable Publication -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <h1 class="h5">
+                            <small class="text-center small">
+                                No Avaliable Publication
+                            </small>
+                        </h1>
+                    </div>
+                </div>
+            </div>
             {%endfor%}
         </div>
     </div>
