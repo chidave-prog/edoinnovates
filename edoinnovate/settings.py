@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'crispy_forms',
     'storages',
-    # "django_pagination_bootstrap",
+    "django_pagination_bootstrap",
     'decor',
     'ckeditor',
     'ckeditor_uploader',
@@ -173,7 +173,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = 'info@edoinnovate.com'
-
+SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 if STATIC_SWITCHER == 'local':
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
 else:

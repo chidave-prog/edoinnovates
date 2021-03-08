@@ -45,23 +45,21 @@ html, body{
     position: relative;
     right: 3em;
 }
-#slide_caption{
+
+#slide_caption, #slide_caption_aws{
     position: relative !important;
     background:#00000070;
     padding: 10px;
-    top: -60vh !important;
+    top: -40em !important;
     left: 0em;
     width: 38em;
     border-radius: 2em;
 }
-#slide_caption_aws{
-    position: relative !important;
-    background:#00000070;
-    padding: 10px;
-    top: -70vh !important;
-    left: 0em;
-    width: 38em;
-    border-radius: 2em;
+@media (max-width: 968px) {
+    #slide_caption, #slide_caption_aws{      
+        top: -25em !important;
+      
+    }
 }
 @media (max-width: 768px) {
     #nav_push{
@@ -76,7 +74,7 @@ html, body{
     #slide_caption_aws,  #slide_caption{
         background:#00000070;
         padding: 10px;
-        top: -13em !important;
+        top: -12em !important;
         position: relative !important;
         left: 0px;
         width: auto;
@@ -146,8 +144,8 @@ html, body{
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #ffff ;
-    color:#37424ac2 !important;
+    background-color: #4f596057 ;
+    color:#37424afa !important;
     font-weight: bolder !important;
     border-radius: 5em;
 }
