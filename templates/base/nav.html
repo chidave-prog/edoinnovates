@@ -1,32 +1,90 @@
 {%load static%}
-<nav class="navbar navbar-expand-md navbar-light fixed-top" id="my_nav">
-    <a class="navbar-brand" href="/">
-        <img src="{% static 'images/logo/badge.png'%}" width="90" height="35" alt="">
+<nav
+    class="navbar navbar-expand-md navbar-light fixed-top"
+    id="my_nav"
+>
+    <a
+        class="navbar-brand"
+        href="/"
+    >
+        <img
+            src="{% static 'images/logo/badge.png'%}"
+            width="90"
+            height="35"
+            alt=""
+        >
     </a>
     <!-- <a class="navbar-brand" href="#">Navbar scroll</a> -->
-    <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color: white !important;"></span>
+    <button
+        class="navbar-toggler border border-white"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+    >
+        <span
+            class="navbar-toggler-icon"
+            style="color: white !important;"
+        ></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll" id="nav_push">
+    <div
+        class="collapse navbar-collapse"
+        id="navbarScroll"
+    >
+        <ul
+            class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll"
+            id="nav_push"
+        >
             <li class="nav-item {% if request.path == '/' %} active  {%endif%}">
-                <a class="nav-link font-weight-bold" href="/" id="nav_link">Home</a>
+                <a
+                    class="nav-link font-weight-bold"
+                    href="/"
+                    id="nav_link"
+                >Home</a>
             </li>
             <li class="nav-item {% if request.path == '/about/' %} active  {%endif%}">
-                <a class="nav-link font-weight-bold" href="/about/" id="nav_link">About us</a>
+                <a
+                    class="nav-link font-weight-bold"
+                    href="/about/"
+                    id="nav_link"
+                >About us</a>
             </li>
 
 
             <li class="nav-item dropdown">
-                <a class="nav-link font-weight-bold dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                    data-toggle="dropdown" aria-expanded="false" style="outline: none;">
+                <a
+                    class="nav-link font-weight-bold dropdown-toggle"
+                    href="#"
+                    id="navbarScrollingDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-expanded="false"
+                    style="outline: none;"
+                >
                     Programes
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="/programme/aws-restart-edo/">AWS re/start Edo</a></li>
-                    <li><a class="dropdown-item" href="/programme/pluralsight/">Pluralsight</a></li>
-                    <li><a class="dropdown-item" href="/programme/computer-appreciation-program/">Computer
+                <ul
+                    class="dropdown-menu"
+                    aria-labelledby="navbarScrollingDropdown"
+                >
+                    <li><a
+                            class="dropdown-item"
+                            href="{% url 'mspower-apps' %}"
+                        >Power Edo Bootcamp</a></li>
+                    <li><a
+                            class="dropdown-item"
+                            href="/programme/aws-restart-edo/"
+                        >AWS re/start Edo</a></li>
+                    <li><a
+                            class="dropdown-item"
+                            href="/programme/pluralsight/"
+                        >Pluralsight</a></li>
+                    <li><a
+                            class="dropdown-item"
+                            href="/programme/computer-appreciation-program/"
+                        >Computer
                             Appreciation</a></li>
                     <!-- <li><a class="dropdown-item" href="#">Plural Site</a></li> -->
                     <!-- <li><a class="dropdown-item" href="#">Udasity</a></li> -->
@@ -34,33 +92,80 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold {% if request.path == '/news/' %} active  {%endif%}" href="/news/"
-                    id="nav_link">Blog</a>
+                <a
+                    class="nav-link font-weight-bold {% if request.path == '/news/' %} active  {%endif%}"
+                    href="/news/"
+                    id="nav_link"
+                >Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-weight-bold {% if request.path == '/contact/' %} active  {%endif%}"
-                    href="/contact/" tabindex="-1" aria="true" id="nav_link">Contact us</a>
+                <a
+                    class="nav-link font-weight-bold {% if request.path == '/contact/' %} active  {%endif%}"
+                    href="/contact/"
+                    tabindex="-1"
+                    aria="true"
+                    id="nav_link"
+                >Contact us</a>
             </li>
-            <li class="nav-item" id="opensearch">
-                <a class="nav-link font-weight-bold" href="#" tabindex="-1" aria="true" id="nav_link"
-                    onclick="openSearch();">
+            <li
+                class="nav-item"
+                id="opensearch"
+            >
+                <a
+                    class="nav-link font-weight-bold"
+                    href="#"
+                    tabindex="-1"
+                    aria="true"
+                    id="nav_link"
+                    onclick="openSearch();"
+                >
                     <i class="la la-search"></i></a>
                 </a>
             </li>
-            <li class="nav-item" id="closesearch" style="display: none;">
-                <a class="nav-link font-weight-bold" href="#" tabindex="-1" aria="true" id="nav_link"
-                    onclick="closeSearch();">
+            <li
+                class="nav-item"
+                id="closesearch"
+                style="display: none;"
+            >
+                <a
+                    class="nav-link font-weight-bold"
+                    href="#"
+                    tabindex="-1"
+                    aria="true"
+                    id="nav_link"
+                    onclick="closeSearch();"
+                >
                     <i class="text-danger font-weight-bold la la-close"></i></a>
                 </a>
             </li>
-            <li class="nav-item" id="navsearch" style="display: none;">
+            <li
+                class="nav-item"
+                id="navsearch"
+                style="display: none;"
+            >
                 <!-- <form class="d-flex"> -->
-                <form action="/search/" method="POST" class="d-flex" id="search_form">{% csrf_token %}
-                    <input class="form-control mr-2" name="search" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <input type="hidden" name="opt" value="programmes">
-                    <button class="btn btn-outline-dark btn-sm rounded-pill" type="submit"><i
-                            class="la la-search"></i></a></button>
+                <form
+                    action="/search/"
+                    method="POST"
+                    class="d-flex"
+                    id="search_form"
+                >{% csrf_token %}
+                    <input
+                        class="form-control mr-2"
+                        name="search"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                    >
+                    <input
+                        type="hidden"
+                        name="opt"
+                        value="programmes"
+                    >
+                    <button
+                        class="btn btn-outline-dark btn-sm rounded-pill"
+                        type="submit"
+                    ><i class="la la-search"></i></a></button>
                 </form>
             </li>
 
