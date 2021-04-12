@@ -4,7 +4,7 @@ from django.views.generic import RedirectView
 
 
 from .views import (Home, Subscription, Search, ContactPage, AwsRestartBenin, GalleryDetailView, BlogListView,
-                    BlogDetailView, Halls, IndexView, ProgrammeDetailView, MSPowerApps,
+                    BlogDetailView, Halls, IndexView, ProgrammeDetailView, PowerEdoBootcamp,
                     StartupsdAndHubsDetailView, About,
                     HallsDetailView)
 
@@ -21,7 +21,7 @@ urlpatterns = [
     path('search/', Search, name='search'),
     path('contact/', ContactPage, name='contact'),
     path('aws-restart-edo/', AwsRestartBenin, name='aws-restart-edo'),
-    path('ms-power-apps/', MSPowerApps, name='mspower-apps'),
+    path('power-edo-bootcamp/', PowerEdoBootcamp, name='poweredobootcamp'),
     path('gallery/<slug>/', GalleryDetailView.as_view(), name='gallery-detail'),
     path('halls/', Halls, name='halls'),
     path('news/', BlogListView.as_view(), name='news'),

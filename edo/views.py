@@ -176,7 +176,7 @@ def AwsRestartBenin(request):
     # return redirect('/programme/aws-restart-edo/')
 
 
-def MSPowerApps(request):
+def PowerEdoBootcamp(request):
     return render(request, 'contents/power-edo-bootcamp.html', {'title_tag': "EDO INNOVATE| Power Edo Bootcamp"})
 
 
