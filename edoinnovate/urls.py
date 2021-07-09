@@ -9,7 +9,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('mrasemota/', admin.site.urls),
     path('', include('edo.urls')),
-    path('webdesignbootcamp', include('web_bootcamp.urls')),
+    path('webdesignbootcamp/', include('web_bootcamp.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

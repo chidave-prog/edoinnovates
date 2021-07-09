@@ -3,10 +3,7 @@ from django.conf.urls import url
 from django.views.generic import RedirectView
 
 
-from .views import (Home, Subscription, Search, ContactPage, AwsRestartBenin, GalleryDetailView, BlogListView,
-                    BlogDetailView, Halls, IndexView, ProgrammeDetailView, PowerEdoBootcamp,
-                    StartupsdAndHubsDetailView, About,
-                    HallsDetailView)
+from .views import *
 
 
 urlpatterns = [
@@ -22,6 +19,7 @@ urlpatterns = [
     path('contact/', ContactPage, name='contact'),
     path('aws-restart-edo/', AwsRestartBenin, name='aws-restart-edo'),
     path('power-edo-bootcamp/', PowerEdoBootcamp, name='poweredobootcamp'),
+    path('webdesignbootcamp/', WebDesignBootcamp, name='webdesignbootcamp'),
     path('gallery/<slug>/', GalleryDetailView.as_view(), name='gallery-detail'),
     path('halls/', Halls, name='halls'),
     path('news/', BlogListView.as_view(), name='news'),

@@ -180,6 +180,10 @@ def PowerEdoBootcamp(request):
     return render(request, 'contents/power-edo-bootcamp.html', {'title_tag': "EDO INNOVATE| Power Edo Bootcamp"})
 
 
+def WebDesignBootcamp(request):
+    return render(request, 'contents/designbootcamp.html', {'title_tag': "EDO INNOVATE| Web Design Bootcamp"})
+
+
 def About(request):
     # return render(request, 'pages/about.html', {})
     context = {
