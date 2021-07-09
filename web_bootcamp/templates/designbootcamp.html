@@ -1,0 +1,456 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  >
+
+  <title>Edo Innovates: Web Design Bootcamp</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'assets/css/bootstrap.min.css' %}"
+  >
+  <!-- Icon -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'assets/fonts/line-icons.css' %}"
+  >
+  <!-- Slicknav -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'assets/css/slicknav.css' %}"
+  >
+  <!-- Nivo Lightbox -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'assets/css/nivo-lightbox.css' %}"
+  >
+  <!-- Animate -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'assets/css/animate.css' %}"
+  >
+  <!-- Main Style -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'assets/css/main.css' %}"
+  >
+  <!-- Responsive Style -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'assets/css/responsive.css' %}"
+  >
+
+</head>
+
+<body>
+
+  <!-- Header Area wrapper Starts -->
+  <header id="header-wrap">
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#main-navbar"
+            aria-controls="main-navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+            <span class="icon-menu"></span>
+            <span class="icon-menu"></span>
+            <span class="icon-menu"></span>
+          </button>
+          <a
+            href="{% url 'webdesignbootcamp' %}"
+            class="navbar-brand"
+          ><img
+              src="{% static 'assets/img/logo_new.png' %}"
+              alt=""
+            ></a>
+        </div>
+        <div
+          class="collapse navbar-collapse"
+          id="main-navbar"
+        >
+          <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            <li class="nav-item active">
+              <a
+                class="nav-link"
+                href="#header-wrap"
+              >
+                Home
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#event-slides"
+              >
+                Introduction
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#about"
+              >
+                About Program
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Start -->
+      <ul class="mobile-menu">
+        <li>
+          <a
+            class="page-scrool"
+            href="#header-wrap"
+          >Home</a>
+        </li>
+        <li>
+          <a
+            class="page-scrool"
+            href="#event-slides"
+          >Introduction</a>
+        </li>
+        <li>
+          <a
+            class="page-scroll"
+            href="#about"
+          >About Program</a>
+        </li>
+        <a
+          class="page-scroll"
+          href="#sponsors"
+        >Sponsors</a>
+        </li>
+        <li>
+          <a
+            class="page-scroll"
+            href="#pricing"
+          >pricing</a>
+        </li>
+        <li>
+          <a
+            class="page-scroll"
+            href="#google-map-area"
+          >Contact</a>
+        </li> -->
+      </ul>
+      <!-- Mobile Menu End -->
+
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Main Carousel Section Start -->
+    <div
+      id="main-slide"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="{% static 'assets/img/slider/slide1.jpg' %}"
+            alt="First slide"
+          >
+          <div class="carousel-caption d-md-block">
+            <p
+              class="fadeInUp wow"
+              data-wow-delay=".6s"
+            >GOLDTEK INTERNATIONAL LTD. IN COLLABORATION WITH EDO INNOVATES</p>
+            <h1
+              class="wow fadeInDown heading"
+              data-wow-delay=".4s"
+            >START YOUR CAREER IN 2021 AS A WEB DESIGNER</h1>
+            <a
+              href="https://bit.ly/3jJVne6"
+              class="fadeInLeft wow btn btn-common btn-lg"
+              data-wow-delay=".6s"
+            >Sign Up Now</a>
+            <a
+              href="#event-slides"
+              class="fadeInRight wow btn btn-border btn-lg"
+              data-wow-delay=".4s"
+            >Explore More</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Main Carousel Section End -->
+
+  </header>
+  <!-- Header Area wrapper End -->
+
+  <section
+    id="event-slides"
+    class="section-padding"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-title-header text-center">
+            <h1
+              class="section-title wow fadeInUp"
+              data-wow-delay="0.2s"
+            >Introduction</h1>
+            <p
+              class="wow fadeInDown"
+              data-wow-delay="0.2s"
+            >HOW TO MAKE MONEY AS A WEB DESIGNER (MONETIZATION STRATEGIES)</p>
+          </div>
+        </div>
+        <div
+          class="col-md-6 col-lg-6 col-xs-12 wow fadeInRight"
+          data-wow-delay="0.3s"
+        >
+          <div class="video">
+            <img
+              class="img-fluid"
+              src="{% static 'assets/img/about/about.jpg' %}"
+              alt=""
+            >
+          </div>
+        </div>
+        <div
+          class="col-md-6 col-lg-6 col-xs-12 wow fadeInLeft"
+          data-wow-delay="0.3s"
+        >
+          <p class="intro-desc">Global tech employers today are seeking for skilled and experienced web design all rounders to be key team players in
+            dynamic development teams where they offer front end development solutions. <br>
+
+            Just so you know, an average web designer in Nigeria earns about N80,000 - N120,000 Monthly. <br>
+            Get the skills you need for financial freedom in 2021.
+          </p>
+          <h2 class="intro-title">Check List</h2>
+          <ul class="list-specification">
+            <li><i class="lni-check-mark-circle"></i> No prior Knowledge of WordPress is required as everything will be covered in the training.</li>
+            <li><i class="lni-check-mark-circle"></i> Zeal to learn</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Event Slides Section End -->
+
+  <!-- About Section Start -->
+  <section
+    id="about"
+    class="section-padding"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-title-header text-center">
+            <h1
+              class="section-title wow fadeInUp"
+              data-wow-delay="0.2s"
+            >About This Bootcamp</h1>
+            <p
+              class="wow fadeInDown"
+              data-wow-delay="0.2s"
+            >3 DAY FREE WEB DESIGN BOOTCAMP (BEGINNERS)</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <div
+            class="about-item"
+            style="height: 370px;"
+          >
+            <img
+              class="img-fluid"
+              style="height: 200px;width: 480px;"
+              src="{% static 'assets/img/about/img1.jpg' %}"
+              alt=""
+            >
+            <div class="about-text">
+              <h3><strong>INTRODUCTION TO WEB DESIGN</strong></h3>
+              <p>Learn the very basics of the world wide web</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <div
+            class="about-item"
+            style="height: 370px;"
+          >
+            <img
+              class="img-fluid"
+              style="height: 200px;width: 480px;"
+              src="{% static 'assets/img/about/img3.jpg' %}"
+              alt=""
+            >
+            <div class="about-text">
+              <h3><strong>INTRODUCTION TO DOMAIN AND HOSTING</strong></h3>
+              <p>Know the difference between Domain and Hosting</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <div
+            class="about-item"
+            style="height: 370px;"
+          >
+            <img
+              class="img-fluid"
+              src="{% static 'assets/img/about/img2.jpg' %}"
+              style="height: 200px;width: 480px;"
+              alt=""
+            >
+            <div class="about-text">
+              <h3><strong>INTRODUCTION TO WORDPRESS(ONLINE AND OFFLINE)</strong></h3>
+              <p>Learn about Wordpress and build a personal portfolio!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Section End -->
+
+  <!-- Counter Area Start-->
+  <section class="counter-section section-padding">
+    <div class="container">
+      <div class="row">
+        <!-- Counter Item -->
+        <div class="col-md-6 col-lg-3 col-xs-12 work-counter-widget text-center">
+          <div
+            class="counter wow fadeInRight"
+            data-wow-delay="0.3s"
+          >
+            <div class="icon"><i class="lni-map"></i></div>
+            <p>Edo Innovation Hub</p>
+            <span>59, ICE Road, Off Wire Rd, Benin City</span>
+          </div>
+        </div>
+        <!-- Counter Item -->
+        <div class="col-md-6 col-lg-3 col-xs-12 work-counter-widget text-center">
+          <div
+            class="counter wow fadeInRight"
+            data-wow-delay="0.6s"
+          >
+            <div class="icon"><i class="lni-timer"></i></div>
+            <p>July 28 - 30, 2021</p>
+            <span>10:00 AM – 02:00 PM</span>
+          </div>
+        </div>
+        <!-- Counter Item -->
+        <div class="col-md-6 col-lg-3 col-xs-12 work-counter-widget text-center">
+          <div
+            class="counter wow fadeInRight"
+            data-wow-delay="0.9s"
+          >
+            <div class="icon"><i class="lni-users"></i></div>
+            <p>Limited Slots Available</p>
+            <span>Hurry up! and Sign up now</span>
+          </div>
+        </div>
+        <!-- Counter Item -->
+        <div class="col-md-6 col-lg-3 col-xs-12 work-counter-widget text-center">
+          <div
+            class="counter wow fadeInRight"
+            data-wow-delay="1.2s"
+          >
+            <div class="icon"><i class="lni-coffee-cup"></i></div>
+            <p>Free Lunch & Snacks</p>
+            <span>Don’t miss it</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Counter Area End-->
+
+  <!-- Footer Section End -->
+
+  <div id="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="site-info">
+            <p>© Edo Innovates 2021. All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Go to Top Link -->
+  <a
+    href="#"
+    class="back-to-top"
+  >
+    <i class="lni-chevron-up"></i>
+  </a>
+  <!-- 
+  <div id="preloader">
+    <div class="sk-circle">
+      <div class="sk-circle1 sk-child"></div>
+      <div class="sk-circle2 sk-child"></div>
+      <div class="sk-circle3 sk-child"></div>
+      <div class="sk-circle4 sk-child"></div>
+      <div class="sk-circle5 sk-child"></div>
+      <div class="sk-circle6 sk-child"></div>
+      <div class="sk-circle7 sk-child"></div>
+      <div class="sk-circle8 sk-child"></div>
+      <div class="sk-circle9 sk-child"></div>
+      <div class="sk-circle10 sk-child"></div>
+      <div class="sk-circle11 sk-child"></div>
+      <div class="sk-circle12 sk-child"></div>
+    </div>
+    
+  </div> -->
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'assets/js/jquery-min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.nav.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'assets/js/wow.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.slicknav.js' %}"></script>
+  <script src="{% static 'assets/js/nivo-lightbox.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
+  <script src="{% static 'assets/js/contact-form-script.min.js' %}"></script>
+  <script src="{% static 'assets/js/map.js' %}"></script>
+  <script
+    type="text/javascript"
+    src="//maps.googleapis.com/maps/api/js?key=AIzaSyCsa2Mi2HqyEcEnM1urFSIGEpvualYjwwM"
+  ></script>
+
+</body>
+
+</html>

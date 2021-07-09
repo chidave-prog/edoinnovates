@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'decor',
     'ckeditor',
     'ckeditor_uploader',
+    'web_bootcamp',
 ]
 
 MIDDLEWARE = [
