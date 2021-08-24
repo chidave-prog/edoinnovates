@@ -1,242 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
+  {% load static %}
 
-<head>
-  <title>{{title_tag}}</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-QQYNP9RD69"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+  <head>
+    <title>{{title_tag}}</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QQYNP9RD69"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-    gtag('config', 'G-QQYNP9RD69');
-  </script>
-  <meta charset="utf-8">
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="IE=7"
-  >
-  <meta
-    content="width=device-width, initial-scale=1.0"
-    name="viewport"
-  >
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="ie=edge"
-  >
-  <meta
-    name="keywords"
-    content="Innovation, AWS, Tech, Investment Edo, State Benin City, Trainnings, Business"
-  >
+      gtag('config', 'G-QQYNP9RD69');
+    </script>
+    <meta charset="utf-8">
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=7"
+    >
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    >
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="ie=edge"
+    >
+    <meta
+      name="keywords"
+      content="Innovation, AWS, Tech, Investment Edo, State Benin City, Trainnings, Business"
+    >
 
-  <meta
-    name="description"
-    content="Edo Innovates, A cluster for innovators, inventors and entrepreneurs. 
+    <meta
+      name="description"
+      content="Edo Innovates, A cluster for innovators, inventors and entrepreneurs. 
                                       (Leveraging technology for Job Creation and enterprise development.) 
                                       "
-  >
-  <meta
-    name="keywords"
-    content="Edo, Innovation, Technology, Job Creation, Enterprise Development"
-  >
-
-  <!-- Favicons -->
-  <link
-    href="{% static 'images/logo/favicon.ico'%}"
-    rel="icon"
-  >
-  <link
-    href="{% static 'images/logo/favicon.ico'%}"
-    rel="apple-touch-icon"
-  >
-  <link
-    rel="stylesheet"
-    href="{% static 'css/animate.css'%}"
-  >
-  <link
-    rel="stylesheet"
-    href="{% static 'css/icofont/icofont.min.css'%}"
-  >
-  <link
-    rel="stylesheet"
-    href="{% static 'css/icons/css/line-awesome.min.css'%}"
-  >
-  <link
-    rel="stylesheet"
-    href="{% static 'css/bootstrap.min.css'%}"
-  >
-  <link
-    rel="stylesheet"
-    href="{% static 'css/edoinnovates.css'%}"
-  >
-
-  {% if request.path == '/programme/webdesignbootcamp/' %}
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'web/css/bootstrap.min.css' %}"
-  >
-  <!-- Icon -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'web/fonts/line-icons.css' %}"
-  >
-  <!-- Slicknav -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'web/css/slicknav.css' %}"
-  >
-  <!-- Nivo Lightbox -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'web/css/nivo-lightbox.css' %}"
-  >
-  <!-- Animate -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'web/css/animate.css' %}"
-  >
-  <!-- Main Style -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'web/css/main.css' %}"
-  >
-  <!-- Responsive Style -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'web/css/responsive.css' %}"
-  >
-  {% endif %}
-
-
-
-</head>
-
-<body>
-  {%include "../base/nav.html" %}
-  <div class="loader text-center">
-
-    <header
-      class="text-center h1 border border-white"
-      style="border-radius: .7em; background-color: unset;"
     >
-      <p class="h1">
-        <span style="font-family: auto;">
-          <small class="text-white">&ensp;INNOVATION&ensp;</small>
-        </span>
-        <br>
-        <span class="h6 text-white">
-          Loading
-        </span>
-        <br>
-        <i class="spinner-border h1 text-info"></i>
-      </p>
-    </header>
-
-  </div>
-
-  {% if messages %}
-  {% for message in messages %}
-  <div
-    class="alert alert-{{message.tags}} alert-dismissible show"
-    role="alert"
-    style="margin-top: 5em;"
-  >
-    {{ message }}
-    <button
-      type="button"
-      class="close"
-      data-dismiss="alert"
-      aria-label="Close"
+    <meta
+      name="keywords"
+      content="Edo, Innovation, Technology, Job Creation, Enterprise Development"
     >
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  {% endfor %}
-  {% endif %}
-  {% block content %} {% endblock content %}
-  {% include "../base/footer.html" %}
-  <script src="{% static 'js/jquery.min.js'%}"></script>
-  <script src="{% static 'js/popper.min.js'%}"></script>
-  <script src="{% static 'js/bootstrap.min.js'%}"></script>
-  <script src="{% static 'js/scrollReveal.js'%}"></script>
-  <script src="{% static 'js/custom.js'%}"></script>
-  <script src="{% static 'js/edoinnovates.js'%}"></script>
 
-  <!-- extra_scripts -->
-  <script>
-    function updateTimer() {
-      future = Date.parse("jan 18, 2021 23:59:00");
-      now = new Date();
-      diff = future - now;
+    <!-- Favicons -->
+    <link
+      href="{% static 'images/logo/favicon.ico'%}"
+      rel="icon"
+    >
+    <link
+      href="{% static 'images/logo/favicon.ico'%}"
+      rel="apple-touch-icon"
+    >
+    <link
+      rel="stylesheet"
+      href="{% static 'css/animate.css'%}"
+    >
+    <link
+      rel="stylesheet"
+      href="{% static 'css/icofont/icofont.min.css'%}"
+    >
+    <link
+      rel="stylesheet"
+      href="{% static 'css/icons/css/line-awesome.min.css'%}"
+    >
+    <link
+      rel="stylesheet"
+      href="{% static 'css/bootstrap.min.css'%}"
+    >
+    <link
+      rel="stylesheet"
+      href="{% static 'css/edoinnovates.css'%}"
+    >
 
-      days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      hours = Math.floor(diff / (1000 * 60 * 60));
-      mins = Math.floor(diff / (1000 * 60));
-      secs = Math.floor(diff / 1000);
+    {% if request.path == '/programme/webdesignbootcamp/' %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'web/css/bootstrap.min.css' %}"
+    >
+    <!-- Icon -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'web/fonts/line-icons.css' %}"
+    >
+    <!-- Slicknav -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'web/css/slicknav.css' %}"
+    >
+    <!-- Nivo Lightbox -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'web/css/nivo-lightbox.css' %}"
+    >
+    <!-- Animate -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'web/css/animate.css' %}"
+    >
+    <!-- Main Style -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'web/css/main.css' %}"
+    >
+    <!-- Responsive Style -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'web/css/responsive.css' %}"
+    >
+    {% endif %}
 
-      d = days;
-      h = hours - days * 24;
-      m = mins - hours * 60;
-      s = secs - mins * 60;
-      var myTimer = document.getElementById("timer");
-      if (myTimer) {
-        myTimer.innerHTML =
-          '<div class="row mx-auto text-center">' +
-          '<div class="col-3 mx-auto text-center">' + d + '<span>Days</span></div>' +
-          '<div class="col-3 mx-auto text-center">' + h + '<span>Hours</span></div>' +
-          '<div class="col-3 mx-auto text-center">' + m + '<span>Minutes</span></div>' +
-          '<div class="col-3 mx-auto text-center">' + s + '<span>Seconds</span></div>' +
-          '</div>';
+
+
+  </head>
+
+  <body>
+    {%include "../base/nav.html" %}
+    <div class="loader text-center">
+
+      <header
+        class="text-center h1 border border-white"
+        style="border-radius: .7em; background-color: unset;"
+      >
+        <p class="h1">
+          <span style="font-family: auto;">
+            <small class="text-white">&ensp;INNOVATION&ensp;</small>
+          </span>
+          <br>
+          <span class="h6 text-white">
+            Loading
+          </span>
+          <br>
+          <i class="spinner-border h1 text-info"></i>
+        </p>
+      </header>
+
+    </div>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div
+      class="alert alert-{{message.tags}} alert-dismissible show"
+      role="alert"
+      style="margin-top: 5em;"
+    >
+      {{ message }}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% block content %} {% endblock content %}
+    {% include "../base/footer.html" %}
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/scrollReveal.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+    <script src="{% static 'js/edoinnovates.js'%}"></script>
+
+    <!-- extra_scripts -->
+    <script>
+      function updateTimer() {
+        future = Date.parse("jan 18, 2021 23:59:00");
+        now = new Date();
+        diff = future - now;
+
+        days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        hours = Math.floor(diff / (1000 * 60 * 60));
+        mins = Math.floor(diff / (1000 * 60));
+        secs = Math.floor(diff / 1000);
+
+        d = days;
+        h = hours - days * 24;
+        m = mins - hours * 60;
+        s = secs - mins * 60;
+        var myTimer = document.getElementById("timer");
+        if (myTimer) {
+          myTimer.innerHTML =
+            '<div class="row mx-auto text-center">' +
+            '<div class="col-3 mx-auto text-center">' + d + '<span>Days</span></div>' +
+            '<div class="col-3 mx-auto text-center">' + h + '<span>Hours</span></div>' +
+            '<div class="col-3 mx-auto text-center">' + m + '<span>Minutes</span></div>' +
+            '<div class="col-3 mx-auto text-center">' + s + '<span>Seconds</span></div>' +
+            '</div>';
+        }
+        setInterval('updateTimer()', 1000);
       }
-      setInterval('updateTimer()', 1000);
-    }
-  </script>
+    </script>
 
-  <!-- <script>
+    <!-- <script>
     $(document).ready(function () {
       $(this).scrollTop(0);
     });
   </script> -->
-  <script type="text/javascript">
-    window.addEventListener('load', function () {
-      const loader = document.querySelector('.loader');
-      loader.className += ' hidden';
-    });
-  </script>
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+        const loader = document.querySelector('.loader');
+        loader.className += ' hidden';
+      });
+    </script>
 
 
-  {% if request.path == '/programme/webdesignbootcamp/' %}
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="{% static 'web/js/jquery-min.js' %}"></script>
-  <script src="{% static 'web/js/popper.min.js' %}"></script>
-  <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'web/js/jquery.countdown.min.js' %}"></script>
-  <script src="{% static 'web/js/jquery.nav.js' %}"></script>
-  <script src="{% static 'web/js/jquery.easing.min.js' %}"></script>
-  <script src="{% static 'web/js/wow.js' %}"></script>
-  <script src="{% static 'web/js/jquery.slicknav.js' %}"></script>
-  <script src="{% static 'web/js/nivo-lightbox.js' %}"></script>
-  <script src="{% static 'web/js/main.js' %}"></script>
-  <script src="{% static 'web/js/form-validator.min.js' %}"></script>
-  <script src="{% static 'web/js/contact-form-script.min.js' %}"></script>
-  <script src="{% static 'web/js/map.js' %}"></script>
-  <script
-    type="text/javascript"
-    src="//maps.googleapis.com/maps/api/js?key=AIzaSyCsa2Mi2HqyEcEnM1urFSIGEpvualYjwwM"
-  ></script>
-  {% endif }
+    <!-- {% if request.path == '/programme/webdesignbootcamp/' %} -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'web/js/jquery-min.js' %}"></script>
+    <script src="{% static 'web/js/popper.min.js' %}"></script>
+    <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'web/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'web/js/jquery.nav.js' %}"></script>
+    <script src="{% static 'web/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'web/js/wow.js' %}"></script>
+    <script src="{% static 'web/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'web/js/nivo-lightbox.js' %}"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
+    <script src="{% static 'web/js/form-validator.min.js' %}"></script>
+    <script src="{% static 'web/js/contact-form-script.min.js' %}"></script>
+    <script src="{% static 'web/js/map.js' %}"></script>
+    <script
+      type="text/javascript"
+      src="//maps.googleapis.com/maps/api/js?key=AIzaSyCsa2Mi2HqyEcEnM1urFSIGEpvualYjwwM"
+    ></script>
+    {% endif }
 </body>
 
 </html>
