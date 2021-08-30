@@ -1,9 +1,16 @@
 {%load static%}
 
 
-<section id="contact_page_sec" class="contact" style="background-color: #eee;">
+<section
+    id="contact_page_sec"
+    class="contact"
+    style="background-color: #eee;"
+>
     <hr class="py-3">
-    <div class="container" data-aos="fade-up">
+    <div
+        class="container"
+        data-aos="fade-up"
+    >
 
         <div class=" section-title">
             <h2>Contact</h2>
@@ -37,19 +44,31 @@
                         <div class="info-box mt-4">
                             <i class="bx bx-phone-call"></i>
                             <h3>Call Us</h3>
-                            <p>+2348068302462</p>
+                            <p>08180323869</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+            <div
+                class="col-lg-6 mt-4 mt-lg-0"
+                data-aos="fade-up"
+                data-aos-delay="100"
+            >
 
-                <form action="/contact/" method="POST" role="form" class="pb-3">
+                <form
+                    action="/contact/"
+                    method="POST"
+                    role="form"
+                    class="pb-3"
+                >
                     {% csrf_token %}
                     <div>
                         {% if form.field.errors %}
-                        <div class="alert alert-danger" role="alert">
+                        <div
+                            class="alert alert-danger"
+                            role="alert"
+                        >
                             {% for error in form.field.error %}
                             <p class="alert-danger">
                                 {{ error }}
@@ -63,30 +82,67 @@
                             <span> We Are Eager To Hear From you</span>
                         </h6>
                         <div class="col-md-6 form-group">
-                            <input type="text" name="full_names" class="form-control" id="name" placeholder="Your Name"
-                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
+                            <input
+                                type="text"
+                                name="full_names"
+                                class="form-control"
+                                id="name"
+                                placeholder="Your Name"
+                                data-rule="minlen:4"
+                                data-msg="Please enter at least 4 chars"
+                                required
+                            />
                             <div class="validate"></div>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                                data-rule="email" data-msg="Please enter a valid email" required />
+                            <input
+                                type="email"
+                                class="form-control"
+                                name="email"
+                                id="email"
+                                placeholder="Your Email"
+                                data-rule="email"
+                                data-msg="Please enter a valid email"
+                                required
+                            />
                             <div class="validate"></div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                            data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required />
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="subject"
+                            id="subject"
+                            placeholder="Subject"
+                            data-rule="minlen:4"
+                            data-msg="Please enter at least 8 chars of subject"
+                            required
+                        />
                         <div class="validate"></div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required"
-                            data-msg="Please write something for us" placeholder="Message"></textarea>
+                        <textarea
+                            class="form-control"
+                            name="message"
+                            rows="5"
+                            data-rule="required"
+                            data-msg="Please write something for us"
+                            placeholder="Message"
+                        ></textarea>
                         <div class="validate"></div>
                     </div>
-                    <div id="msg_sent" class="text-success text-center h6">
+                    <div
+                        id="msg_sent"
+                        class="text-success text-center h6"
+                    >
                     </div>
                     <div class="text-center">
-                        <button id="contact_submit" type="submit" class="btn btn-outline-info btn-sm">Send
+                        <button
+                            id="contact_submit"
+                            type="submit"
+                            class="btn btn-outline-info btn-sm"
+                        >Send
                             Message</button>
                     </div>
                 </form>
